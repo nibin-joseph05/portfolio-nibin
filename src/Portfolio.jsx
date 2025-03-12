@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import About from "./components/About";
+import Resume from "./components/Resume";  
 
 export default function Portfolio() {
   const [loading, setLoading] = useState(true);
@@ -15,8 +19,11 @@ export default function Portfolio() {
   return (
     <div className="bg-gray-900 text-white min-h-screen font-sans">
       {loading && (
-        <div className="fixed inset-0 flex justify-center items-center bg-gray-900 text-white text-2xl font-bold">
-          Loading Portfolio...
+        <div className="fixed inset-0 flex flex-col justify-center items-center bg-gray-900 text-white">
+            <div className="w-16 h-16 border-4 border-gray-300 border-t-pink-500 rounded-full animate-spin"></div>
+            <p className="mt-4 text-2xl font-bold text-gray-200 animate-pulse drop-shadow-lg">
+              Loading Portfolio...
+            </p>
         </div>
       )}
 
@@ -73,33 +80,34 @@ export default function Portfolio() {
 
           {/* Social Media Links */}
           <div className="mt-8 flex space-x-12 justify-center text-5xl">
-            <a
-              href="https://www.linkedin.com/in/nibin-joseph05/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-600 transition drop-shadow-lg"
-            >
+            <a href="https://www.linkedin.com/in/nibin-joseph05/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-600 transition drop-shadow-lg">
               <FaLinkedin />
             </a>
-            <a
-              href="https://github.com/nibin-joseph05"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition drop-shadow-lg"
-            >
+            <a href="https://github.com/nibin-joseph05" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition drop-shadow-lg">
               <FaGithub />
             </a>
-            <a
-              href="https://www.instagram.com/_.n_.i_.b_.i_.n?igsh=MzNqcTliaG91NzRv"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-pink-400 hover:text-pink-600 transition drop-shadow-lg"
-            >
+            <a href="https://www.instagram.com/_.n_.i_.b_.i_.n?igsh=MzNqcTliaG91NzRv" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:text-pink-600 transition drop-shadow-lg">
               <FaInstagram />
             </a>
           </div>
         </motion.div>
       </section>
+
+      <About />
+      
+      {/* Resume Section */}
+      <Resume />  
+
+      {/* Projects Section */}
+      <section id="projects">
+        <Projects />
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact">
+        <Contact />
+      </section>
+        
       <Footer />
     </div>
   );

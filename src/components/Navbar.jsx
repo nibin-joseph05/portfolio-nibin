@@ -10,7 +10,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      const sections = ["about", "resume", "portfolio", "contact"];
+      const sections = ["about", "resume", "projects", "contact"];
       let found = "top";
       sections.forEach((section) => {
         const element = document.getElementById(section);
@@ -36,21 +36,25 @@ export default function Navbar() {
         </a>
 
         <nav className="hidden md:flex space-x-8 text-lg font-medium">
-          {["About", "Resume", "Portfolio", "Contact"].map((item) => (
+          {["About", "Resume", "Projects", "Contact"].map((item) => (
             <motion.a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className={`relative text-white transition duration-300 ${activeSection === item.toLowerCase() ? "text-pink-500" : "hover:text-pink-500"}`}
-              whileHover={{ scale: 1.1 }}
-            >
-              {item}
-              <motion.div
-                className="absolute left-0 bottom-0 w-full h-[2px] bg-pink-500"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: activeSection === item.toLowerCase() ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.a>
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            className={`relative text-white transition duration-300 ${
+              activeSection === item.toLowerCase() ? "text-pink-500" : "hover:text-pink-500"
+            }`}
+            whileHover={{ scale: 1.1 }}
+            onClick={() => setActiveSection(item.toLowerCase())} // <-- Update active section on click
+          >
+            {item}
+            <motion.div
+              className="absolute left-0 bottom-0 w-full h-[2px] bg-pink-500"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: activeSection === item.toLowerCase() ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.a>
+          
           ))}
         </nav>
 

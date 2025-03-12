@@ -4,6 +4,9 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white text-center py-6">
+      {/* White line at the top */}
+      <div className="border-t-2 border-white w-full mb-4"></div>
+
       <div className="max-w-7xl mx-auto flex flex-col items-center space-y-4">
         <h2 className="text-2xl font-semibold">Let's Connect</h2>
 
