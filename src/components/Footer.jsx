@@ -12,10 +12,10 @@ export default function Footer() {
 
         {/* Social Links */}
         <div className="flex space-x-6 text-xl">
-          <a href="https://github.com/nibinjoseph" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition">
+          <a href="https://github.com/nibin-joseph05" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition">
             <FaGithub />
           </a>
-          <a href="https://linkedin.com/in/nibinjoseph" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition">
+          <a href="https://www.linkedin.com/in/nibin-joseph05/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition">
             <FaLinkedin />
           </a>
           <a href="mailto:nibin@example.com" className="hover:text-pink-500 transition">

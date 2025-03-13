@@ -7,10 +7,11 @@ import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import About from "./components/About";
-import Resume from "./components/Resume";  
+import Resume from "./components/Resume";
 
 export default function Portfolio() {
   const [loading, setLoading] = useState(true);
+  const [cvModalOpen, setCvModalOpen] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
@@ -20,10 +21,10 @@ export default function Portfolio() {
     <div className="bg-gray-900 text-white min-h-screen font-sans">
       {loading && (
         <div className="fixed inset-0 flex flex-col justify-center items-center bg-gray-900 text-white">
-            <div className="w-16 h-16 border-4 border-gray-300 border-t-pink-500 rounded-full animate-spin"></div>
-            <p className="mt-4 text-2xl font-bold text-gray-200 animate-pulse drop-shadow-lg">
-              Loading Portfolio...
-            </p>
+          <div className="w-16 h-16 border-4 border-gray-300 border-t-pink-500 rounded-full animate-spin"></div>
+          <p className="mt-4 text-2xl font-bold text-gray-200 animate-pulse drop-shadow-lg">
+            Loading Portfolio...
+          </p>
         </div>
       )}
 
@@ -70,9 +71,16 @@ export default function Portfolio() {
             >
               Contact Me
             </a>
-            <a
-              href="nibinresume.pdf"
+            <button
+              onClick={() => setCvModalOpen(true)}
               className="px-6 py-3 border border-pink-600 text-lg rounded-lg transition hover:bg-pink-600 uppercase tracking-wide drop-shadow-lg"
+            >
+              View CV
+            </button>
+            <a
+              href="/portfolio-nibin/nibin-resume.pdf"
+              download
+              className="px-6 py-3 bg-green-600 hover:bg-green-700 text-lg rounded-lg transition uppercase tracking-wide drop-shadow-lg"
             >
               Download CV
             </a>
@@ -94,21 +102,36 @@ export default function Portfolio() {
       </section>
 
       <About />
-      
-      {/* Resume Section */}
       <Resume />  
-
-      {/* Projects Section */}
       <section id="projects">
         <Projects />
       </section>
-
-      {/* Contact Section */}
       <section id="contact">
         <Contact />
       </section>
-        
       <Footer />
+
+      {/* CV Modal */}
+      {cvModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-5 rounded-lg shadow-lg max-w-3xl w-full">
+            <div className="flex justify-between items-center">
+              <h2 className="text-xl font-bold text-gray-900">My CV</h2>
+              <button
+                onClick={() => setCvModalOpen(false)}
+                className="text-gray-600 hover:text-red-500 text-2xl"
+              >
+                &times;
+              </button>
+            </div>
+            <iframe
+              src="nibinresume.pdf"
+              className="w-full h-96 mt-4"
+              title="CV Preview"
+            ></iframe>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
