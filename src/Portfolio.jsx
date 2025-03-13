@@ -75,28 +75,8 @@ export default function Portfolio() {
               onClick={() => setCvModalOpen(true)}
               className="px-6 py-3 border border-pink-600 text-lg rounded-lg transition hover:bg-pink-600 uppercase tracking-wide drop-shadow-lg"
             >
-              View CV
+              View / Download CV
             </button>
-            <a
-              href="/portfolio-nibin/nibin-resume.pdf"
-              download
-              className="px-6 py-3 bg-green-600 hover:bg-green-700 text-lg rounded-lg transition uppercase tracking-wide drop-shadow-lg"
-            >
-              Download CV
-            </a>
-          </div>
-
-          {/* Social Media Links */}
-          <div className="mt-8 flex space-x-12 justify-center text-5xl">
-            <a href="https://www.linkedin.com/in/nibin-joseph05/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-600 transition drop-shadow-lg">
-              <FaLinkedin />
-            </a>
-            <a href="https://github.com/nibin-joseph05" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition drop-shadow-lg">
-              <FaGithub />
-            </a>
-            <a href="https://www.instagram.com/_.n_.i_.b_.i_.n?igsh=MzNqcTliaG91NzRv" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:text-pink-600 transition drop-shadow-lg">
-              <FaInstagram />
-            </a>
           </div>
         </motion.div>
       </section>
@@ -129,6 +109,15 @@ export default function Portfolio() {
               className="w-full h-96 mt-4"
               title="CV Preview"
             ></iframe>
+            <div className="mt-4 flex justify-end">
+              <a
+                href="nibinresume.pdf"
+                download
+                className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white text-lg rounded-lg transition"
+              >
+                Download CV
+              </a>
+            </div>
           </div>
         </div>
       )}
