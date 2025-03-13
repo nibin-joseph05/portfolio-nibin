@@ -105,13 +105,13 @@ export default function Portfolio() {
               </button>
             </div>
             <iframe
-              src="nibinresume.pdf"
+              src="/portfolio-nibin/nibin-resume.pdf"
               className="w-full h-96 mt-4"
               title="CV Preview"
             ></iframe>
             <div className="mt-4 flex justify-end">
               <a
-                href="nibinresume.pdf"
+                href="/portfolio-nibin/nibin-resume.pdf"
                 download
                 className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white text-lg rounded-lg transition"
               >
