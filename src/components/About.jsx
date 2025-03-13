@@ -24,7 +24,7 @@ export default function About() {
           <div className="relative">
             <div
               className="w-48 h-48 rounded-full bg-cover bg-center border-4 border-pink-500 shadow-lg shadow-pink-500/50"
-              style={{ backgroundImage: "url('/my-pic.jpeg')" }}
+              style={{ backgroundImage: "url('/portfolio-nibin/my-pic.jpeg')" }}
             />
             <div className="absolute inset-0 w-full h-full rounded-full border-4 border-transparent animate-pulse"></div>
           </div>

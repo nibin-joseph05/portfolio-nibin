@@ -33,7 +33,7 @@ export default function Portfolio() {
       <section id="top" className="relative flex justify-center items-center h-screen bg-gray-900">
         <motion.div
           className="absolute inset-0 w-full h-full bg-cover bg-center opacity-50"
-          style={{ backgroundImage: "url('/main-image.jpg')" }}
+          style={{ backgroundImage: "url('/portfolio-nibin/main-image.jpg')" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}

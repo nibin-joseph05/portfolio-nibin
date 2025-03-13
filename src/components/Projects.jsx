@@ -3,41 +3,31 @@ import React, { useState, useEffect } from "react";
 
 const projects = [
   {
-    name: "GuestInMe Nightlife Application",
-    tech: "Flutter & Firebase",
-    image: "/guestinme.jpg",
-  },
-  {
     name: "SMS Spam Detection",
-    tech: "Python ML & Flask",
-    image: "/sms-spam.jpg",
-  },
-  {
-    name: "Show World Film Directory (App)",
-    tech: "React Native",
-    image: "/showworld-app.jpg",
+    tech: "Python ML & Django",
+    image: "/portfolio-nibin/sms-spam.png",
+    description: " The SMS Spam Detection project is a machine learning-based system designed to automatically detect spam messages within a chat environment between students and mentors. This project integrates Natural Language Processing (NLP) and Machine Learning (ML) techniques to analyze and classify messages as spam or non-spam, providing a secure and efficient communication platform. The system consists of three main entities: Admin, Mentor, and Student, each with specific roles and functionalities..",
   },
   {
     name: "Campus Connect",
-    tech: "Django & React",
-    image: "/campus-connect.jpg",
-  },
-  {
-    name: "Show World Film Directory (Website)",
-    tech: "Next.js & Node.js",
-    image: "/showworld-web.jpg",
+    tech: "Django & Python",
+    image: "/portfolio-nibin/campus-connect.png",
+    description: " Campus Connect is an online platform designed to enhance communication and collaboration within the university community. Through Campus Connect, students, faculty, and staff can easily access important resources, engage in discussions, and stay informed about campus events and announcements. The platform offers features such as group messaging, file sharing, event calendars, and academic support services. With its user-friendly interface and comprehensive functionality, Campus Connect aims to foster a sense of connectivity and belonging among members of the university, facilitating academic success and community engagement..",
   },
   {
     name: "Curry Powder Selling Website",
-    tech: "Django & PostgreSQL",
-    image: "/curry.jpg",
+    tech: "Django & Python",
+    image: "/portfolio-nibin/curry-powder.png",
+    description: "The Curry Powder Selling App offers a revolutionary platform for purchasing a variety of high-quality curry powders from multiple vendors. With its intuitive interface, curated selection, and detailed product descriptions, the app empowers users to explore and discover new flavors with ease. Key features include vendor profiles, reviews and ratings, robust search and filter options, secure payment gateways, order tracking, and personalized recommendations. Additionally, the app prioritizes customer support, social sharing, promotions, recipe integration, sustainability initiatives, and community engagement to enhance the overall user experience and foster a vibrant community of culinary enthusiasts..",
   },
   {
     name: "Football Turf Booking Website",
     tech: "PHP & MySQL",
-    image: "/turf.jpg",
+    image: "/portfolio-nibin/football-turf.png",
+    description: "The Football Turf Booking System is a web-based application developed using PHP and HTML, designed to simplify the process of reserving football turf facilities. It provides users with a user-friendly interface, featuring a clean and responsive design that facilitates easy navigation through available facilities and seamless reservation making. The system incorporates a robust search functionality that allows users to find turfs based on their preferred location, enhancing the convenience of locating nearby options. Turf details, including descriptions, rates, and availability statuses, are dynamically fetched from a MySQL database and displayed to users, ensuring that they have all necessary information at their fingertips. Additionally, the application includes image handling capabilities, enabling the resizing and optimal display of turf images across various devices. Integrated booking functionality allows users to proceed with reservations directly within the system, streamlining the entire booking workflow. By leveraging PHP for server-side processing and HTML and CSS for the front-end, the Football Turf Booking System effectively automates and centralizes the booking process, significantly improving user convenience and the overall efficiency of managing turf reservations.",
   },
 ];
+
 
 export default function Projects() {
   return (
@@ -76,6 +66,7 @@ export default function Projects() {
               {/* Project Details */}
               <h3 className="text-2xl font-semibold text-pink-400 mt-4">{project.name}</h3>
               <p className="text-gray-300 text-sm mt-2">{project.tech}</p>
+              <p className="text-gray-400 text-sm mt-2">{project.description}</p> {/* Add this line */}
 
               {/* Floating Effect */}
               <div className="absolute -top-10 -left-10 w-20 h-20 bg-pink-500 rounded-full blur-3xl opacity-20"></div>
