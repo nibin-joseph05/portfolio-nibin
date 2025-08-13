@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FaExternalLinkAlt, FaGithub, FaEye, FaRocket, FaCode, FaBrain, FaDatabase, FaCloud } from "react-icons/fa";
 
 const projects = [
@@ -98,32 +98,37 @@ const projects = [
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
+  // Optimized hover handling
+  const handleProjectHover = useCallback((projectName) => {
+    setHoveredProject(projectName);
+  }, []);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
-      {/* Enhanced Animated Background */}
+    <section id="projects" className="py-16 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
+      {/* Optimized Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-10 left-10 w-80 h-80 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
+          className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-3xl"
           animate={{
-            scale: [1, 1.3, 1],
+            scale: [1, 1.2, 1],
             rotate: [0, 180, 360],
           }}
           transition={{
-            duration: 25,
+            duration: 30,
             repeat: Infinity,
             ease: "linear"
           }}
         />
         <motion.div
-          className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
+          className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/8 to-pink-500/8 rounded-full blur-3xl"
           animate={{
-            scale: [1.3, 1, 1.3],
+            scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0],
           }}
           transition={{
-            duration: 30,
+            duration: 35,
             repeat: Infinity,
             ease: "linear"
           }}
@@ -133,11 +138,11 @@ export default function Projects() {
       <div className="container mx-auto px-6 lg:px-20 relative z-10">
         {/* Section Title */}
         <motion.h2
-          className="text-6xl font-bold text-center mb-6"
-          initial={{ opacity: 0, y: -50 }}
+          className="text-5xl font-bold text-center mb-4"
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
             Featured Projects
@@ -145,75 +150,74 @@ export default function Projects() {
         </motion.h2>
 
         <motion.p
-          className="text-2xl text-slate-300 text-center mb-20 max-w-5xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-xl text-slate-300 text-center mb-12 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           Check out some of my projects that showcase my skills and passion for building impactful applications
         </motion.p>
 
         {/* Featured Projects */}
-        <div className="mb-20">
+        <div className="mb-16">
           <motion.h3 
-            className="text-4xl font-semibold text-cyan-400 mb-12 text-center flex items-center justify-center gap-3"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-3xl font-semibold text-cyan-400 mb-8 text-center flex items-center justify-center gap-2"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <FaRocket className="text-3xl" />
-             Featured Projects
+            <FaRocket className="text-2xl" />
+            Featured Projects
           </motion.h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.filter(p => p.featured).map((project, index) => (
               <motion.div
                 key={index}
-                className="group relative bg-slate-800/20 backdrop-blur-xl rounded-3xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20"
-                initial={{ opacity: 0, y: 100, rotateX: -15 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ duration: 1.2, delay: index * 0.2, ease: "easeOut" }}
-                viewport={{ once: true, margin: "-100px" }}
+                className="group relative bg-slate-800/20 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20"
+                initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
                 whileHover={{ 
-                  y: -20,
-                  rotateY: 5,
+                  y: -10,
                   scale: 1.02
                 }}
-                onHoverStart={() => setHoveredProject(project.name)}
-                onHoverEnd={() => setHoveredProject(null)}
+                onHoverStart={() => handleProjectHover(project.name)}
+                onHoverEnd={() => handleProjectHover(null)}
               >
-                {/* Project Image with Enhanced Effects */}
-                <div className="relative h-80 overflow-hidden">
+                {/* Project Image with Optimized Effects */}
+                <div className="relative h-64 overflow-hidden">
                   <motion.img 
                     src={project.image} 
                     alt={project.name} 
                     className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
                   
                   {/* Floating Project Icon */}
                   <motion.div
-                    className="absolute top-6 left-6 w-16 h-16 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 rounded-2xl flex items-center justify-center shadow-2xl"
+                    className="absolute top-4 left-4 w-12 h-12 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 rounded-xl flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.1, rotate: 360 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <project.icon className="text-2xl text-white" />
+                    <project.icon className="text-lg text-white" />
                   </motion.div>
                   
                   {/* Tech Stack Badge */}
-                  <div className="absolute top-6 right-6">
-                    <span className="px-4 py-2 bg-slate-800/80 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-slate-600">
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1 bg-slate-800/80 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-slate-600">
                       {project.tech.split(',')[0]}
                     </span>
                   </div>
 
                   {/* Status Badge */}
                   {project.status && (
-                    <div className="absolute top-20 right-6">
-                      <span className="px-4 py-2 bg-yellow-500/90 text-white text-sm font-semibold rounded-full border border-yellow-400">
+                    <div className="absolute top-16 right-4">
+                      <span className="px-3 py-1 bg-yellow-500/90 text-white text-xs font-semibold rounded-full border border-yellow-400">
                         {project.status}
                       </span>
                     </div>
@@ -221,61 +225,66 @@ export default function Projects() {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-8">
+                <div className="p-6">
                   <motion.div
-                    className="flex items-center justify-between mb-4"
-                    initial={{ opacity: 0, y: 20 }}
+                    className="flex items-center justify-between mb-3"
+                    initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+                    transition={{ delay: 0.2, duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="text-3xl font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-2xl font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors">
                       {project.name}
                     </h3>
                   </motion.div>
                   
                   <motion.p 
-                    className="text-slate-300 text-base mb-6 leading-relaxed"
-                    initial={{ opacity: 0, y: 20 }}
+                    className="text-slate-300 text-sm mb-4 leading-relaxed"
+                    initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+                    transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                   >
                     {project.description}
                   </motion.p>
                   
-                  {/* Enhanced Tech Stack */}
-                  <div className="mb-8">
-                    <p className="text-slate-400 text-sm font-medium mb-3">Tech Stack:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.split(', ').map((tech, techIndex) => (
+                  {/* Optimized Tech Stack */}
+                  <div className="mb-4">
+                    <p className="text-slate-400 text-xs font-medium mb-2">Tech Stack:</p>
+                    <div className="flex flex-wrap gap-1">
+                      {project.tech.split(', ').slice(0, 4).map((tech, techIndex) => (
                         <motion.span
                           key={techIndex}
-                          className="px-3 py-1 bg-slate-700/50 text-cyan-300 text-xs rounded-lg border border-slate-600 backdrop-blur-sm"
+                          className="px-2 py-1 bg-slate-700/50 text-cyan-300 text-xs rounded border border-slate-600 backdrop-blur-sm"
                           whileHover={{ scale: 1.05 }}
-                          initial={{ opacity: 0, scale: 0.8 }}
+                          initial={{ opacity: 0, scale: 0.9 }}
                           whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.5 + techIndex * 0.05, duration: 0.4, ease: "easeOut" }}
+                          transition={{ delay: 0.4 + techIndex * 0.05, duration: 0.3, ease: "easeOut" }}
                           viewport={{ once: true }}
                         >
                           {tech}
                         </motion.span>
                       ))}
+                      {project.tech.split(', ').length > 4 && (
+                        <span className="px-2 py-1 bg-slate-700/50 text-slate-400 text-xs rounded border border-slate-600">
+                          +{project.tech.split(', ').length - 4} more
+                        </span>
+                      )}
                     </div>
                   </div>
 
-                  {/* Enhanced Action Buttons */}
-                  <div className="flex gap-4">
+                  {/* Optimized Action Buttons */}
+                  <div className="flex gap-3">
                     {project.liveDemo && (
                       <motion.a
                         href={project.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-cyan-500/25"
+                        className="flex items-center gap-1 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-cyan-500/25 text-sm"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <FaExternalLinkAlt className="text-sm" />
+                        <FaExternalLinkAlt className="text-xs" />
                         Live Demo
                       </motion.a>
                     )}
@@ -284,7 +293,7 @@ export default function Projects() {
                         href={project.githubRepo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-3 bg-slate-700/50 hover:bg-slate-600/50 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-slate-600"
+                        className="flex items-center gap-1 px-4 py-2 bg-slate-700/50 hover:bg-slate-600/50 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg border border-slate-600 text-sm"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -294,21 +303,6 @@ export default function Projects() {
                     )}
                   </div>
                 </div>
-
-                {/* Floating Particles */}
-                <motion.div
-                  className="absolute -top-10 -left-10 w-20 h-20 bg-cyan-500 rounded-full blur-3xl opacity-20"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.2, 0.5, 0.2],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    delay: index * 0.5,
-                    ease: "easeInOut"
-                  }}
-                />
               </motion.div>
             ))}
           </div>
@@ -317,64 +311,63 @@ export default function Projects() {
         {/* Other Projects */}
         <div>
           <motion.h3 
-            className="text-4xl font-semibold text-cyan-400 mb-12 text-center flex items-center justify-center gap-3"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-3xl font-semibold text-cyan-400 mb-8 text-center flex items-center justify-center gap-2"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <FaCode className="text-3xl" />
-            💻 Other Projects
+            <FaCode className="text-2xl" />
+            Other Projects
           </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.filter(p => !p.featured).map((project, index) => (
               <motion.div
                 key={index}
-                className="group bg-slate-800/20 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10"
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                className="group bg-slate-800/20 backdrop-blur-xl rounded-xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10"
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 1, delay: index * 0.1, ease: "easeOut" }}
-                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: index * 0.05, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
                 whileHover={{ 
-                  y: -10,
-                  rotateY: 3,
+                  y: -5,
                   scale: 1.02
                 }}
               >
                 {/* Project Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <motion.img 
                     src={project.image} 
                     alt={project.name} 
                     className="w-full h-full object-cover"
                     whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                   
                   {/* Project Icon */}
                   <motion.div
-                    className="absolute top-4 left-4 w-12 h-12 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 rounded-xl flex items-center justify-center shadow-lg"
+                    className="absolute top-3 left-3 w-10 h-10 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 rounded-lg flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.1, rotate: 360 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <project.icon className="text-lg text-white" />
+                    <project.icon className="text-sm text-white" />
                   </motion.div>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <h4 className="text-xl font-semibold text-cyan-400 mb-3 group-hover:text-cyan-300 transition-colors">
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">
                     {project.name}
                   </h4>
-                  <p className="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-3">
+                  <p className="text-slate-300 text-xs mb-3 leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
                   
                   {/* Tech Stack */}
-                  <div className="mb-4">
+                  <div className="mb-3">
                     <div className="flex flex-wrap gap-1">
-                      {project.tech.split(', ').slice(0, 3).map((tech, techIndex) => (
+                      {project.tech.split(', ').slice(0, 2).map((tech, techIndex) => (
                         <span
                           key={techIndex}
                           className="px-2 py-1 bg-slate-700/50 text-cyan-300 text-xs rounded border border-slate-600"
@@ -382,9 +375,9 @@ export default function Projects() {
                           {tech}
                         </span>
                       ))}
-                      {project.tech.split(', ').length > 3 && (
+                      {project.tech.split(', ').length > 2 && (
                         <span className="px-2 py-1 bg-slate-700/50 text-slate-400 text-xs rounded border border-slate-600">
-                          +{project.tech.split(', ').length - 3} more
+                          +{project.tech.split(', ').length - 2} more
                         </span>
                       )}
                     </div>
@@ -397,7 +390,7 @@ export default function Projects() {
                         href={project.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 px-3 py-1.5 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 text-sm rounded-lg transition-colors"
+                        className="flex items-center gap-1 px-2 py-1 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 text-xs rounded transition-colors"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -410,7 +403,7 @@ export default function Projects() {
                         href={project.githubRepo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 px-3 py-1.5 bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 text-sm rounded-lg transition-colors"
+                        className="flex items-center gap-1 px-2 py-1 bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 text-xs rounded transition-colors"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
