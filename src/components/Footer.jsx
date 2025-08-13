@@ -1,74 +1,185 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaHeart } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope, FaHeart, FaRocket, FaCode, FaBrain } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-white py-12">
-      {/* Top border with gradient */}
-      <div className="border-t-2 border-gradient-to-r from-cyan-500 to-blue-600 w-full mb-8"></div>
+    <footer className="bg-slate-900 text-white py-16 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute top-10 left-10 w-80 h-80 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1.3, 1, 1.3],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-20">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
-          {/* Brand Section */}
-          <div className="text-center md:text-left">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
+      {/* Top border with gradient */}
+      <div className="border-t-2 border-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 w-full mb-12 relative">
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 opacity-50"
+          animate={{
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-20 relative z-10">
+        <div className="grid md:grid-cols-3 gap-12 items-center">
+          {/* Enhanced Brand Section */}
+          <motion.div 
+            className="text-center md:text-left"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.h2 
+              className="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-3"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
               Nibin Joseph
-            </h2>
-            <p className="text-slate-400 text-sm">
+            </motion.h2>
+            <p className="text-slate-400 text-lg">
               Full-Stack Developer & MCA Student
             </p>
-          </div>
+            <motion.div
+              className="flex items-center justify-center md:justify-start gap-2 mt-3"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <FaRocket className="text-cyan-400" />
+              <FaCode className="text-blue-400" />
+              <FaBrain className="text-purple-400" />
+            </motion.div>
+          </motion.div>
 
-          {/* Social Links */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold text-cyan-400 mb-4">Connect With Me</h3>
+          {/* Enhanced Social Links */}
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-semibold text-cyan-400 mb-6 flex items-center justify-center gap-3">
+              <FaRocket className="text-2xl" />
+              Connect With Me
+            </h3>
             <div className="flex justify-center space-x-6">
-              <a 
-                href="https://github.com/nibin-joseph05" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-3 bg-slate-800 hover:bg-slate-700 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25"
-              >
-                <FaGithub className="text-xl" />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/nibin-joseph05/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-3 bg-slate-800 hover:bg-slate-700 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
-              >
-                <FaLinkedin className="text-xl" />
-              </a>
-              <a 
-                href="mailto:nibin.joseph.career@gmail.com" 
-                className="p-3 bg-slate-800 hover:bg-slate-700 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25"
-              >
-                <FaEnvelope className="text-xl" />
-              </a>
+              {[
+                { icon: FaGithub, href: "https://github.com/nibin-joseph05", color: "hover:shadow-cyan-500/50" },
+                { icon: FaLinkedin, href: "https://www.linkedin.com/in/nibin-joseph05/", color: "hover:shadow-blue-500/50" },
+                { icon: FaEnvelope, href: "mailto:nibin.joseph.career@gmail.com", color: "hover:shadow-cyan-500/50" }
+              ].map((social, index) => (
+                <motion.a 
+                  key={index}
+                  href={social.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={`p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-2xl transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} border border-slate-700 hover:border-cyan-500 backdrop-blur-sm`}
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: [0, -10, 10, 0],
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <social.icon className="text-2xl" />
+                </motion.a>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Quick Links */}
-          <div className="text-center md:text-right">
-            <h3 className="text-lg font-semibold text-cyan-400 mb-4">Quick Links</h3>
-            <div className="space-y-2 text-sm">
-              <a href="#about" className="block text-slate-400 hover:text-cyan-400 transition-colors">About</a>
-              <a href="#resume" className="block text-slate-400 hover:text-cyan-400 transition-colors">Resume</a>
-              <a href="#projects" className="block text-slate-400 hover:text-cyan-400 transition-colors">Projects</a>
-              <a href="#contact" className="block text-slate-400 hover:text-cyan-400 transition-colors">Contact</a>
+          {/* Enhanced Quick Links */}
+          <motion.div 
+            className="text-center md:text-right"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-semibold text-cyan-400 mb-6 flex items-center justify-center md:justify-end gap-3">
+              <FaCode className="text-2xl" />
+              Quick Links
+            </h3>
+            <div className="space-y-3 text-lg">
+              {[
+                { href: "#about", label: "About" },
+                { href: "#resume", label: "Resume" },
+                { href: "#projects", label: "Projects" },
+                { href: "#contact", label: "Contact" }
+              ].map((link, index) => (
+                <motion.a 
+                  key={index}
+                  href={link.href} 
+                  className="block text-slate-400 hover:text-cyan-400 transition-colors font-medium"
+                  whileHover={{ x: 5 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-8 pt-8 border-t border-slate-700 text-center">
-          <p className="text-slate-400 text-sm flex items-center justify-center gap-2">
+        {/* Enhanced Bottom Section */}
+        <motion.div 
+          className="mt-12 pt-8 border-t border-slate-700/50 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.p 
+            className="text-slate-400 text-lg flex items-center justify-center gap-3"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
             © {new Date().getFullYear()} Nibin Joseph. All Rights Reserved. 
-            <span className="flex items-center gap-1">
+            <motion.span 
+              className="flex items-center gap-2"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
               Made with <FaHeart className="text-red-500 animate-pulse" /> in Kerala, India
-            </span>
-          </p>
-        </div>
+            </motion.span>
+          </motion.p>
+        </motion.div>
       </div>
     </footer>
   );
