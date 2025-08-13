@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
+import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaPaperPlane } from "react-icons/fa";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -44,30 +45,113 @@ export default function Contact() {
       );
   };
 
+  const contactInfo = [
+    {
+      icon: FaEnvelope,
+      title: "Email",
+      value: "nibin.joseph.career@gmail.com",
+      link: "mailto:nibin.joseph.career@gmail.com"
+    },
+    {
+      icon: FaMapMarkerAlt,
+      title: "Location",
+      value: "Kerala, India",
+      link: null
+    },
+    {
+      icon: FaPhone,
+      title: "Available for",
+      value: "Freelance & Full-time",
+      link: null
+    }
+  ];
+
   return (
     <section
       id="contact"
-      className="py-20 text-white bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      className="py-20 bg-slate-900 text-white"
     >
       <div className="container mx-auto px-6 lg:px-20">
         <motion.h2
-          className="text-5xl font-extrabold text-center bg-gradient-to-r from-pink-400 via-purple-500 to-blue-400 bg-clip-text text-transparent mb-8"
+          className="text-5xl font-extrabold text-center mb-4"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Contact Me
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+            Get In Touch
+          </span>
         </motion.h2>
-        <p className="text-lg text-gray-300 text-center mb-12">
-          Have a project in mind? Let's chat! 💬
-        </p>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-10">
+        
+        <motion.p
+          className="text-xl text-slate-300 text-center mb-16 max-w-4xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          Have a project in mind? Let's collaborate and bring your ideas to life! 💬
+        </motion.p>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Contact Information */}
           <motion.div
-            className="w-full md:w-1/2 p-8 bg-gray-800/80 backdrop-blur-lg border border-gray-700 rounded-xl shadow-xl shadow-pink-500/20 hover:shadow-pink-500/40 transition-all"
+            className="space-y-8"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
           >
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+              <h3 className="text-2xl font-semibold text-cyan-400 mb-6">Let's Connect</h3>
+              <div className="space-y-6">
+                {contactInfo.map((info, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center space-x-4"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+                      <info.icon className="text-white text-xl" />
+                    </div>
+                    <div>
+                      <h4 className="text-slate-200 font-semibold">{info.title}</h4>
+                      {info.link ? (
+                        <a
+                          href={info.link}
+                          className="text-cyan-300 hover:text-cyan-200 transition-colors"
+                        >
+                          {info.value}
+                        </a>
+                      ) : (
+                        <p className="text-slate-300">{info.value}</p>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Quick Info */}
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+              <h3 className="text-2xl font-semibold text-cyan-400 mb-4">Quick Info</h3>
+              <div className="space-y-3 text-slate-300">
+                <p><strong>🎯 Available for:</strong> Full-time positions, Freelance projects, Collaborations</p>
+                <p><strong>⏰ Response time:</strong> Within 24 hours</p>
+                <p><strong>🌍 Timezone:</strong> IST (UTC+5:30)</p>
+                <p><strong>💼 Preferred:</strong> Remote work, Hybrid opportunities</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+          >
+            <h3 className="text-2xl font-semibold text-cyan-400 mb-6">Send Message</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               {[
                 { label: "Name", type: "text", name: "name" },
@@ -80,40 +164,58 @@ export default function Contact() {
                     name={name}
                     value={formData[name]}
                     onChange={handleChange}
-                    className="peer w-full bg-transparent border border-gray-600 rounded-md py-3 px-4 text-white placeholder-transparent focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
+                    className="peer w-full bg-slate-700/50 border border-slate-600 rounded-lg py-4 px-4 text-white placeholder-transparent focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                     placeholder={label}
                     required
                   />
                   <label
-                    className="absolute left-4 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-1 peer-focus:text-sm peer-focus:text-pink-400"
+                    className="absolute left-4 top-4 text-slate-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-focus:top-2 peer-focus:text-sm peer-focus:text-cyan-400"
                   >
                     {label}
                   </label>
                 </div>
               ))}
+              
               <div className="relative">
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="peer w-full bg-transparent border border-gray-600 rounded-md py-3 px-4 text-white placeholder-transparent focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all h-32 resize-none"
+                  className="peer w-full bg-slate-700/50 border border-slate-600 rounded-lg py-4 px-4 text-white placeholder-transparent focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all h-32 resize-none"
                   placeholder="Message"
                   required
                 ></textarea>
                 <label
-                  className="absolute left-4 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-1 peer-focus:text-sm peer-focus:text-pink-400"
+                  className="absolute left-4 top-4 text-slate-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-focus:top-2 peer-focus:text-sm peer-focus:text-cyan-400"
                 >
                   Message
                 </label>
               </div>
+              
               <motion.button
                 type="submit"
-                className="w-full py-3 text-lg font-semibold rounded-lg bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:scale-105 transition-transform hover:shadow-lg shadow-pink-500/40"
+                className="w-full py-4 text-lg font-semibold rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25 flex items-center justify-center gap-2"
                 whileTap={{ scale: 0.95 }}
               >
-                Send Message 🚀
+                <FaPaperPlane />
+                Send Message
               </motion.button>
-              {status && <p className="text-center text-pink-400 mt-4">{status}</p>}
+              
+              {status && (
+                <motion.p
+                  className={`text-center mt-4 p-3 rounded-lg ${
+                    status.includes("successfully") 
+                      ? "bg-green-500/20 text-green-400 border border-green-500/30" 
+                      : status.includes("error") || status.includes("Failed")
+                      ? "bg-red-500/20 text-red-400 border border-red-500/30"
+                      : "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30"
+                  }`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  {status}
+                </motion.p>
+              )}
             </form>
           </motion.div>
         </div>
