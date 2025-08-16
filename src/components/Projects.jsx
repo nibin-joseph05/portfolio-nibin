@@ -1,4 +1,4 @@
-gimport { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useState, useEffect, useCallback } from "react";
 import { FaExternalLinkAlt, FaGithub, FaEye, FaRocket, FaCode, FaBrain, FaDatabase, FaCloud } from "react-icons/fa";
 
