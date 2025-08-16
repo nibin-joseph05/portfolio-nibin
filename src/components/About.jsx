@@ -46,11 +46,11 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-12 sm:py-16 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
+    <section id="about" className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
       {/* Optimized Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-20 w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-3xl"
+          className="absolute top-10 sm:top-20 left-10 sm:left-20 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360],
@@ -62,7 +62,7 @@ export default function About() {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-r from-purple-500/8 to-pink-500/8 rounded-full blur-3xl"
+          className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-gradient-to-r from-purple-500/8 to-pink-500/8 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0],
@@ -75,9 +75,9 @@ export default function About() {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
         <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 sm:mb-4"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -89,7 +89,7 @@ export default function About() {
         </motion.h2>
 
         <motion.p
-          className="text-base sm:text-lg md:text-xl text-slate-300 text-center mb-8 sm:mb-12 max-w-3xl sm:max-w-4xl mx-auto px-4"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 text-center mb-6 sm:mb-8 md:mb-12 max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
@@ -98,10 +98,10 @@ export default function About() {
           A passionate and self-driven Full-Stack Developer with strong expertise in Java and Python
         </motion.p>
 
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start">
           {/* Left Column - Profile Info */}
           <motion.div
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -113,7 +113,7 @@ export default function About() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <div className="w-64 h-64 sm:w-72 sm:h-72 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 p-1 shadow-xl">
+              <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 p-1 shadow-xl">
                 <div
                   className="w-full h-full rounded-xl sm:rounded-2xl bg-cover bg-center relative overflow-hidden"
                   style={{ backgroundImage: "url('/portfolio-nibin/my-pic.jpeg')" }}
@@ -122,12 +122,12 @@ export default function About() {
                 </div>
               </div>
               <motion.div 
-                className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-8 h-8 sm:w-10 sm:h-10 bg-green-500 rounded-full border-2 sm:border-3 border-slate-800 shadow-lg"
+                className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 md:-bottom-3 md:-right-3 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-green-500 rounded-full border-2 sm:border-3 border-slate-800 shadow-lg"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full shadow-lg"
+                className="absolute -top-1 -left-1 sm:-top-2 sm:-left-2 md:-top-3 md:-left-3 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full shadow-lg"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               />
@@ -135,12 +135,12 @@ export default function About() {
 
             {/* Optimized Personal Details */}
             <motion.div 
-              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-6 border border-slate-700/50 shadow-xl"
+              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-slate-700/50 shadow-xl"
               whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(6, 182, 212, 0.25)" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <h3 className="text-xl sm:text-2xl font-semibold text-cyan-400 mb-3 sm:mb-4 flex items-center gap-2">
-                <FaRocket className="text-lg sm:text-xl" />
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-400 mb-3 sm:mb-4 flex items-center gap-2">
+                <FaRocket className="text-base sm:text-lg md:text-xl" />
                 Personal Details
               </h3>
               <div className="space-y-2 sm:space-y-3">
@@ -158,15 +158,15 @@ export default function About() {
                     transition={{ delay: index * 0.05, duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                   >
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                       <item.icon className="text-white text-xs sm:text-sm" />
                     </div>
-                    <div>
-                      <p className="text-slate-300 text-xs">{item.label}</p>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-slate-300 text-xs sm:text-sm">{item.label}</p>
                       {item.link ? (
                         <a
                           href={`mailto:${item.value}`}
-                          className="text-cyan-300 hover:text-cyan-200 transition-colors font-medium text-xs sm:text-sm"
+                          className="text-cyan-300 hover:text-cyan-200 transition-colors font-medium text-xs sm:text-sm break-all"
                         >
                           {item.value}
                         </a>
@@ -181,15 +181,15 @@ export default function About() {
 
             {/* Optimized Social Links */}
             <motion.div 
-              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-6 border border-slate-700/50 shadow-xl"
+              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-slate-700/50 shadow-xl"
               whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(59, 130, 246, 0.25)" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <h3 className="text-xl sm:text-2xl font-semibold text-cyan-400 mb-3 sm:mb-4 flex items-center gap-2">
-                <FaRocket className="text-lg sm:text-xl" />
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-400 mb-3 sm:mb-4 flex items-center gap-2">
+                <FaRocket className="text-base sm:text-lg md:text-xl" />
                 Connect With Me
               </h3>
-              <div className="flex space-x-2 sm:space-x-3">
+              <div className="flex space-x-2 sm:space-x-3 justify-center sm:justify-start">
                 {[
                   { icon: FaGithub, href: "https://github.com/nibin-joseph05", color: "hover:shadow-cyan-500/50" },
                   { icon: FaLinkedin, href: "https://www.linkedin.com/in/nibin-joseph05/", color: "hover:shadow-blue-500/50" },
@@ -200,7 +200,7 @@ export default function About() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-2 sm:p-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} border border-slate-600 hover:border-cyan-500`}
+                    className={`p-2 sm:p-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} border border-slate-600 hover:border-cyan-500 flex-shrink-0`}
                     whileHover={{ 
                       scale: 1.1,
                       rotate: [0, -3, 3, 0],
@@ -211,7 +211,7 @@ export default function About() {
                     transition={{ delay: index * 0.05, duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                   >
-                    <social.icon className="text-lg sm:text-xl" />
+                    <social.icon className="text-base sm:text-lg md:text-xl" />
                   </motion.a>
                 ))}
               </div>
@@ -220,7 +220,7 @@ export default function About() {
 
           {/* Right Column - About Text & Skills */}
           <motion.div
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
@@ -228,12 +228,12 @@ export default function About() {
           >
             {/* Optimized About Text */}
             <motion.div 
-              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-6 border border-slate-700/50 shadow-xl"
+              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-slate-700/50 shadow-xl"
               whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(168, 85, 247, 0.25)" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <h3 className="text-xl sm:text-2xl font-semibold text-cyan-400 mb-3 sm:mb-4 flex items-center gap-2">
-                <FaBrain className="text-lg sm:text-xl" />
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-400 mb-3 sm:mb-4 flex items-center gap-2">
+                <FaBrain className="text-base sm:text-lg md:text-xl" />
                 Who I Am
               </h3>
               <div className="space-y-3 sm:space-y-4 text-slate-300 leading-relaxed">
@@ -242,7 +242,7 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1, duration: 0.4, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  className="text-xs sm:text-sm"
+                  className="text-xs sm:text-sm md:text-base"
                 >
                   I'm a passionate and self-driven Full-Stack Developer with strong expertise in Java and Python. 
                   Currently pursuing my Master of Computer Applications (MCA) at Marian College Kuttikkanam, 
@@ -254,7 +254,7 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.4, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  className="text-xs sm:text-sm"
+                  className="text-xs sm:text-sm md:text-base"
                 >
                   I'm experienced in both solo and team-based projects, always focusing on solving real-world 
                   problems with clean, scalable code and innovative thinking.
@@ -266,12 +266,12 @@ export default function About() {
                   transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
                   viewport={{ once: true }}
                 >
-                  <p className="flex items-center gap-2 text-xs sm:text-sm">
-                    <span className="text-base sm:text-lg">🌱</span>
+                  <p className="flex items-start gap-2 text-xs sm:text-sm md:text-base">
+                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">🌱</span>
                     <span><strong className="text-cyan-400">Currently learning:</strong> Deeper aspects of Machine Learning and Flutter app development.</span>
                   </p>
-                  <p className="flex items-center gap-2 text-xs sm:text-sm">
-                    <span className="text-base sm:text-lg">💬</span>
+                  <p className="flex items-start gap-2 text-xs sm:text-sm md:text-base">
+                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">💬</span>
                     <span><strong className="text-cyan-400">Ask me about:</strong> Python, Java, Django, Spring Boot, Next.js, PostgreSQL, NLP, and full-stack web development.</span>
                   </p>
                 </motion.div>
@@ -280,12 +280,12 @@ export default function About() {
 
             {/* Optimized Skills Section */}
             <motion.div 
-              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-6 border border-slate-700/50 shadow-xl"
+              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-slate-700/50 shadow-xl"
               whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(34, 197, 94, 0.25)" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <h3 className="text-xl sm:text-2xl font-semibold text-cyan-400 mb-4 sm:mb-6 flex items-center gap-2">
-                <FaCode className="text-lg sm:text-xl" />
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-400 mb-4 sm:mb-6 flex items-center gap-2">
+                <FaCode className="text-base sm:text-lg md:text-xl" />
                 Technical Skills
               </h3>
               <div className="space-y-4 sm:space-y-6">
@@ -300,12 +300,12 @@ export default function About() {
                     onHoverEnd={() => handleSkillHover(null)}
                   >
                     <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                      <div className={`w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r ${skillGroup.color} rounded-lg flex items-center justify-center`}>
+                      <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-r ${skillGroup.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
                         <skillGroup.icon className="text-white text-xs" />
                       </div>
-                      <h4 className="text-base sm:text-lg font-semibold text-slate-200">{skillGroup.category}</h4>
+                      <h4 className="text-sm sm:text-base md:text-lg font-semibold text-slate-200">{skillGroup.category}</h4>
                     </div>
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
                       {skillGroup.items.map((skill, skillIndex) => (
                         <motion.span
                           key={skillIndex}

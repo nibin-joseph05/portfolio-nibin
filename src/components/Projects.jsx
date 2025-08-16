@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+gimport { motion, useScroll, useTransform } from "framer-motion";
 import React, { useState, useEffect, useCallback } from "react";
 import { FaExternalLinkAlt, FaGithub, FaEye, FaRocket, FaCode, FaBrain, FaDatabase, FaCloud } from "react-icons/fa";
 
@@ -106,11 +106,11 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-12 sm:py-16 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
+    <section id="projects" className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
       {/* Optimized Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-10 left-10 w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-3xl"
+          className="absolute top-10 sm:top-10 left-10 sm:left-10 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360],
@@ -122,7 +122,7 @@ export default function Projects() {
           }}
         />
         <motion.div
-          className="absolute bottom-10 right-10 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-r from-purple-500/8 to-pink-500/8 rounded-full blur-3xl"
+          className="absolute bottom-10 sm:bottom-10 right-10 sm:right-10 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-gradient-to-r from-purple-500/8 to-pink-500/8 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0],
@@ -135,10 +135,10 @@ export default function Projects() {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
         {/* Section Title */}
         <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 sm:mb-4"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -150,7 +150,7 @@ export default function Projects() {
         </motion.h2>
 
         <motion.p
-          className="text-base sm:text-lg md:text-xl text-slate-300 text-center mb-8 sm:mb-12 max-w-3xl sm:max-w-4xl mx-auto px-4"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 text-center mb-6 sm:mb-8 md:mb-12 max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
@@ -160,23 +160,23 @@ export default function Projects() {
         </motion.p>
 
         {/* Featured Projects */}
-        <div className="mb-12 sm:mb-16">
+        <div className="mb-8 sm:mb-12 md:mb-16">
           <motion.h3 
-            className="text-2xl sm:text-3xl font-semibold text-cyan-400 mb-6 sm:mb-8 text-center flex items-center justify-center gap-2"
+            className="text-xl sm:text-2xl md:text-3xl font-semibold text-cyan-400 mb-4 sm:mb-6 md:mb-8 text-center flex items-center justify-center gap-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, margin: "-50px" }}
           >
-            <FaRocket className="text-xl sm:text-2xl" />
+            <FaRocket className="text-lg sm:text-xl md:text-2xl" />
             <span className="hidden sm:inline">Featured Projects</span>
             <span className="sm:hidden">Featured</span>
           </motion.h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {projects.filter(p => p.featured).map((project, index) => (
               <motion.div
                 key={index}
-                className="group relative bg-slate-800/20 backdrop-blur-xl rounded-xl sm:rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20"
+                className="group relative bg-slate-800/20 backdrop-blur-xl rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20"
                 initial={{ opacity: 0, y: 50, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
@@ -189,7 +189,7 @@ export default function Projects() {
                 onHoverEnd={() => handleProjectHover(null)}
               >
                 {/* Project Image with Optimized Effects */}
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+                <div className="relative h-40 sm:h-48 md:h-56 lg:h-64 overflow-hidden">
                   <motion.img 
                     src={project.image} 
                     alt={project.name} 
@@ -201,15 +201,15 @@ export default function Projects() {
                   
                   {/* Floating Project Icon */}
                   <motion.div
-                    className="absolute top-3 sm:top-4 left-3 sm:left-4 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg"
+                    className="absolute top-2 sm:top-3 md:top-4 left-2 sm:left-3 md:left-4 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <project.icon className="text-sm sm:text-lg text-white" />
+                    <project.icon className="text-xs sm:text-sm md:text-lg text-white" />
                   </motion.div>
                   
                   {/* Tech Stack Badge */}
-                  <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                  <div className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4">
                     <span className="px-2 sm:px-3 py-1 bg-slate-800/80 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-slate-600">
                       {project.tech.split(',')[0]}
                     </span>
@@ -217,7 +217,7 @@ export default function Projects() {
 
                   {/* Status Badge */}
                   {project.status && (
-                    <div className="absolute top-12 sm:top-16 right-3 sm:right-4">
+                    <div className="absolute top-10 sm:top-12 md:top-16 right-2 sm:right-3 md:right-4">
                       <span className="px-2 sm:px-3 py-1 bg-yellow-500/90 text-white text-xs font-semibold rounded-full border border-yellow-400">
                         {project.status}
                       </span>
@@ -226,7 +226,7 @@ export default function Projects() {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-4 sm:p-6">
+                <div className="p-3 sm:p-4 md:p-6">
                   <motion.div
                     className="flex items-center justify-between mb-2 sm:mb-3"
                     initial={{ opacity: 0, y: 10 }}
@@ -234,13 +234,13 @@ export default function Projects() {
                     transition={{ delay: 0.2, duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors leading-tight">
+                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors leading-tight">
                       {project.name}
                     </h3>
                   </motion.div>
                   
                   <motion.p 
-                    className="text-xs sm:text-sm text-slate-300 mb-3 sm:mb-4 leading-relaxed"
+                    className="text-xs sm:text-sm md:text-base text-slate-300 mb-3 sm:mb-4 leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
@@ -251,7 +251,7 @@ export default function Projects() {
                   
                   {/* Optimized Tech Stack */}
                   <div className="mb-3 sm:mb-4">
-                    <p className="text-slate-400 text-xs font-medium mb-2">Tech Stack:</p>
+                    <p className="text-slate-400 text-xs sm:text-sm font-medium mb-2">Tech Stack:</p>
                     <div className="flex flex-wrap gap-1">
                       {project.tech.split(', ').slice(0, 4).map((tech, techIndex) => (
                         <motion.span
@@ -312,17 +312,17 @@ export default function Projects() {
         {/* Other Projects */}
         <div>
           <motion.h3 
-            className="text-2xl sm:text-3xl font-semibold text-cyan-400 mb-6 sm:mb-8 text-center flex items-center justify-center gap-2"
+            className="text-xl sm:text-2xl md:text-3xl font-semibold text-cyan-400 mb-4 sm:mb-6 md:mb-8 text-center flex items-center justify-center gap-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, margin: "-50px" }}
           >
-            <FaCode className="text-xl sm:text-2xl" />
+            <FaCode className="text-lg sm:text-xl md:text-2xl" />
             <span className="hidden sm:inline">Other Projects</span>
             <span className="sm:hidden">Other</span>
           </motion.h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
             {projects.filter(p => !p.featured).map((project, index) => (
               <motion.div
                 key={index}
@@ -337,7 +337,7 @@ export default function Projects() {
                 }}
               >
                 {/* Project Image */}
-                <div className="relative h-40 sm:h-48 overflow-hidden">
+                <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden">
                   <motion.img 
                     src={project.image} 
                     alt={project.name} 
@@ -349,7 +349,7 @@ export default function Projects() {
                   
                   {/* Project Icon */}
                   <motion.div
-                    className="absolute top-2 sm:top-3 left-2 sm:left-3 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 rounded-lg flex items-center justify-center shadow-lg"
+                    className="absolute top-2 sm:top-3 left-2 sm:left-3 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 rounded-lg flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
@@ -359,10 +359,10 @@ export default function Projects() {
 
                 {/* Project Content */}
                 <div className="p-3 sm:p-4">
-                  <h4 className="text-sm sm:text-lg font-semibold text-cyan-400 mb-1 sm:mb-2 group-hover:text-cyan-300 transition-colors leading-tight">
+                  <h4 className="text-sm sm:text-base md:text-lg font-semibold text-cyan-400 mb-1 sm:mb-2 group-hover:text-cyan-300 transition-colors leading-tight">
                     {project.name}
                   </h4>
-                  <p className="text-xs text-slate-300 mb-2 sm:mb-3 leading-relaxed line-clamp-3">
+                  <p className="text-xs sm:text-sm text-slate-300 mb-2 sm:mb-3 leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
                   

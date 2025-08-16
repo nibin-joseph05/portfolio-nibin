@@ -27,17 +27,17 @@ export default function Navbar() {
 
   return (
     <header className={`fixed top-0 left-0 w-full bg-slate-900/90 backdrop-blur-xl z-50 border-b border-slate-700/50 transition-all duration-500 ${scrolled ? "shadow-2xl shadow-slate-900/50" : ""}`}>
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-3 sm:py-4 md:py-5 px-4 sm:px-6">
         <motion.a
           href="#top"
-          className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:from-cyan-300 hover:via-blue-400 hover:to-purple-500 transition-all duration-300"
+          className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:from-cyan-300 hover:via-blue-400 hover:to-purple-500 transition-all duration-300"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           Nibin Joseph
         </motion.a>
 
-        <nav className="hidden md:flex space-x-10 text-lg font-medium">
+        <nav className="hidden md:flex space-x-8 lg:space-x-10 text-base sm:text-lg font-medium">
           {["About", "Resume", "Projects", "Contact"].map((item, index) => (
             <motion.a
               key={item}
@@ -64,7 +64,7 @@ export default function Navbar() {
         </nav>
 
         <motion.button
-          className="md:hidden text-white p-3 rounded-xl hover:bg-slate-800/50 transition-colors backdrop-blur-sm"
+          className="md:hidden text-white p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-slate-800/50 transition-colors backdrop-blur-sm"
           onClick={() => setNavOpen(!navOpen)}
           whileTap={{ scale: 0.95 }}
           whileHover={{ scale: 1.05 }}
@@ -78,7 +78,7 @@ export default function Navbar() {
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <FaTimes size={24} />
+                <FaTimes size={20} className="sm:w-6 sm:h-6" />
               </motion.div>
             ) : (
               <motion.div
@@ -88,7 +88,7 @@ export default function Navbar() {
                 exit={{ rotate: -90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <FaBars size={24} />
+                <FaBars size={20} className="sm:w-6 sm:h-6" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -99,7 +99,7 @@ export default function Navbar() {
       <AnimatePresence>
         {navOpen && (
           <motion.div
-            className="fixed top-0 left-0 w-full h-screen bg-slate-900/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-10 text-3xl z-50"
+            className="fixed top-0 left-0 w-full h-screen bg-slate-900/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-6 sm:space-y-8 md:space-y-10 text-2xl sm:text-3xl z-50"
             initial={{ opacity: 0, x: "-100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "-100%" }}
@@ -127,7 +127,7 @@ export default function Navbar() {
             
             {/* Enhanced Close button for mobile */}
             <motion.button
-              className="absolute top-8 right-8 text-white p-4 rounded-2xl hover:bg-slate-800/50 transition-colors backdrop-blur-sm"
+              className="absolute top-4 sm:top-6 md:top-8 right-4 sm:right-6 md:right-8 text-white p-3 sm:p-4 rounded-xl sm:rounded-2xl hover:bg-slate-800/50 transition-colors backdrop-blur-sm"
               onClick={() => setNavOpen(false)}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -135,12 +135,12 @@ export default function Navbar() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <FaTimes size={28} />
+              <FaTimes size={24} className="sm:w-7 sm:h-7" />
             </motion.button>
 
             {/* Background decoration for mobile menu */}
             <motion.div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2 }}

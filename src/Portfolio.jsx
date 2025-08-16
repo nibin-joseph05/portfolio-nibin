@@ -102,35 +102,35 @@ export default function Portfolio() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               {/* Outer Ring */}
-              <div className="w-16 h-16 sm:w-20 sm:h-20 border-4 border-slate-300/30 border-t-cyan-500 rounded-full animate-spin"></div>
+              <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 border-4 border-slate-300/30 border-t-cyan-500 rounded-full animate-spin"></div>
               
               {/* Middle Ring */}
-              <div className="absolute inset-0 w-16 h-16 sm:w-20 sm:h-20 border-4 border-transparent border-t-blue-500 rounded-full animate-spin" 
+              <div className="absolute inset-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 border-4 border-transparent border-t-blue-500 rounded-full animate-spin" 
                    style={{ animationDirection: 'reverse', animationDuration: '1.2s' }}></div>
               
               {/* Inner Ring */}
-              <div className="absolute inset-2 w-12 h-12 sm:w-16 sm:h-16 border-4 border-transparent border-t-purple-500 rounded-full animate-spin" 
+              <div className="absolute inset-2 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 border-4 border-transparent border-t-purple-500 rounded-full animate-spin" 
                    style={{ animationDuration: '1.8s' }}></div>
               
               {/* Center Dot */}
               <motion.div
-                className="absolute inset-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center"
+                className="absolute inset-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
               >
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
+                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
               </motion.div>
             </motion.div>
 
             {/* Loading Text */}
             <motion.div
-              className="mt-4 sm:mt-6 text-center"
+              className="mt-3 sm:mt-4 md:mt-6 text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.4 }}
             >
               <motion.p
-                className="text-lg sm:text-2xl font-bold text-slate-200 mb-1"
+                className="text-base sm:text-lg md:text-2xl font-bold text-slate-200 mb-1"
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
@@ -140,7 +140,7 @@ export default function Portfolio() {
 
             {/* Loading Progress Bar */}
             <motion.div
-              className="mt-3 sm:mt-4 w-32 sm:w-48 h-1 bg-slate-700 rounded-full overflow-hidden"
+              className="mt-2 sm:mt-3 md:mt-4 w-24 sm:w-32 md:w-48 h-1 bg-slate-700 rounded-full overflow-hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.4 }}
@@ -171,10 +171,10 @@ export default function Portfolio() {
         {/* Advanced Mouse Follow Effect - Desktop Only */}
         {!isMobile && (
           <motion.div
-            className="fixed w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-r from-cyan-500/15 to-blue-500/15 rounded-full blur-3xl pointer-events-none z-0"
+            className="fixed w-48 h-48 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-gradient-to-r from-cyan-500/15 to-blue-500/15 rounded-full blur-3xl pointer-events-none z-0"
             style={{
-              x: mousePosition.x - 120,
-              y: mousePosition.y - 120,
+              x: mousePosition.x - 96,
+              y: mousePosition.y - 96,
             }}
             animate={{
               scale: [1, 1.1, 1],
@@ -192,11 +192,11 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative text-center z-10 max-w-4xl mx-auto"
+          className="relative text-center z-10 max-w-3xl sm:max-w-4xl mx-auto"
         >
           {/* Advanced Animated Icons */}
           <motion.div
-            className="flex justify-center mb-4 sm:mb-6 space-x-2 sm:space-x-4"
+            className="flex justify-center mb-3 sm:mb-4 md:mb-6 space-x-2 sm:space-x-3 md:space-x-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
@@ -219,13 +219,13 @@ export default function Portfolio() {
                   hover: { duration: 0.3, ease: "easeInOut" }
                 }}
               >
-                <item.icon className="text-lg sm:text-xl text-white" />
+                <item.icon className="text-base sm:text-lg md:text-xl text-white" />
               </motion.div>
             ))}
           </motion.div>
 
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 sm:mb-4 drop-shadow-2xl leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-2 sm:mb-3 md:mb-4 drop-shadow-2xl leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
@@ -237,7 +237,7 @@ export default function Portfolio() {
           </motion.h1>
 
           <motion.p
-            className="text-lg sm:text-xl md:text-2xl mb-2 sm:mb-3 text-slate-300 drop-shadow-xl"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-3 text-slate-300 drop-shadow-xl"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
@@ -246,7 +246,7 @@ export default function Portfolio() {
           </motion.p>
 
           <motion.div
-            className="text-base sm:text-lg md:text-xl mt-3 sm:mt-4 font-light text-slate-200 drop-shadow-2xl mb-6 sm:mb-8 h-8 sm:h-10"
+            className="text-sm sm:text-base md:text-lg lg:text-xl mt-2 sm:mt-3 md:mt-4 font-light text-slate-200 drop-shadow-2xl mb-4 sm:mb-6 md:mb-8 h-6 sm:h-8 md:h-10"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" }}
@@ -271,7 +271,7 @@ export default function Portfolio() {
           
           {/* Advanced Social Links */}
           <motion.div
-            className="flex justify-center space-x-3 sm:space-x-4 mb-6 sm:mb-8"
+            className="flex justify-center space-x-2 sm:space-x-3 md:space-x-4 mb-4 sm:mb-6 md:mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.6, ease: "easeOut" }}
@@ -296,7 +296,7 @@ export default function Portfolio() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.3 + index * 0.1, duration: 0.4, ease: "easeOut" }}
               >
-                <social.icon className="text-lg sm:text-xl text-white" />
+                <social.icon className="text-base sm:text-lg md:text-xl text-white" />
               </motion.a>
             ))}
           </motion.div>
@@ -310,7 +310,7 @@ export default function Portfolio() {
           >
             <motion.a
               href="#contact"
-              className="group relative px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 uppercase tracking-wide drop-shadow-lg hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25 overflow-hidden"
+              className="group relative px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-sm sm:text-base md:text-lg font-semibold rounded-lg sm:rounded-xl transition-all duration-300 uppercase tracking-wide drop-shadow-lg hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25 overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -320,7 +320,7 @@ export default function Portfolio() {
             
             <motion.button
               onClick={() => setCvModalOpen(true)}
-              className="group relative px-4 sm:px-6 py-2.5 sm:py-3 border-2 border-cyan-500 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 hover:bg-cyan-500 hover:text-white uppercase tracking-wide drop-shadow-lg hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25 overflow-hidden"
+              className="group relative px-4 sm:px-6 py-2.5 sm:py-3 border-2 border-cyan-500 text-sm sm:text-base md:text-lg font-semibold rounded-lg sm:rounded-xl transition-all duration-300 hover:bg-cyan-500 hover:text-white uppercase tracking-wide drop-shadow-lg hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25 overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -338,12 +338,12 @@ export default function Portfolio() {
           transition={{ delay: 1.8, duration: 0.6, ease: "easeOut" }}
         >
           <motion.div
-            className="w-4 h-6 sm:w-5 sm:h-8 border-2 border-cyan-400 rounded-full flex justify-center"
+            className="w-3 h-5 sm:w-4 sm:h-6 md:w-5 md:h-8 border-2 border-cyan-400 rounded-full flex justify-center"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           >
             <motion.div
-              className="w-0.5 h-1.5 sm:h-2 bg-cyan-400 rounded-full mt-1.5 sm:mt-2"
+              className="w-0.5 h-1 sm:h-1.5 md:h-2 bg-cyan-400 rounded-full mt-1 sm:mt-1.5 md:mt-2"
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -372,17 +372,17 @@ export default function Portfolio() {
             transition={{ duration: 0.2, ease: "easeInOut" }}
           >
             <motion.div 
-              className="bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-2xl lg:max-w-4xl max-h-[90vh] overflow-hidden border border-slate-600"
+              className="bg-slate-800 rounded-lg sm:rounded-xl md:rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-2xl lg:max-w-4xl max-h-[90vh] overflow-hidden border border-slate-600"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 30 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <div className="flex justify-between items-center p-3 sm:p-4 border-b border-slate-600 bg-gradient-to-r from-slate-700 to-slate-800">
-                <h2 className="text-lg sm:text-xl font-bold text-cyan-400">My Resume</h2>
+                <h2 className="text-base sm:text-lg md:text-xl font-bold text-cyan-400">My Resume</h2>
                 <motion.button
                   onClick={() => setCvModalOpen(false)}
-                  className="text-slate-400 hover:text-red-400 text-xl sm:text-2xl font-bold transition-colors p-1 hover:bg-slate-700 rounded-lg"
+                  className="text-slate-400 hover:text-red-400 text-lg sm:text-xl md:text-2xl font-bold transition-colors p-1 hover:bg-slate-700 rounded-lg"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -392,7 +392,7 @@ export default function Portfolio() {
               <div className="p-3 sm:p-4">
                 <iframe
                   src="/portfolio-nibin/nibin-resume.pdf"
-                  className="w-full h-64 sm:h-80 rounded-lg border border-slate-600"
+                  className="w-full h-48 sm:h-64 md:h-80 rounded-lg border border-slate-600"
                   title="Resume Preview"
                 ></iframe>
               </div>
@@ -400,7 +400,7 @@ export default function Portfolio() {
                 <motion.a
                   href="/portfolio-nibin/nibin-resume.pdf"
                   download
-                  className="px-3 sm:px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2 text-sm sm:text-base"
+                  className="px-3 sm:px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2 text-xs sm:text-sm md:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
