@@ -8,17 +8,23 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("top");
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      const sections = ["about", "education", "projects", "contact"];
-      let found = "top";
-      sections.forEach((section) => {
-        const element = document.getElementById(section);
-        if (element && window.scrollY >= element.offsetTop - 80) {
-          found = section;
-        }
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+        const sections = ["about", "education", "projects", "contact"];
+        let found = "top";
+        sections.forEach((section) => {
+          const element = document.getElementById(section);
+          if (element && window.scrollY >= element.offsetTop - 80) {
+            found = section;
+          }
+        });
+        setActiveSection(found);
+        ticking = false;
       });
-      setActiveSection(found);
     };
 
     window.addEventListener("scroll", handleScroll);

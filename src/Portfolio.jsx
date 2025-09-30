@@ -41,7 +41,7 @@ export default function Portfolio() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, []);
@@ -62,7 +62,7 @@ export default function Portfolio() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.08),transparent_50%)]"></div>
         
         {/* Optimized Floating Particles - Reduced count for mobile */}
-        {[...Array(isMobile ? 8 : 15)].map((_, i) => (
+        {[...Array(isMobile ? 5 : 10)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-20"

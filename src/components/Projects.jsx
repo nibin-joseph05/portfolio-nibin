@@ -235,6 +235,8 @@ export default function Projects() {
                   <motion.img 
                     src={project.image} 
                     alt={project.name} 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover cursor-zoom-in"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -384,6 +386,8 @@ export default function Projects() {
                   <motion.img 
                     src={project.image} 
                     alt={project.name} 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover cursor-zoom-in"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
