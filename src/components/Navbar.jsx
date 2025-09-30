@@ -10,7 +10,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      const sections = ["about", "resume", "projects", "contact"];
+      const sections = ["about", "education", "projects", "contact"];
       let found = "top";
       sections.forEach((section) => {
         const element = document.getElementById(section);
@@ -38,7 +38,7 @@ export default function Navbar() {
         </motion.a>
 
         <nav className="hidden md:flex space-x-8 lg:space-x-10 text-base sm:text-lg font-medium">
-          {["About", "Resume", "Projects", "Contact"].map((item, index) => (
+          {["About", "Education", "Projects", "Contact"].map((item, index) => (
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}

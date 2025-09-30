@@ -37,7 +37,7 @@ const Resume = () => {
   ];
 
   return (
-    <section id="resume" className="py-12 sm:py-16 md:py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="education" className="py-12 sm:py-16 md:py-20 bg-slate-900 text-white relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

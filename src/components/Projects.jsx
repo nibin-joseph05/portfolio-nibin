@@ -14,6 +14,17 @@ const projects = [
     color: "from-purple-500 to-pink-600"
   },
   {
+    name: "Lyfex – Camera-based Health Snapshot",
+    tech: "React Native (Expo), FastAPI, OpenCV, WebSocket",
+    image: "/portfolio-nibin/lyfex.png",
+    description: "Lyfex is a friendly, mobile-first AI wellness assistant that estimates heart rate, breathing rate, stress, emotion, alertness, and hydration/skin from the front camera. It runs locally with a FastAPI backend analyzing frames via computer vision and returns metrics to the app in real time.",
+    githubRepo: "https://github.com/nibin-joseph05/Lyfex",
+    featured: true,
+    status: "Completed",
+    icon: FaBrain,
+    color: "from-teal-500 to-emerald-600"
+  },
+  {
     name: "MovieFlix - Online Movie Ticket Booking System",
     tech: "Spring Boot (Java), Next.js, PostgreSQL, Docker",
     image: "/portfolio-nibin/movieflix.png",
@@ -85,6 +96,17 @@ const projects = [
     color: "from-yellow-500 to-orange-600"
   },
   {
+    name: "JeztConnect – Flutter App for Jezt Technologies",
+    tech: "Flutter (Dart), REST API, Token Auth",
+    image: "/portfolio-nibin/jezt.png",
+    description: "A Flutter application demonstrating login with Company ID, dashboard data fetching, pull-to-refresh, and logout with token-based authentication. Includes animated splash, polished UI, and graceful error handling.",
+    liveDemo: "https://drive.google.com/drive/u/1/folders/1JMtRKaBrT7M5yKHrGW7TH3-NIa76h90a",
+    githubRepo: "https://github.com/nibin-joseph05/JeztConnect",
+    featured: false,
+    icon: FaRocket,
+    color: "from-indigo-500 to-blue-600"
+  },
+  {
     name: "Football Turf Booking Website (PHP)",
     tech: "PHP & MySQL",
     image: "/portfolio-nibin/football-turf.png",
@@ -97,6 +119,8 @@ const projects = [
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
+  const [expandedProject, setExpandedProject] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
@@ -105,7 +129,25 @@ export default function Projects() {
     setHoveredProject(projectName);
   }, []);
 
+  // Image modal handlers
+  const openImage = useCallback((src, alt) => {
+    setSelectedImage({ src, alt });
+  }, []);
+  const closeImage = useCallback(() => {
+    setSelectedImage(null);
+  }, []);
+
+  useEffect(() => {
+    if (!selectedImage) return;
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') closeImage();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [selectedImage, closeImage]);
+
   return (
+    <>
     <section id="projects" className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
       {/* Optimized Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -193,11 +235,12 @@ export default function Projects() {
                   <motion.img 
                     src={project.image} 
                     alt={project.name} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover cursor-zoom-in"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
+                    onClick={() => openImage(project.image, project.name)}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent pointer-events-none"></div>
                   
                   {/* Floating Project Icon */}
                   <motion.div
@@ -341,11 +384,12 @@ export default function Projects() {
                   <motion.img 
                     src={project.image} 
                     alt={project.name} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover cursor-zoom-in"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
+                    onClick={() => openImage(project.image, project.name)}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent pointer-events-none"></div>
                   
                   {/* Project Icon */}
                   <motion.div
@@ -362,9 +406,15 @@ export default function Projects() {
                   <h4 className="text-sm sm:text-base md:text-lg font-semibold text-cyan-400 mb-1 sm:mb-2 group-hover:text-cyan-300 transition-colors leading-tight">
                     {project.name}
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-300 mb-2 sm:mb-3 leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
+                  <div className="text-xs sm:text-sm text-slate-300 mb-2 sm:mb-3 leading-relaxed">
+                    <span className={`${expandedProject === project.name ? '' : 'line-clamp-3'}`}>{project.description}</span>{' '}
+                    <button
+                      className="inline text-cyan-400 hover:text-cyan-300 text-xs font-medium"
+                      onClick={() => setExpandedProject(expandedProject === project.name ? null : project.name)}
+                    >
+                      {expandedProject === project.name ? 'Show less' : 'Read more'}
+                    </button>
+                  </div>
                   
                   {/* Tech Stack */}
                   <div className="mb-2 sm:mb-3">
@@ -421,5 +471,34 @@ export default function Projects() {
         </div>
       </div>
     </section>
+    {selectedImage && (
+      <motion.div 
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={closeImage}
+      >
+        <motion.div 
+          className="relative w-full flex items-center justify-center"
+          initial={{ scale: 0.95 }}
+          animate={{ scale: 1 }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <img 
+            src={selectedImage.src} 
+            alt={selectedImage.alt} 
+            className="max-w-[90vw] max-h-[85vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
+          />
+          <button 
+            className="absolute -top-3 -right-3 bg-slate-900 text-white px-3 py-1 rounded-full border border-slate-700 hover:bg-slate-800"
+            onClick={closeImage}
+          >
+            Close
+          </button>
+        </motion.div>
+      </motion.div>
+    )}
+    </>
   );
 }
