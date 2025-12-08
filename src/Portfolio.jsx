@@ -7,6 +7,7 @@ import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope, FaRocket, FaCode, FaBrai
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import Experience from "./components/Experience";
 import Resume from "./components/Resume";
 
 export default function Portfolio() {
@@ -352,6 +353,7 @@ export default function Portfolio() {
       </section>
 
       <About />
+      <Experience />
       <Resume />  
       <section id="projects">
         <Projects />

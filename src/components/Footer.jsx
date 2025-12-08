@@ -136,6 +136,7 @@ export default function Footer() {
             <div className="space-y-2 sm:space-y-3 text-base sm:text-lg">
               {[
                 { href: "#about", label: "About" },
+                { href: "#experience", label: "Experience" },
                 { href: "#resume", label: "Resume" },
                 { href: "#projects", label: "Projects" },
                 { href: "#contact", label: "Contact" }

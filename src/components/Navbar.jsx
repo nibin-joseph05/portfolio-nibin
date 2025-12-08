@@ -14,7 +14,7 @@ export default function Navbar() {
       ticking = true;
       requestAnimationFrame(() => {
         setScrolled(window.scrollY > 50);
-        const sections = ["about", "education", "projects", "contact"];
+        const sections = ["about", "experience", "education", "projects", "contact"];
         let found = "top";
         sections.forEach((section) => {
           const element = document.getElementById(section);
@@ -44,7 +44,7 @@ export default function Navbar() {
         </motion.a>
 
         <nav className="hidden md:flex space-x-8 lg:space-x-10 text-base sm:text-lg font-medium">
-          {["About", "Education", "Projects", "Contact"].map((item, index) => (
+          {["About", "Experience", "Education", "Projects", "Contact"].map((item, index) => (
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -111,7 +111,7 @@ export default function Navbar() {
             exit={{ opacity: 0, x: "-100%" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
-            {["About", "Resume", "Projects", "Contact"].map((item, index) => (
+            {["About", "Experience", "Resume", "Projects", "Contact"].map((item, index) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}

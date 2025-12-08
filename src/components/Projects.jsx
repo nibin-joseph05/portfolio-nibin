@@ -8,8 +8,9 @@ const projects = [
     tech: "Flutter, Spring Boot, FastAPI, Go, PostgreSQL, LevelDB, Gemini API, BERT",
     image: "/portfolio-nibin/xpose.png",
     description: "A comprehensive crime reporting platform with AI-powered spam detection and urgency classification. Features anonymous reporting, multilingual support via Gemini API, immutable blockchain storage using Go and LevelDB, and real-time notifications. The system includes Flutter mobile app, Spring Boot backend, FastAPI ML microservice, and Next.js admin/police dashboards.",
+    githubRepo: "https://github.com/nibin-joseph05/Xpose",
     featured: true,
-    status: "In Development",
+    status: "Completed",
     icon: FaBrain,
     color: "from-purple-500 to-pink-600"
   },
