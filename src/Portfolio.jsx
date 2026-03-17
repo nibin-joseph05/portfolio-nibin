@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, Suspense, lazy } from "react";
 import Navbar from "./shared/components/Navbar";
 import Footer from "./shared/components/Footer";
+import ScrollToTop from "./shared/components/ScrollToTop";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope, FaRocket, FaCode, FaBrain, FaFileAlt, FaExternalLinkAlt } from "react-icons/fa";
@@ -58,7 +59,6 @@ export default function Portfolio() {
 
   return (
     <div className="bg-slate-900 text-white min-h-screen font-sans overflow-x-hidden">
-      {/* Advanced Animated Background with Performance Optimization */}
       <div className="fixed inset-0 z-0 text-cyan-400">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-40 transition-opacity duration-1000"
@@ -68,7 +68,6 @@ export default function Portfolio() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
         
-        {/* Optimized Floating Particles - Reduced count for mobile */}
         {[...Array(isMobile ? 5 : 10)].map((_, i) => (
           <motion.div
             key={i}
@@ -92,7 +91,6 @@ export default function Portfolio() {
         ))}
       </div>
 
-      {/* Advanced Loading Screen */}
       <AnimatePresence>
         {loading && (
           <motion.div 
@@ -101,25 +99,20 @@ export default function Portfolio() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
           >
-            {/* Advanced Loading Spinner */}
             <motion.div
               className="relative"
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              {/* Outer Ring */}
               <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 border-4 border-slate-300/30 border-t-cyan-500 rounded-full animate-spin"></div>
               
-              {/* Middle Ring */}
               <div className="absolute inset-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 border-4 border-transparent border-t-blue-500 rounded-full animate-spin" 
                    style={{ animationDirection: 'reverse', animationDuration: '1.2s' }}></div>
               
-              {/* Inner Ring */}
               <div className="absolute inset-2 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 border-4 border-transparent border-t-purple-500 rounded-full animate-spin" 
                    style={{ animationDuration: '1.8s' }}></div>
               
-              {/* Center Dot */}
               <motion.div
                 className="absolute inset-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center"
                 animate={{ rotate: 360 }}
@@ -129,7 +122,6 @@ export default function Portfolio() {
               </motion.div>
             </motion.div>
 
-            {/* Loading Text */}
             <motion.div
               className="mt-3 sm:mt-4 md:mt-6 text-center"
               initial={{ opacity: 0, y: 20 }}
@@ -145,7 +137,6 @@ export default function Portfolio() {
               </motion.p>
             </motion.div>
 
-            {/* Loading Progress Bar */}
             <motion.div
               className="mt-2 sm:mt-3 md:mt-4 w-24 sm:w-32 md:w-48 h-1 bg-slate-700 rounded-full overflow-hidden"
               initial={{ opacity: 0 }}
@@ -165,7 +156,6 @@ export default function Portfolio() {
 
       <Navbar />
 
-      {/* Advanced Hero Section - Centered Layout */}
       <section
         id="top"
         className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
@@ -254,7 +244,6 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Improved Scroll Indicator */}
         <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
@@ -288,8 +277,8 @@ export default function Portfolio() {
         </div>
       </Suspense>
       <Footer />
+      <ScrollToTop />
 
-      {/* Advanced CV Modal - Fully Responsive */}
       <AnimatePresence>
         {cvModalOpen && (
           <motion.div 
