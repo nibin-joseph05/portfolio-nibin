@@ -8,28 +8,28 @@ const Resume = () => {
 
   const educationData = [
     {
-      title: "Master's Degree 🎓",
-      duration: "July 2024 - Present",
-      college: "Marian College Kuttikkanam",
-      description: "Currently pursuing Master of Computer Application (MCA) at Marian College Kuttikkanam, Idukki, Kerala, India.",
+      title: "MCA",
+      duration: "2024 - 2026",
+      college: "Marian College Kuttikkanam (Autonomous)",
+      description: "Focused on: Full-Stack Development, AI Systems, Distributed Architectures. Major academic project: AURA — AI-Powered Safety, Wellness and Community Platform.",
       icon: FaGraduationCap,
       status: "In Progress",
       color: "from-cyan-500 to-blue-600"
     },
     {
-      title: "Bachelor's Degree 🎓",
-      duration: "July 2021 - 2024",
+      title: "BCA",
+      duration: "2021 - 2024",
       college: "St Antony's College Peruvanthanam",
-      description: "Completed Bachelor Of Computer Application (BCA) at St Antony's College Peruvanthanam, Idukki, Kerala, India.",
+      description: "Studied core subjects: Data Structures, DBMS, Operating Systems, Computer Networks, Web Development. Coordinated a VR experience during the tech festival.",
       icon: FaUniversity,
       status: "Completed",
       color: "from-green-500 to-emerald-600"
     },
     {
-      title: "Schooling 🏫",
+      title: "Schooling",
       duration: "2009 - 2021",
       college: "St Joseph Higher Secondary School Peruvanthanam",
-      description: "Completed my schooling at St Joseph Higher Secondary School Peruvanthanam, Idukki, Kerala, India.",
+      description: "Completed secondary education with core sciences and mathematics.",
       icon: FaSchool,
       status: "Completed",
       color: "from-purple-500 to-pink-600"

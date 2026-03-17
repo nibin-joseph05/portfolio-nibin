@@ -1,13 +1,33 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, memo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaCalendarAlt, FaMapMarkerAlt, FaRocket, FaBrain, FaCode, FaDatabase, FaCloud } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaCalendarAlt, FaMapMarkerAlt, FaRocket, FaBrain, FaCode, FaDatabase, FaCloud, FaInstagram } from "react-icons/fa";
+
+const SkillCategory = memo(({ category }) => (
+  <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl p-4 sm:p-5 hover:border-cyan-500/30 transition-all duration-300">
+    <div className="flex items-center gap-2 mb-3">
+      <div className={`w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+        <category.icon className="text-white text-xs" />
+      </div>
+      <h4 className="text-sm sm:text-base md:text-lg font-semibold text-slate-200">{category.category}</h4>
+    </div>
+    <div className="flex flex-wrap gap-2">
+      {category.items.map((item, idx) => (
+        <span 
+          key={idx} 
+          className="text-[10px] sm:text-xs font-semibold px-3 py-1 bg-slate-900/50 text-slate-300 rounded-full border border-slate-700/50"
+        >
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+));
 
 export default function About() {
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -30]);
 
-  // Optimized skill hover handling
   const handleSkillHover = useCallback((category) => {
     setHoveredSkill(category);
   }, []);
@@ -15,31 +35,43 @@ export default function About() {
   const skills = [
     { 
       category: "Languages", 
-      items: ["Python", "Java", "JavaScript", "TypeScript", "PHP", "C++", "Flutter", "Dart"],
+      items: ["Java", "Python", "Dart", "JavaScript", "TypeScript", "PHP", "C++"],
       icon: FaCode,
       color: "from-cyan-500 to-blue-600"
     },
     { 
-      category: "Web Frameworks", 
-      items: ["Django", "Spring Boot", "Next.js", "React", "React Vite", "Flask", "Laravel", "FastAPI"],
+      category: "Mobile Development", 
+      items: ["Flutter", "Kotlin (Jetpack Compose)"],
       icon: FaRocket,
       color: "from-blue-500 to-purple-600"
     },
     { 
-      category: "Databases", 
-      items: ["PostgreSQL", "MongoDB", "MySQL"],
+      category: "Backend", 
+      items: ["Spring Boot", "Spring Security", "Hibernate / JPA", "Django", "FastAPI", "Flask", "REST APIs", "Microservices"],
       icon: FaDatabase,
       color: "from-purple-500 to-pink-600"
     },
     { 
-      category: "ML/AI", 
-      items: ["Machine Learning", "NLP", "TF-IDF", "Cosine Similarity", "Sentence Embeddings"],
+      category: "Frontend", 
+      items: ["React", "Next.js", "HTML", "CSS", "Tailwind CSS"],
+      icon: FaRocket,
+      color: "from-green-500 to-teal-600"
+    },
+    { 
+      category: "Databases", 
+      items: ["PostgreSQL", "MySQL", "MongoDB", "LevelDB"],
+      icon: FaDatabase,
+      color: "from-teal-500 to-emerald-600"
+    },
+    { 
+      category: "AI / NLP", 
+      items: ["BERT", "TF-IDF", "MiniLM Embeddings", "SHAP Explainability"],
       icon: FaBrain,
       color: "from-pink-500 to-red-600"
     },
     { 
-      category: "Cloud & Tools", 
-      items: ["GCP", "AWS", "Git", "Docker", "Tailwind CSS", "HTML/CSS"],
+      category: "Tools & Platforms", 
+      items: ["Git", "Docker", "Firebase", "AWS", "Google Cloud Platform"],
       icon: FaCloud,
       color: "from-green-500 to-teal-600"
     }
@@ -47,7 +79,6 @@ export default function About() {
 
   return (
     <section id="about" className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
-      {/* Optimized Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-10 sm:top-20 left-10 sm:left-20 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-3xl"
@@ -98,10 +129,10 @@ export default function About() {
           A passionate and self-driven Full-Stack Developer with strong expertise in Java and Python
         </motion.p>
 
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
           {/* Left Column - Profile Info */}
           <motion.div
-            className="space-y-4 sm:space-y-6"
+            className="w-full lg:w-1/3 flex flex-col space-y-6"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -116,7 +147,7 @@ export default function About() {
               <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 p-1 shadow-xl">
                 <div
                   className="w-full h-full rounded-xl sm:rounded-2xl bg-cover bg-center relative overflow-hidden"
-                  style={{ backgroundImage: "url('/portfolio-nibin/my-pic.jpeg')" }}
+                  style={{ backgroundImage: "url('/portfolio-nibin/dp.jpg')" }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
                 </div>
@@ -189,18 +220,20 @@ export default function About() {
                 <FaRocket className="text-base sm:text-lg md:text-xl" />
                 Connect With Me
               </h3>
-              <div className="flex space-x-2 sm:space-x-3 justify-center sm:justify-start">
+              <div className="flex flex-wrap space-x-3 justify-center sm:justify-start gap-y-3">
                 {[
-                  { icon: FaGithub, href: "https://github.com/nibin-joseph05", color: "hover:shadow-cyan-500/50" },
-                  { icon: FaLinkedin, href: "https://www.linkedin.com/in/nibin-joseph05/", color: "hover:shadow-blue-500/50" },
-                  { icon: FaEnvelope, href: "mailto:nibin.joseph.career@gmail.com", color: "hover:shadow-cyan-500/50" }
+                  { icon: FaRocket, href: "https://linktr.ee/nibin__", label: "Linktree", color: "hover:shadow-cyan-500/50" },
+                  { icon: FaLinkedin, href: "https://www.linkedin.com/in/nibin-joseph05/", label: "LinkedIn", color: "hover:shadow-blue-500/50" },
+                  { icon: FaGithub, href: "https://github.com/nibin-joseph05", label: "GitHub", color: "hover:shadow-slate-500/50" },
+                  { icon: FaInstagram, href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram", color: "hover:shadow-purple-500/50" },
+                  { icon: FaEnvelope, href: "mailto:nibin.joseph.career@gmail.com", label: "Email", color: "hover:shadow-cyan-500/50" }
                 ].map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-2 sm:p-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} border border-slate-600 hover:border-cyan-500 flex-shrink-0`}
+                    className={`p-2 sm:p-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} border border-slate-600 hover:border-cyan-500 flex-shrink-0 flex items-center gap-2`}
                     whileHover={{ 
                       scale: 1.1,
                       rotate: [0, -3, 3, 0],
@@ -210,6 +243,7 @@ export default function About() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.05, duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
+                    title={social.label}
                   >
                     <social.icon className="text-base sm:text-lg md:text-xl" />
                   </motion.a>
@@ -220,7 +254,7 @@ export default function About() {
 
           {/* Right Column - About Text & Skills */}
           <motion.div
-            className="space-y-4 sm:space-y-6"
+            className="w-full lg:w-2/3 flex flex-col space-y-6"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
@@ -244,10 +278,8 @@ export default function About() {
                   viewport={{ once: true }}
                   className="text-xs sm:text-sm md:text-base"
                 >
-                  I'm a passionate and self-driven Full-Stack Developer with strong expertise in Java and Python. 
-                  Currently pursuing my Master of Computer Applications (MCA) at Marian College Kuttikkanam, 
-                  I thrive on building impactful web applications using technologies like Spring Boot, Django, 
-                  and integrating machine learning solutions.
+                  I am a Software Engineer and Full-Stack Developer based in Kerala, India.
+                  Currently working at AIBI Campus in Kochi, contributing to production mobile applications and backend services.
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
@@ -256,8 +288,7 @@ export default function About() {
                   viewport={{ once: true }}
                   className="text-xs sm:text-sm md:text-base"
                 >
-                  I'm experienced in both solo and team-based projects, always focusing on solving real-world 
-                  problems with clean, scalable code and innovative thinking.
+                  My work focuses on building scalable platforms, real-time systems, and mobile applications that integrate modern technologies such as AI services, blockchain-backed data integrity, and distributed architectures. I enjoy designing complete systems — from mobile interfaces and frontend experiences to backend APIs, databases, and infrastructure.
                 </motion.p>
                 <motion.div 
                   className="bg-gradient-to-r from-slate-700/50 to-slate-600/50 rounded-lg p-3 sm:p-4 space-y-2"
@@ -267,12 +298,20 @@ export default function About() {
                   viewport={{ once: true }}
                 >
                   <p className="flex items-start gap-2 text-xs sm:text-sm md:text-base">
-                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">🌱</span>
-                    <span><strong className="text-cyan-400">Currently learning:</strong> Deeper aspects of Machine Learning and Flutter app development.</span>
+                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">🚀</span>
+                    <span><strong className="text-cyan-400">Mobile:</strong> Development using Flutter and Kotlin.</span>
                   </p>
                   <p className="flex items-start gap-2 text-xs sm:text-sm md:text-base">
-                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">💬</span>
-                    <span><strong className="text-cyan-400">Ask me about:</strong> Python, Java, Django, Spring Boot, Next.js, PostgreSQL, NLP, and full-stack web development.</span>
+                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">⚙️</span>
+                    <span><strong className="text-cyan-400">Backend:</strong> Systems using Java Spring Boot and REST APIs.</span>
+                  </p>
+                  <p className="flex items-start gap-2 text-xs sm:text-sm md:text-base">
+                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">🌐</span>
+                    <span><strong className="text-cyan-400">Real-time:</strong> Communication using WebSockets.</span>
+                  </p>
+                  <p className="flex items-start gap-2 text-xs sm:text-sm md:text-base">
+                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">🧠</span>
+                    <span><strong className="text-cyan-400">AI:</strong> NLP integrations and blockchain-based integrity systems.</span>
                   </p>
                 </motion.div>
               </div>
@@ -288,42 +327,9 @@ export default function About() {
                 <FaCode className="text-base sm:text-lg md:text-xl" />
                 Technical Skills
               </h3>
-              <div className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {skills.map((skillGroup, index) => (
-                  <motion.div
-                    key={skillGroup.category}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.05, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                    onHoverStart={() => handleSkillHover(skillGroup.category)}
-                    onHoverEnd={() => handleSkillHover(null)}
-                  >
-                    <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                      <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-r ${skillGroup.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                        <skillGroup.icon className="text-white text-xs" />
-                      </div>
-                      <h4 className="text-sm sm:text-base md:text-lg font-semibold text-slate-200">{skillGroup.category}</h4>
-                    </div>
-                    <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
-                      {skillGroup.items.map((skill, skillIndex) => (
-                        <motion.span
-                          key={skillIndex}
-                          className={`px-2 sm:px-3 py-1 bg-gradient-to-r ${skillGroup.color} bg-opacity-20 border border-slate-600 rounded-full text-xs text-cyan-300 hover:bg-opacity-30 transition-all duration-300 cursor-default backdrop-blur-sm`}
-                          whileHover={{ 
-                            scale: 1.05,
-                            boxShadow: "0 8px 20px -5px rgba(6, 182, 212, 0.3)"
-                          }}
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: skillIndex * 0.03, duration: 0.3, ease: "easeOut" }}
-                          viewport={{ once: true }}
-                        >
-                          {skill}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </motion.div>
+                  <SkillCategory key={skillGroup.category} category={skillGroup} />
                 ))}
               </div>
             </motion.div>

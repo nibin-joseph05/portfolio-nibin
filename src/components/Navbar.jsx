@@ -18,7 +18,7 @@ export default function Navbar() {
         let found = "top";
         sections.forEach((section) => {
           const element = document.getElementById(section);
-          if (element && window.scrollY >= element.offsetTop - 80) {
+          if (element && window.scrollY >= element.offsetTop - 120) {
             found = section;
           }
         });
@@ -43,26 +43,32 @@ export default function Navbar() {
           Nibin Joseph
         </motion.a>
 
-        <nav className="hidden md:flex space-x-8 lg:space-x-10 text-base sm:text-lg font-medium">
-          {["About", "Experience", "Education", "Projects", "Contact"].map((item, index) => (
+        <nav className="hidden xl:flex space-x-4 lg:space-x-6 text-[13px] lg:text-sm font-medium">
+          {[
+            { id: "about", label: "About" },
+            { id: "experience", label: "Experience" },
+            { id: "education", label: "Education" },
+            { id: "projects", label: "Projects" },
+            { id: "contact", label: "Contact" }
+          ].map((item, index) => (
             <motion.a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.id}
+              href={`#${item.id}`}
               className={`relative text-white transition-all duration-300 ${
-                activeSection === item.toLowerCase() ? "text-cyan-400" : "hover:text-cyan-400"
+                activeSection === item.id ? "text-cyan-400" : "hover:text-cyan-400"
               }`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setActiveSection(item.toLowerCase())}
+              onClick={() => setActiveSection(item.id)}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              {item}
+              {item.label}
               <motion.div
                 className="absolute left-0 bottom-0 w-full h-[3px] bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full"
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: activeSection === item.toLowerCase() ? 1 : 0 }}
+                animate={{ scaleX: activeSection === item.id ? 1 : 0 }}
                 transition={{ duration: 0.3 }}
               />
             </motion.a>
@@ -111,22 +117,27 @@ export default function Navbar() {
             exit={{ opacity: 0, x: "-100%" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
-            {["About", "Experience", "Resume", "Projects", "Contact"].map((item, index) => (
+            {[
+              { id: "about", label: "About" },
+              { id: "experience", label: "Experience" },
+              { id: "education", label: "Education" },
+              { id: "projects", label: "Projects" },
+              { id: "contact", label: "Contact" }
+            ].map((item, index) => (
               <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-white hover:text-cyan-400 transition-all duration-300 relative group"
+                key={item.id}
+                href={`#${item.id}`}
+                className="text-white hover:text-cyan-400 transition-all duration-300 relative group text-center"
                 onClick={() => setNavOpen(false)}
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
+                transition={{ delay: 0.05 * index }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {item}
+                {item.label}
                 <motion.div
                   className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300 rounded-full"
-                  whileHover={{ width: "100%" }}
                 />
               </motion.a>
             ))}

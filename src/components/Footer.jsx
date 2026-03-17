@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaHeart, FaRocket, FaCode, FaBrain } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaHeart, FaRocket, FaCode, FaBrain, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -66,7 +66,7 @@ export default function Footer() {
               Nibin Joseph
             </motion.h2>
             <p className="text-slate-400 text-sm sm:text-base md:text-lg">
-              Full-Stack Developer & MCA Student
+              Software Engineer | Full-Stack Developer
             </p>
             <motion.div
               className="flex items-center justify-center md:justify-start gap-2 mt-2 sm:mt-3"
@@ -93,11 +93,13 @@ export default function Footer() {
               <FaRocket className="text-xl sm:text-2xl" />
               Connect With Me
             </h3>
-            <div className="flex justify-center space-x-4 sm:space-x-6">
+            <div className="flex justify-center flex-wrap gap-3 sm:gap-4 lg:gap-6">
               {[
-                { icon: FaGithub, href: "https://github.com/nibin-joseph05", color: "hover:shadow-cyan-500/50" },
-                { icon: FaLinkedin, href: "https://www.linkedin.com/in/nibin-joseph05/", color: "hover:shadow-blue-500/50" },
-                { icon: FaEnvelope, href: "mailto:nibin.joseph.career@gmail.com", color: "hover:shadow-cyan-500/50" }
+                { icon: FaRocket, href: "https://linktr.ee/nibin__", label: "Linktree", color: "hover:shadow-cyan-500/50" },
+                { icon: FaLinkedin, href: "https://www.linkedin.com/in/nibin-joseph05/", label: "LinkedIn", color: "hover:shadow-blue-500/50" },
+                { icon: FaGithub, href: "https://github.com/nibin-joseph05", label: "GitHub", color: "hover:shadow-slate-500/50" },
+                { icon: FaInstagram, href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram", color: "hover:shadow-purple-500/50" },
+                { icon: FaEnvelope, href: "mailto:nibin.joseph.career@gmail.com", label: "Email", color: "hover:shadow-cyan-500/50" }
               ].map((social, index) => (
                 <motion.a 
                   key={index}
@@ -114,6 +116,7 @@ export default function Footer() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  title={social.label}
                 >
                   <social.icon className="text-lg sm:text-xl md:text-2xl" />
                 </motion.a>
@@ -137,7 +140,7 @@ export default function Footer() {
               {[
                 { href: "#about", label: "About" },
                 { href: "#experience", label: "Experience" },
-                { href: "#resume", label: "Resume" },
+                { href: "#education", label: "Education" },
                 { href: "#projects", label: "Projects" },
                 { href: "#contact", label: "Contact" }
               ].map((link, index) => (
@@ -171,7 +174,7 @@ export default function Footer() {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
-            © {new Date().getFullYear()} Nibin Joseph. All Rights Reserved. 
+            © {new Date().getFullYear()} Nibin Joseph • Last Updated: March 2026
             <motion.span 
               className="flex items-center gap-2"
               whileHover={{ scale: 1.1 }}

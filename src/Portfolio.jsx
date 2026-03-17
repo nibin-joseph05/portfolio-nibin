@@ -1,14 +1,16 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope, FaRocket, FaCode, FaBrain } from "react-icons/fa";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope, FaRocket, FaCode, FaBrain, FaFileAlt, FaExternalLinkAlt } from "react-icons/fa";
+
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Resume from "./components/Resume";
+
+const Projects = lazy(() => import("./components/Projects"));
+const Contact = lazy(() => import("./components/Contact"));
 
 export default function Portfolio() {
   const [loading, setLoading] = useState(true);
@@ -19,7 +21,6 @@ export default function Portfolio() {
   const y = useTransform(scrollY, [0, 1000], [0, -200]);
   const springY = useSpring(y, { stiffness: 200, damping: 40 });
 
-  // Optimized mouse tracking with throttling
   const handleMouseMove = useCallback((e) => {
     if (!isMobile) {
       requestAnimationFrame(() => {
@@ -28,7 +29,6 @@ export default function Portfolio() {
     }
   }, [isMobile]);
 
-  // Responsive detection
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -57,23 +57,27 @@ export default function Portfolio() {
   return (
     <div className="bg-slate-900 text-white min-h-screen font-sans overflow-x-hidden">
       {/* Advanced Animated Background with Performance Optimization */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.08),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.08),transparent_50%)]"></div>
+      <div className="fixed inset-0 z-0 text-cyan-400">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-40 transition-opacity duration-1000"
+          style={{ backgroundImage: "url('/portfolio-nibin/main-image.jpg')" }}
+        ></div>
+        <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
         
         {/* Optimized Floating Particles - Reduced count for mobile */}
         {[...Array(isMobile ? 5 : 10)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-20"
+            className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-30"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
               y: [0, -100, 0],
-              opacity: [0.2, 0.6, 0.2],
+              opacity: [0.3, 0.7, 0.3],
               scale: [1, 1.2, 1],
             }}
             transition={{
@@ -159,208 +163,128 @@ export default function Portfolio() {
 
       <Navbar />
 
-      {/* Advanced Hero Section - Fully Responsive */}
-      <section id="top" className="relative flex justify-center items-center min-h-screen px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="absolute inset-0 w-full h-full bg-cover bg-center opacity-8"
-          style={{ backgroundImage: "url('/portfolio-nibin/main-image.jpg')" }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-        />
-
-        {/* Advanced Mouse Follow Effect - Desktop Only */}
-        {!isMobile && (
-          <motion.div
-            className="fixed w-48 h-48 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-gradient-to-r from-cyan-500/15 to-blue-500/15 rounded-full blur-3xl pointer-events-none z-0"
-            style={{
-              x: mousePosition.x - 96,
-              y: mousePosition.y - 96,
-            }}
-            animate={{
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-        )}
-
-        <motion.div
-          style={{ y: springY }}
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="relative text-center z-10 max-w-3xl sm:max-w-4xl mx-auto"
-        >
-          {/* Advanced Animated Icons */}
-          <motion.div
-            className="flex justify-center mb-3 sm:mb-4 md:mb-6 space-x-2 sm:space-x-3 md:space-x-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-          >
-            {[
-              { icon: FaCode, gradient: "from-cyan-500 to-blue-600" },
-              { icon: FaBrain, gradient: "from-blue-500 to-purple-600" },
-              { icon: FaRocket, gradient: "from-purple-500 to-pink-600" }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className={`p-2 sm:p-3 bg-gradient-to-r ${item.gradient} rounded-full shadow-lg`}
-                whileHover={{ scale: 1.1, rotate: 360 }}
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ 
-                  delay: 0.5 + index * 0.1, 
-                  duration: 0.4, 
-                  ease: "easeOut",
-                  hover: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
-                <item.icon className="text-base sm:text-lg md:text-xl text-white" />
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-2 sm:mb-3 md:mb-4 drop-shadow-2xl leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
-          >
-            Hi, I'm{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-pulse">
-              Nibin Joseph
-            </span>
-          </motion.h1>
-
-          <motion.p
-            className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-3 text-slate-300 drop-shadow-xl"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
-          >
-            👋 Full-Stack Developer
-          </motion.p>
-
-          <motion.div
-            className="text-sm sm:text-base md:text-lg lg:text-xl mt-2 sm:mt-3 md:mt-4 font-light text-slate-200 drop-shadow-2xl mb-4 sm:mb-6 md:mb-8 h-6 sm:h-8 md:h-10"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" }}
-          >
-            <Typewriter
-              options={{
-                strings: [
-                  "MCA Student at Marian College",
-                  "Java & Spring Boot Expert",
-                  "Python & Django Developer",
-                  "React & Next.js Enthusiast",
-                  "Machine Learning Practitioner",
-                  "Blockchain & AI Innovator"
-                ],
-                autoStart: true,
-                loop: true,
-                delay: 50,
-                deleteSpeed: 30
-              }}
-            />
-          </motion.div>
-          
-          {/* Advanced Social Links */}
-          <motion.div
-            className="flex justify-center space-x-2 sm:space-x-3 md:space-x-4 mb-4 sm:mb-6 md:mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.6, ease: "easeOut" }}
-          >
-            {[
-              { icon: FaGithub, href: "https://github.com/nibin-joseph05", color: "hover:shadow-cyan-500/50" },
-              { icon: FaLinkedin, href: "https://www.linkedin.com/in/nibin-joseph05/", color: "hover:shadow-blue-500/50" },
-              { icon: FaEnvelope, href: "mailto:nibin.joseph.career@gmail.com", color: "hover:shadow-cyan-500/50" }
-            ].map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-2 sm:p-3 bg-slate-800/50 backdrop-blur-sm hover:bg-slate-700/70 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} border border-slate-700 hover:border-cyan-500`}
-                whileHover={{ 
-                  scale: 1.1,
-                  rotate: [0, -5, 5, 0],
-                }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.3 + index * 0.1, duration: 0.4, ease: "easeOut" }}
-              >
-                <social.icon className="text-base sm:text-lg md:text-xl text-white" />
-              </motion.a>
-            ))}
-          </motion.div>
-
-          {/* Advanced Action Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.6, ease: "easeOut" }}
-          >
-            <motion.a
-              href="#contact"
-              className="group relative px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-sm sm:text-base md:text-lg font-semibold rounded-lg sm:rounded-xl transition-all duration-300 uppercase tracking-wide drop-shadow-lg hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25 overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative z-10">Get In Touch</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </motion.a>
+      {/* Advanced Hero Section - Centered Layout */}
+      <section
+        id="top"
+        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
             
-            <motion.button
-              onClick={() => setCvModalOpen(true)}
-              className="group relative px-4 sm:px-6 py-2.5 sm:py-3 border-2 border-cyan-500 text-sm sm:text-base md:text-lg font-semibold rounded-lg sm:rounded-xl transition-all duration-300 hover:bg-cyan-500 hover:text-white uppercase tracking-wide drop-shadow-lg hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25 overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative z-10">View Resume</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </motion.button>
-          </motion.div>
-        </motion.div>
-
-        {/* Advanced Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.8, duration: 0.6, ease: "easeOut" }}
-        >
-          <motion.div
-            className="w-3 h-5 sm:w-4 sm:h-6 md:w-5 md:h-8 border-2 border-cyan-400 rounded-full flex justify-center"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          >
             <motion.div
-              className="w-0.5 h-1 sm:h-1.5 md:h-2 bg-cyan-400 rounded-full mt-1 sm:mt-1.5 md:mt-2"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </motion.div>
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.h1
+                className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black text-white mb-4 leading-tight"
+              >
+                Nibin{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+                  Joseph
+                </span>
+              </motion.h1>
+
+              <motion.p
+                className="text-2xl sm:text-3xl font-bold text-slate-200 mb-6"
+              >
+                Software Engineer | Full-Stack & Mobile Developer
+              </motion.p>
+
+              <motion.div
+                className="text-xl sm:text-2xl font-medium text-cyan-400 mb-8 flex items-center justify-center gap-2"
+              >
+                <span>Flutter • Kotlin</span>
+                <span className="text-slate-500">|</span>
+              </motion.div>
+
+              <motion.p
+                className="text-slate-300 text-lg sm:text-xl mb-12 max-w-3xl mx-auto leading-relaxed"
+              >
+                Building scalable mobile applications and backend systems with modern technologies, 
+                real-time architectures, and AI integrations.
+              </motion.p>
+
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+                <motion.button
+                  onClick={() => setCvModalOpen(true)}
+                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl font-bold shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all flex items-center gap-2 text-lg"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaFileAlt /> View Resume
+                </motion.button>
+                
+                <motion.a
+                  href="https://linktr.ee/nibin__"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 bg-slate-800/80 backdrop-blur-md text-white rounded-2xl font-bold border border-slate-700 hover:bg-slate-700 hover:border-cyan-500/50 transition-all flex items-center gap-2 text-lg shadow-xl"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaRocket className="text-cyan-400" /> Linktree
+                </motion.a>
+
+                <div className="flex gap-4 w-full justify-center mt-4">
+                  {[
+                    { icon: FaGithub, href: "https://github.com/nibin-joseph05", label: "GitHub" },
+                    { icon: FaLinkedin, href: "https://www.linkedin.com/in/nibin-joseph05", label: "LinkedIn" },
+                    { icon: FaInstagram, href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram" },
+                    { icon: FaEnvelope, href: "mailto:nibin.joseph.career@gmail.com", label: "Email" }
+                  ].map((social, idx) => (
+                    <motion.a
+                      key={idx}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-4 bg-slate-800/80 backdrop-blur-md text-white rounded-2xl border border-slate-700 hover:border-cyan-500/50 transition-all shadow-lg"
+                      whileHover={{ scale: 1.1, y: -5, rotate: [0, -5, 5, 0] }}
+                      whileTap={{ scale: 0.9 }}
+                      title={social.label}
+                    >
+                      <social.icon size={24} />
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Improved Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <div className="w-6 h-10 border-2 border-slate-500 rounded-full flex justify-center p-1">
+            <div className="w-1 h-2 bg-slate-400 rounded-full"></div>
+          </div>
         </motion.div>
       </section>
 
-      <About />
-      <Experience />
-      <Resume />  
-      <section id="projects">
-        <Projects />
-      </section>
-      <section id="contact">
-        <Contact />
-      </section>
+      <div id="about" className="scroll-mt-24">
+        <About />
+      </div>
+      <div id="experience" className="scroll-mt-24">
+        <Experience />
+      </div>
+      <div id="education" className="scroll-mt-24">
+        <Resume />
+      </div>
+      
+      <Suspense fallback={<div className="py-20 text-center text-slate-500 text-xl animate-pulse">Loading Projects...</div>}>
+        <div id="projects" className="scroll-mt-24">
+          <Projects />
+        </div>
+      </Suspense>
+
+      <Suspense fallback={<div className="py-20 text-center text-slate-500 text-xl animate-pulse">Loading Contact...</div>}>
+        <div id="contact" className="scroll-mt-24">
+          <Contact />
+        </div>
+      </Suspense>
       <Footer />
 
       {/* Advanced CV Modal - Fully Responsive */}

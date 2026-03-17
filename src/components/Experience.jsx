@@ -5,18 +5,30 @@ import { FaMapMarkerAlt, FaClock, FaBriefcase, FaRocket } from "react-icons/fa";
 export default function Experience() {
   const role = {
     company: "AIBI Campus",
-    location: "Edappally, Kochi",
-    title: "Flutter Developer Intern",
-    period: "Present",
+    location: "Kochi, Kerala",
+    title: "Software Engineer",
+    period: "Nov 2025 – Present",
     summary:
-      "Building and maintaining Flutter applications for live projects, collaborating with AIBI's in-house team and supporting international client work.",
+      "Working as a Software Engineer contributing to production enterprise mobile applications and backend integrations.",
     highlights: [
-      "Implementing production-ready Flutter UI for mobile and web apps",
-      "Integrating REST APIs, handling state, and improving performance",
-      "Debugging, version control, and maintaining live client projects",
-      "Contributing to AIBI’s in-house and international client deliverables",
+      "Developing and maintaining the ANAD CRM mobile application built with Flutter",
+      "Implementing REST API integrations and backend communication",
+      "Improving application performance and fixing production issues",
+      "Collaborating with development teams through Git workflows",
     ],
-    logo: "public/aibi_campus_logo.jpg",
+    logo: "/portfolio-nibin/aibi_campus_logo.jpg", 
+    majorProject: {
+      name: "ANAD Dialer",
+      tech: "Kotlin, Jetpack Compose",
+      description: "Android application designed to monitor device call activity and synchronize data with CRM APIs.",
+      features: [
+        "Background call monitoring service",
+        "Automatic call log synchronization with CRM backend",
+        "Call recording detection and upload",
+        "Analytics dashboard with charts",
+        "Offline queue with automatic retry mechanisms"
+      ]
+    }
   };
 
   return (
@@ -134,14 +146,21 @@ export default function Experience() {
         >
           <h3 className="text-lg sm:text-xl font-semibold text-cyan-400 mb-3 flex items-center gap-2">
             <FaRocket className="text-base sm:text-lg" />
-            About AIBI Campus
+            Major Project Developed at Work: {role.majorProject.name}
           </h3>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            AIBI Campus is a tech-focused learning and delivery hub in Kochi, offering AI, data science,
-            and digital marketing programs with real-world projects, internships (including Dubai), and
-            placement assistance. The team delivers client work alongside training, using industry tools
-            and production standards.
-          </p>
+          <div className="space-y-4">
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <strong className="text-white">{role.majorProject.tech}:</strong> {role.majorProject.description}
+            </p>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {role.majorProject.features.map((feature, idx) => (
+                <div key={idx} className="flex items-center gap-2 text-slate-300 text-sm">
+                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full flex-shrink-0" />
+                  {feature}
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
