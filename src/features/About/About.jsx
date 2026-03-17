@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, memo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope, FaCalendarAlt, FaMapMarkerAlt, FaRocket, FaBrain, FaCode, FaDatabase, FaCloud, FaInstagram } from "react-icons/fa";
+import { IMAGES } from "../../core/constants/assets";
 
 const SkillCategory = memo(({ category }) => (
   <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl p-4 sm:p-5 hover:border-cyan-500/30 transition-all duration-300">
@@ -147,7 +148,7 @@ export default function About() {
               <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 p-1 shadow-xl">
                 <div
                   className="w-full h-full rounded-xl sm:rounded-2xl bg-cover bg-center relative overflow-hidden"
-                  style={{ backgroundImage: "url('/portfolio-nibin/dp.jpg')" }}
+                  style={{ backgroundImage: `url(${IMAGES.DP})` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
                 </div>

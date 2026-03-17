@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaClock, FaBriefcase, FaRocket } from "react-icons/fa";
+import { IMAGES } from "../../core/constants/assets";
 
 export default function Experience() {
   const role = {
@@ -16,7 +17,7 @@ export default function Experience() {
       "Improving application performance and fixing production issues",
       "Collaborating with development teams through Git workflows",
     ],
-    logo: "/portfolio-nibin/aibi_campus_logo.jpg", 
+    logo: IMAGES.AIBI_CAMPUS_LOGO, 
     majorProject: {
       name: "ANAD Dialer",
       tech: "Kotlin, Jetpack Compose",

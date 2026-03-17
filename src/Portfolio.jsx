@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useCallback, Suspense, lazy } from "react";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./shared/components/Navbar";
+import Footer from "./shared/components/Footer";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope, FaRocket, FaCode, FaBrain, FaFileAlt, FaExternalLinkAlt } from "react-icons/fa";
 
-import About from "./components/About";
-import Experience from "./components/Experience";
-import Resume from "./components/Resume";
+import { IMAGES, DOCUMENTS } from "./core/constants/assets";
 
-const Projects = lazy(() => import("./components/Projects"));
-const Contact = lazy(() => import("./components/Contact"));
+import About from "./features/About/About";
+import Experience from "./features/Experience/Experience";
+import Resume from "./features/Resume/Resume";
+
+const Projects = lazy(() => import("./features/Projects/Projects"));
+const Contact = lazy(() => import("./features/Contact/Contact"));
 
 export default function Portfolio() {
   const [loading, setLoading] = useState(true);
@@ -60,7 +62,7 @@ export default function Portfolio() {
       <div className="fixed inset-0 z-0 text-cyan-400">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-40 transition-opacity duration-1000"
-          style={{ backgroundImage: "url('/portfolio-nibin/main-image.jpg')" }}
+          style={{ backgroundImage: `url(${IMAGES.MAIN_IMAGE})` }}
         ></div>
         <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_50%)]"></div>
@@ -317,14 +319,14 @@ export default function Portfolio() {
               </div>
               <div className="p-3 sm:p-4">
                 <iframe
-                  src="/portfolio-nibin/nibin-resume.pdf"
+                  src={DOCUMENTS.RESUME}
                   className="w-full h-48 sm:h-64 md:h-80 rounded-lg border border-slate-600"
                   title="Resume Preview"
                 ></iframe>
               </div>
               <div className="p-3 sm:p-4 border-t border-slate-600 flex justify-end bg-gradient-to-r from-slate-800 to-slate-700">
                 <motion.a
-                  href="/portfolio-nibin/nibin-resume.pdf"
+                  href={DOCUMENTS.RESUME}
                   download
                   className="px-3 sm:px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2 text-xs sm:text-sm md:text-base"
                   whileHover={{ scale: 1.05 }}

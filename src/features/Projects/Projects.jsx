@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import React, { useState, useEffect, useCallback, memo } from "react";
 import { FaExternalLinkAlt, FaGithub, FaEye, FaRocket, FaCode, FaBrain, FaDatabase, FaCloud, FaPlay } from "react-icons/fa";
+import { IMAGES } from "../../core/constants/assets";
 
 const ProjectCard = memo(({ project, index, isFeatured, onImageClick, isExpanded, onExpand }) => (
   <motion.div
@@ -66,7 +67,7 @@ const projects = [
   {
     name: "AURA — AI-Powered Safety, Wellness & Community Platform",
     tech: "Flutter, Kotlin, Spring Boot, Next.js, Go (Blockchain), PostgreSQL, Firebase, Gemini AI",
-    image: "/portfolio-nibin/aura.jpg",
+    image: IMAGES.AURA,
     description: "AURA is a full-stack platform designed to integrate personal safety, community wellness, and real-time communication into a unified ecosystem. Features pulse-trigger SOS alerts, live GPS tracking, blockchain-based immutable event logging, WebSockets messaging, and an AI-powered wellness feed.",
     githubRepo: "https://github.com/nibin-joseph05/Aura",
     featured: true,
@@ -77,7 +78,7 @@ const projects = [
   {
     name: "Xpose - AI-Enabled Smart Crime Reporting System",
     tech: "Flutter, Spring Boot, FastAPI, Go, PostgreSQL, LevelDB, Gemini API, BERT",
-    image: "/portfolio-nibin/xpose.png",
+    image: IMAGES.XPOSE,
     description: "A comprehensive crime reporting platform featuring AI-powered spam detection and urgency classification. Integrates anonymous reporting, multilingual support via Gemini API, and immutable blockchain storage with real-time police/admin notifications.",
     githubRepo: "https://github.com/nibin-joseph05/Xpose",
     featured: true,
@@ -88,7 +89,7 @@ const projects = [
   {
     name: "Lyfex – Camera-based Health Snapshot",
     tech: "React Native (Expo), FastAPI, OpenCV, WebSocket",
-    image: "/portfolio-nibin/lyfex.png",
+    image: IMAGES.LYFEX,
     description: "Mobile-first AI wellness assistant estimating heart rate, stress, and emotion from camera feed. Uses computer vision and real-time WebSocket communication for instantaneous health metric feedback.",
     githubRepo: "https://github.com/nibin-joseph05/Lyfex",
     featured: true,
@@ -99,7 +100,7 @@ const projects = [
   {
     name: "MovieFlix - Online Movie Ticket Booking System",
     tech: "Spring Boot (Java), Next.js, PostgreSQL, Docker",
-    image: "/portfolio-nibin/movieflix.png",
+    image: IMAGES.MOVIEFLIX,
     description: "Robust booking system with OAuth authentication, location-based theater discovery, real-time seat selection, and Razorpay integration. Features QR-based tickets and automated email confirmations.",
     liveDemo: "https://movieflix-sooty.vercel.app/",
     githubRepo: "https://github.com/nibin-joseph05/movie-ticket-booking",
@@ -110,7 +111,7 @@ const projects = [
   {
     name: "PlaySpot - Football Turf Booking System",
     tech: "Django (Python), PostgreSQL, NLP (TF-IDF, Cosine Similarity, Sentence Embeddings)",
-    image: "/portfolio-nibin/playspot.png", 
+    image: IMAGES.FOOTBALL_TURF, 
     description: "Comprehensive turf booking platform with an NLP-driven FAQ Chatbot. Uses semantic embedding techniques for accurate user query understanding and real-time availability management.",
     liveDemo: "https://playspot-py.duckdns.org/",
     githubRepo: "https://github.com/nibin-joseph05/PlaySpot",
@@ -121,7 +122,7 @@ const projects = [
   {
     name: "Flask ML Model Predictor",
     tech: "Flask (Python), Scikit-learn, Pandas, NumPy",
-    image: "/portfolio-nibin/flask-ml.png", 
+    image: IMAGES.FLASK_ML, 
     description: "Web application integrating multiple regression and classification algorithms for predictive analytics. Features an interactive UI for real-time model evaluation and house price estimation.",
     liveDemo: "https://ml-models-flask.onrender.com/",
     githubRepo: "https://github.com/nibin-joseph05/ML-Models-Flask",
@@ -132,7 +133,7 @@ const projects = [
   {
     name: "Spice Shop - E-commerce Platform",
     tech: "Next.js, Spring Boot, MySQL",
-    image: "/portfolio-nibin/spice-shop.png", 
+    image: IMAGES.SPICE_SHOP, 
     description: "Modern e-commerce solution for spice retail featuring a Spring Boot backend for secure business logic and a dynamic Next.js frontend for high-performance user interaction.",
     featured: false,
     icon: FaRocket,
@@ -141,7 +142,7 @@ const projects = [
   {
     name: "JeztConnect – Flutter App for Jezt Technologies",
     tech: "Flutter (Dart), REST API, Token Auth",
-    image: "/portfolio-nibin/jezt.png",
+    image: IMAGES.JEZT,
     description: "Business analytics dashboard with token-based authentication and real-time data fetching. Focuses on polished UI animations and graceful error handling for enterprise use.",
     liveDemo: "https://drive.google.com/drive/u/1/folders/1JMtRKaBrT7M5yKHrGW7TH3-NIa76h90a",
     githubRepo: "https://github.com/nibin-joseph05/JeztConnect",
