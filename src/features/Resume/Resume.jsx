@@ -90,14 +90,14 @@ const Resume = () => {
         {/* Education Timeline */}
         <div className="relative">
           {/* Enhanced Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 sm:w-2 h-full bg-gradient-to-b from-cyan-500 via-blue-600 to-blue-700 rounded-full shadow-2xl shadow-cyan-500/50"></div>
+          <div className="absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 w-1 sm:w-2 h-full bg-gradient-to-b from-cyan-500 via-blue-600 to-blue-700 rounded-full shadow-2xl shadow-cyan-500/50"></div>
 
           {/* Education Items */}
           <div className="space-y-8 sm:space-y-12 md:space-y-16">
             {educationData.map((item, index) => (
               <motion.div 
                 key={index}
-                className={`relative flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                className={`relative flex items-center pt-8 sm:pt-0 ${index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100, scale: 0.8 }}
                 whileInView={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ duration: 1, delay: index * 0.3 }}
@@ -105,7 +105,7 @@ const Resume = () => {
               >
                 {/* Enhanced Timeline Dot */}
                 <motion.div 
-                  className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full border-2 sm:border-4 border-slate-900 z-10 shadow-2xl shadow-cyan-500/50"
+                  className="absolute left-4 sm:left-1/2 transform -translate-x-1/2 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full border-2 sm:border-4 border-slate-900 z-10 shadow-2xl shadow-cyan-500/50"
                   whileHover={{ scale: 1.3 }}
                   animate={{ 
                     boxShadow: [
@@ -122,7 +122,7 @@ const Resume = () => {
                 />
 
                 {/* Content Card */}
-                <div className={`w-11/12 sm:w-5/12 ${index % 2 === 0 ? 'pr-4 sm:pr-10' : 'pl-4 sm:pl-10'}`}>
+                <div className={`w-full sm:w-5/12 pl-12 sm:pl-0 ${index % 2 === 0 ? 'sm:pr-10' : 'sm:pl-10'}`}>
                   <motion.div 
                     className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500"
                     whileHover={{ 

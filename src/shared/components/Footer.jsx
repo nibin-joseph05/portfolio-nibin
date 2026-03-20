@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-white py-8 sm:py-12 md:py-16 relative overflow-hidden">
+    <footer className="bg-slate-900 text-white py-10 sm:py-12 md:py-16 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -95,7 +95,7 @@ export default function Footer() {
                   href={social.href} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className={`p-3 sm:p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-xl sm:rounded-2xl transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} border border-slate-700 hover:border-cyan-500 backdrop-blur-sm flex-shrink-0`}
+                  className={`p-2.5 sm:p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-xl sm:rounded-2xl transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} border border-slate-700 hover:border-cyan-500 backdrop-blur-sm flex-shrink-0`}
                   whileHover={{ 
                     scale: 1.1,
                     rotate: [0, -10, 10, 0],

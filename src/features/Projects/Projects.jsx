@@ -12,7 +12,7 @@ const ProjectCard = memo(({ project, index, isFeatured, onImageClick, isExpanded
     viewport={{ once: true }}
     whileHover={{ y: -10 }}
   >
-    <div className={`relative ${isFeatured ? 'h-48 sm:h-56 md:h-64' : 'h-32 sm:h-40 md:h-48'} overflow-hidden`}>
+    <div className={`relative ${isFeatured ? 'h-40 sm:h-56 md:h-64' : 'h-32 sm:h-40 md:h-48'} overflow-hidden`}>
       <img 
         src={project.image} 
         alt={project.name} 
@@ -31,7 +31,7 @@ const ProjectCard = memo(({ project, index, isFeatured, onImageClick, isExpanded
       )}
     </div>
 
-    <div className={`p-4 ${isFeatured ? 'sm:p-8' : 'sm:p-5'}`}>
+    <div className={`p-4 ${isFeatured ? 'sm:p-6 md:p-8' : 'sm:p-5'}`}>
       <h3 className={`font-bold text-white mb-2 ${isFeatured ? 'text-xl sm:text-2xl' : 'text-lg'} group-hover:text-cyan-400 transition-colors`}>
         {project.name}
       </h3>

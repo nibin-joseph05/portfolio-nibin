@@ -69,10 +69,10 @@ export default function Portfolio() {
       >
         <div className="absolute inset-0 z-0">
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-70"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:bg-fixed opacity-70"
             style={{ backgroundImage: `url(${IMAGES.MAIN_IMAGE})` }}
           ></div>
-          <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[1px]"></div>
+          <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-[1px]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_50%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
         </div>
@@ -85,7 +85,7 @@ export default function Portfolio() {
               transition={{ duration: 0.8 }}
             >
               <motion.h1
-                className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-white mb-4 leading-tight tracking-tighter"
+                className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-white mb-4 leading-tight tracking-tighter"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -96,7 +96,7 @@ export default function Portfolio() {
               </motion.h1>
 
               <motion.p
-                className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-100 mb-6 drop-shadow-lg"
+                className="text-xl sm:text-3xl md:text-4xl font-bold text-slate-100 mb-6 drop-shadow-lg"
               >
                 Software Engineer | Java & Spring Boot | Full-Stack Developer
               </motion.p>
@@ -104,7 +104,7 @@ export default function Portfolio() {
 
 
               <motion.p
-                className="text-slate-200 text-lg sm:text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md"
+                className="text-slate-200 text-base sm:text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md"
               >
                 Building scalable mobile applications and backend systems with modern technologies, 
                 real-time architectures, and AI integrations.

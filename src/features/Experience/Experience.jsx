@@ -82,7 +82,7 @@ export default function Experience() {
         <div className="grid gap-8">
           {/* Main Employment Block */}
           <motion.div
-            className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 md:p-10 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
+            className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-4 sm:p-6 md:p-10 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -148,7 +148,7 @@ export default function Experience() {
             {role.projects.map((project, idx) => (
               <motion.div
                 key={idx}
-                className="bg-slate-800/20 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col h-full"
+                className="bg-slate-800/20 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-5 sm:p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col h-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 * idx }}

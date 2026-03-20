@@ -6,7 +6,7 @@ import { IMAGES, DOCUMENTS } from "../../core/constants/assets";
 // Skill Item component for a cleaner list
 const SkillItem = ({ item }) => (
   <motion.span 
-    className="text-[10px] sm:text-xs font-semibold px-2.5 py-1 bg-slate-900/50 text-slate-300 rounded-full border border-slate-700/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all cursor-default font-sans"
+    className="text-[11px] sm:text-xs font-semibold px-3 py-1.5 bg-slate-900/50 text-slate-300 rounded-full border border-slate-700/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all cursor-default font-sans"
     whileHover={{ scale: 1.05 }}
   >
     {item}
@@ -96,7 +96,7 @@ export default function About() {
           >
             {/* Personal Details Block with Integrated DP */}
             <motion.div 
-              className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 md:p-8 border border-slate-700/50 shadow-2xl relative overflow-hidden group flex-grow flex flex-col items-center text-center"
+              className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 sm:p-8 border border-slate-700/50 shadow-2xl relative overflow-hidden group flex-grow flex flex-col items-center text-center"
               whileHover={{ y: -3, borderColor: "rgba(6, 182, 212, 0.3)" }}
               transition={{ duration: 0.4 }}
             >
@@ -225,7 +225,7 @@ export default function About() {
               transition={{ duration: 0.4 }}
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-50" />
-              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 uppercase tracking-wider text-sm font-sans">
+              <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 uppercase tracking-wider text-sm font-sans">
                 About Me
               </h3>
               <div className="space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base md:text-lg antialiased font-sans">
@@ -259,7 +259,7 @@ export default function About() {
               <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-8 uppercase tracking-wider text-sm font-sans">
                 Technical Stack
               </h3>
-              <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
                 {skills.map((group, idx) => (
                   <div key={idx} className="space-y-4">
                     <h4 className="text-[10px] sm:text-xs font-black text-slate-500 uppercase tracking-[0.2em] border-l-2 border-cyan-500 pl-3 font-sans">

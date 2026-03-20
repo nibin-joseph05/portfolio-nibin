@@ -43,7 +43,7 @@ export default function Navbar() {
           Nibin Joseph
         </motion.a>
 
-        <nav className="hidden xl:flex space-x-4 lg:space-x-6 text-[13px] lg:text-sm font-medium">
+        <nav className="hidden lg:flex space-x-4 lg:space-x-6 text-[13px] lg:text-sm font-medium">
           {[
             { id: "top", label: "Home" },
             { id: "about", label: "About" },
@@ -91,7 +91,7 @@ export default function Navbar() {
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="text-xs font-bold">CLOSE</span>
+                <span className="text-sm font-black tracking-widest">CLOSE</span>
               </motion.div>
             ) : (
               <motion.div
@@ -101,7 +101,7 @@ export default function Navbar() {
                 exit={{ rotate: -90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="text-xs font-bold">MENU</span>
+                <span className="text-sm font-black tracking-widest">MENU</span>
               </motion.div>
             )}
           </AnimatePresence>
@@ -154,7 +154,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <span className="text-xs font-bold">CLOSE</span>
+              <span className="text-sm font-black tracking-widest">CLOSE</span>
             </motion.button>
 
             {/* Background decoration for mobile menu */}

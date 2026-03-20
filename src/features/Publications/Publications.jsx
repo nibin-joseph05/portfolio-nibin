@@ -37,7 +37,7 @@ export default function Publications() {
         </motion.div>
 
         <motion.div
-          className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-8 md:p-12 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
+          className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 md:p-12 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
