@@ -113,7 +113,7 @@ export default function Portfolio() {
               <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
                 <motion.button
                   onClick={() => setCvModalOpen(true)}
-                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl font-bold shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all flex items-center gap-2 text-lg"
+                  className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all flex items-center gap-2 text-base"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -124,7 +124,7 @@ export default function Portfolio() {
                   href="https://linktr.ee/nibin__"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 bg-slate-800/80 backdrop-blur-md text-white rounded-2xl font-bold border border-slate-700 hover:bg-slate-700 hover:border-cyan-500/50 transition-all flex items-center gap-2 text-lg shadow-xl"
+                  className="px-6 py-3 bg-slate-800/80 backdrop-blur-md text-white rounded-xl font-bold border border-slate-700 hover:bg-slate-700 hover:border-cyan-500/50 transition-all flex items-center gap-2 text-base shadow-lg"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >

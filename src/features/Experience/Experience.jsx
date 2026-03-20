@@ -10,12 +10,12 @@ export default function Experience() {
     title: "Software Engineer",
     period: "Nov 2025 – Present",
     summary:
-      "Working as a Software Engineer contributing to production enterprise mobile applications and backend integrations.",
+      "Currently working as a Software Engineer at AIBI Campus, contributing to production-ready enterprise mobile applications and backend services.",
     highlights: [
-      "Developing and maintaining the ANAD CRM mobile application built with Flutter",
-      "Implementing REST API integrations and backend communication",
-      "Improving application performance and fixing production issues",
-      "Collaborating with development teams through Git workflows",
+      "Developing and maintaining production-grade mobile applications with Flutter.",
+      "Implementing REST API integrations and real-time backend communication.",
+      "Collaborating on Java-based backend services for enterprise data management.",
+      "Optimizing application performance and ensuring high code quality through Git workflows.",
     ],
     logo: IMAGES.AIBI_CAMPUS_LOGO, 
     majorProject: {
