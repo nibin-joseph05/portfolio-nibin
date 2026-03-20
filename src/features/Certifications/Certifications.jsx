@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 export default function Certifications() {
   const certs = [
     { title: "Flutter & Dart — Comprehensive Mobile Development", issuer: "Udemy / Google Certified Instructor", color: "from-cyan-500 to-blue-600" },
-    { title: "Kotlin for Android Development", issuer: "JetBrains Academy", color: "from-indigo-500 to-purple-600" },
-    { title: "Professional JVM Spring Boot Architecture", issuer: "Medium / Self-Guided Mastery", color: "from-emerald-500 to-teal-600" },
-    { title: "Data Structures and Algorithms using Java", issuer: "NPTEL (IIT Kharagpur)", color: "from-blue-500 to-indigo-600" },
-    { title: "Red Hat System Administration", issuer: "Red Hat", color: "from-red-500 to-orange-600" },
+    { title: "Kotlin for Android Development", issuer: "JetBrains Academy", color: "from-blue-500 to-cyan-600" },
+    { title: "Professional JVM Spring Boot Architecture", issuer: "Medium / Self-Guided Mastery", color: "from-cyan-500 to-blue-600" },
+    { title: "Data Structures and Algorithms using Java", issuer: "NPTEL (IIT Kharagpur)", color: "from-blue-600 to-indigo-700" },
+    { title: "Red Hat System Administration", issuer: "Red Hat", color: "from-cyan-400 to-blue-500" },
     { title: "Data Science Specialization (IBM Content)", issuer: "IBM / Cognitive Class", color: "from-blue-500 to-indigo-600" }
   ];
 
@@ -22,7 +22,7 @@ export default function Certifications() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
             Certifications
           </span>
         </motion.h2>
@@ -40,7 +40,7 @@ export default function Certifications() {
             >
               <h3 className="text-lg font-bold text-white mb-2 leading-tight mt-4">{cert.title}</h3>
               <div className="flex items-center justify-between mt-4">
-                <span className="text-emerald-400 text-sm font-medium">{cert.issuer}</span>
+                <span className="text-cyan-400 text-sm font-medium">{cert.issuer}</span>
               </div>
             </motion.div>
           ))}

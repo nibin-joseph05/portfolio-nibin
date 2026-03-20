@@ -1,233 +1,182 @@
 import React, { useState, useEffect, useCallback, memo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-import { IMAGES } from "../../core/constants/assets";
+import { IMAGES, DOCUMENTS } from "../../core/constants/assets";
 
-const SkillCategory = memo(({ category }) => (
-  <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl p-4 sm:p-5 hover:border-cyan-500/30 transition-all duration-300">
-    <div className="flex items-center gap-2 mb-3">
-      <h4 className="text-sm sm:text-base md:text-lg font-semibold text-slate-200">{category.category}</h4>
-    </div>
-    <div className="flex flex-wrap gap-2">
-      {category.items.map((item, idx) => (
-        <span 
-          key={idx} 
-          className="text-[10px] sm:text-xs font-semibold px-3 py-1 bg-slate-900/50 text-slate-300 rounded-full border border-slate-700/50"
-        >
-          {item}
-        </span>
-      ))}
-    </div>
-  </div>
-));
+const SkillItem = ({ item }) => (
+  <motion.span 
+    className="text-[10px] sm:text-xs font-semibold px-3 py-1 bg-slate-900/50 text-slate-300 rounded-full border border-slate-700/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all cursor-default"
+    whileHover={{ scale: 1.05 }}
+  >
+    {item}
+  </motion.span>
+);
 
 export default function About() {
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -30]);
 
-  const handleSkillHover = useCallback((category) => {
-    setHoveredSkill(category);
-  }, []);
-
   const skills = [
     { 
-      category: "Languages", 
+      category: "Programming Languages", 
       items: ["Java", "Python", "Dart", "JavaScript", "TypeScript", "PHP", "C++"],
-      color: "from-cyan-500 to-blue-600"
     },
     { 
-      category: "Mobile Development", 
-      items: ["Flutter", "Kotlin (Jetpack Compose)"],
-      color: "from-blue-500 to-purple-600"
+      category: "Mobile Ecosystem", 
+      items: ["Flutter", "Kotlin (Jetpack Compose)", "Android Architecture Components"],
     },
     { 
-      category: "Backend", 
-      items: ["Spring Boot", "Spring Security", "Hibernate / JPA", "Django", "FastAPI", "Flask", "REST APIs", "Microservices"],
-      color: "from-purple-500 to-pink-600"
+      category: "Backend & Systems", 
+      items: ["Spring Boot", "Spring Security", "Hibernate / JPA", "Django", "FastAPI", "Flask", "REST APIs", "Microservices", "WebSockets"],
     },
     { 
-      category: "Frontend", 
-      items: ["React", "Next.js", "HTML", "CSS", "Tailwind CSS"],
-      color: "from-green-500 to-teal-600"
+      category: "Web Frontend", 
+      items: ["React", "Next.js", "HTML5", "CSS3 / SCSS", "Tailwind CSS", "Framer Motion"],
     },
     { 
-      category: "Databases", 
-      items: ["PostgreSQL", "MySQL", "MongoDB", "Hive", "LevelDB"],
-      color: "from-teal-500 to-emerald-600"
+      category: "Database Systems", 
+      items: ["PostgreSQL", "MySQL", "MongoDB", "Hive", "LevelDB", "Redis"],
     },
     { 
-      category: "AI / NLP", 
-      items: ["BERT", "TF-IDF", "MiniLM Embeddings", "SHAP Explainability"],
-      color: "from-pink-500 to-red-600"
+      category: "AI & Data Science", 
+      items: ["LLMs (Gemini, Claude, OpenAI)", "NLP (BERT, TF-IDF, Spacy)", "Spam Detection & Urgency Classification", "GANs & VAEs", "Computer Vision (OpenCV)"],
     },
     { 
-      category: "Tools & Platforms", 
-      items: ["Git", "Docker", "Firebase", "AWS", "Google Cloud Platform"],
-      color: "from-green-500 to-teal-600"
+      category: "Tools & DevOps", 
+      items: ["Git", "GitHub", "Docker", "Postman", "Firebase", "VS Code", "Android Studio", "Vercel", "AWS / GCP Basics"],
     }
   ];
 
   return (
-    <section id="about" className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
+    <section id="about" className="py-12 sm:py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-10 sm:top-20 left-10 sm:left-20 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/5 rounded-full blur-[100px]"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-gradient-to-r from-purple-500/8 to-pink-500/8 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 35,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px]"
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 12, repeat: Infinity }}
         />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
-        <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 sm:mb-4"
-          initial={{ opacity: 0, y: -30 }}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
-            About Me
-          </span>
-        </motion.h2>
-
-        <motion.p
-          className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 text-center mb-6 sm:mb-8 md:mb-12 max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          A passionate and self-driven Full-Stack Developer with strong expertise in Java and Python
-        </motion.p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
+              Profile Summary
+            </span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto rounded-full" />
+        </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-          {/* Left Column - Profile Info */}
+          {/* Left Column - Image & Contact */}
           <motion.div
-            className="w-full lg:w-1/3 flex flex-col space-y-6"
+            className="w-full lg:w-1/3 space-y-8"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
-            {/* Optimized Profile Image */}
-            <motion.div 
-              className="relative"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 p-1 shadow-xl">
-                <div
-                  className="w-full h-full rounded-xl sm:rounded-2xl bg-cover bg-center relative overflow-hidden"
-                  style={{ backgroundImage: `url(${IMAGES.DP})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
-                </div>
-              </div>
+            {/* Professional DP Wrapper */}
+            <div className="relative group">
               <motion.div 
-                className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 md:-bottom-3 md:-right-3 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-green-500 rounded-full border-2 sm:border-3 border-slate-800 shadow-lg"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="relative z-10 w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto rounded-2xl overflow-hidden border-2 border-slate-700/50 group-hover:border-cyan-500/50 transition-all duration-500 shadow-2xl"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div
+                  className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${IMAGES.DP})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </motion.div>
+              
+              {/* Animated Accents */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/20 to-blue-600/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+              <motion.div 
+                className="absolute -bottom-2 -right-2 w-8 h-8 bg-cyan-500 rounded-full border-4 border-slate-900 shadow-lg z-20"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
               />
-              <motion.div
-                className="absolute -top-1 -left-1 sm:-top-2 sm:-left-2 md:-top-3 md:-left-3 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full shadow-lg"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              />
-            </motion.div>
+            </div>
 
-            {/* Optimized Personal Details */}
+            {/* Personal Details Block */}
             <motion.div 
-              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-slate-700/50 shadow-xl"
-              whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(6, 182, 212, 0.25)" }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
+              whileHover={{ y: -5, borderColor: "rgba(6, 182, 212, 0.4)" }}
+              transition={{ duration: 0.4 }}
             >
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-400 mb-3 sm:mb-4 flex items-center gap-2">
-                Personal Details
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-50" />
+              <h3 className="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2 uppercase tracking-wider text-sm">
+                Personal Baseline
               </h3>
-              <div className="space-y-2 sm:space-y-3">
+              <div className="space-y-4">
                 {[
-                  { label: "Birth Date", value: "November 5th, 2003" },
-                  { label: "Location", value: "Kerala, India" },
-                  { label: "Email", value: "nibin.joseph.career@gmail.com", link: true }
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center space-x-2 sm:space-x-3 p-2 rounded-lg bg-slate-700/30 hover:bg-slate-700/50 transition-colors"
-                    whileHover={{ x: 5 }}
-                    initial={{ opacity: 0, x: -15 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.4, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="min-w-0 flex-1">
-                      <p className="text-slate-300 text-xs sm:text-sm">{item.label}</p>
-                      {item.link ? (
-                        <a
-                          href={`mailto:${item.value}`}
-                          className="text-cyan-300 hover:text-cyan-200 transition-colors font-medium text-xs sm:text-sm break-all"
-                        >
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="text-white font-medium text-xs sm:text-sm">{item.value}</p>
-                      )}
-                    </div>
-                  </motion.div>
+                  { label: "Full Name", value: "Nibin Joseph" },
+                  { label: "Status", value: "Available for Hire" },
+                  { label: "Email", value: "nibin.joseph.career@gmail.com", link: "mailto:nibin.joseph.career@gmail.com" },
+                  { label: "Location", value: "Kerala, India" }
+                ].map((item, idx) => (
+                  <div key={idx} className="border-b border-slate-700/50 pb-2">
+                    <p className="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">{item.label}</p>
+                    {item.link ? (
+                      <a href={item.link} className="text-sm font-medium text-white hover:text-cyan-400 transition-colors uppercase antialiased">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-sm font-medium text-slate-200 uppercase antialiased">{item.value}</p>
+                    )}
+                  </div>
                 ))}
               </div>
+              
+              <motion.a
+                href={DOCUMENTS.RESUME}
+                download
+                className="mt-8 w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all border border-white/10"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Export CV (.PDF)
+              </motion.a>
             </motion.div>
 
-            {/* Optimized Social Links */}
+            {/* Social Integration */}
             <motion.div 
-              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-slate-700/50 shadow-xl"
-              whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(59, 130, 246, 0.25)" }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
+              whileHover={{ y: -5, borderColor: "rgba(59, 130, 246, 0.4)" }}
+              transition={{ duration: 0.4 }}
             >
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-400 mb-3 sm:mb-4 flex items-center gap-2">
-                Connect With Me
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-50" />
+              <h3 className="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2 uppercase tracking-wider text-sm">
+                Digital Presence
               </h3>
-              <div className="flex flex-wrap space-x-3 justify-center sm:justify-start gap-y-3">
+              <div className="grid grid-cols-2 gap-3">
                 {[
-                  { href: "https://linktr.ee/nibin__", label: "Linktree", color: "hover:shadow-cyan-500/50" },
-                  { href: "https://www.linkedin.com/in/nibin-joseph05/", label: "LinkedIn", color: "hover:shadow-blue-500/50" },
-                  { href: "https://github.com/nibin-joseph05", label: "GitHub", color: "hover:shadow-slate-500/50" },
-                  { href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram", color: "hover:shadow-purple-500/50" },
-                  { href: "mailto:nibin.joseph.career@gmail.com", label: "Email", color: "hover:shadow-cyan-500/50" }
-                ].map((social, index) => (
+                  { href: "https://linktr.ee/nibin__", label: "Linktree" },
+                  { href: "https://www.linkedin.com/in/nibin-joseph05/", label: "LinkedIn" },
+                  { href: "https://github.com/nibin-joseph05", label: "GitHub" },
+                  { href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram" }
+                ].map((social, idx) => (
                   <motion.a
-                    key={index}
+                    key={idx}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`px-3 py-1 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} border border-slate-600 hover:border-cyan-500 flex-shrink-0 flex items-center gap-2 font-bold text-xs`}
-                    whileHover={{ 
-                      scale: 1.1,
-                    }}
+                    className="p-3 bg-slate-900/50 hover:bg-slate-700/50 rounded-xl border border-slate-700 text-center text-[10px] font-black uppercase tracking-widest text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.05, duration: 0.4, ease: "easeOut" }}
-                    viewport={{ once: true }}
                   >
                     {social.label}
                   </motion.a>
@@ -236,82 +185,67 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - About Text & Skills */}
+          {/* Right Column - Profile Narrative & Mastery */}
           <motion.div
-            className="w-full lg:w-2/3 flex flex-col space-y-6"
+            className="w-full lg:w-2/3 space-y-8"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
-            {/* Optimized About Text */}
+            {/* Bio Section */}
             <motion.div 
-              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-slate-700/50 shadow-xl"
-              whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(168, 85, 247, 0.25)" }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-8 md:p-10 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
+              whileHover={{ borderColor: "rgba(6, 182, 212, 0.4)" }}
+              transition={{ duration: 0.4 }}
             >
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-400 mb-3 sm:mb-4 flex items-center gap-2">
-                Who I Am
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-50" />
+              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6">
+                Professional Manifesto
               </h3>
-              <div className="space-y-3 sm:space-y-4 text-slate-300 leading-relaxed">
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1, duration: 0.4, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                  className="text-xs sm:text-sm md:text-base"
-                >
-                  I am a Software Engineer and Full-Stack Developer based in Kerala, India.
-                  Currently working at AIBI Campus in Kochi, contributing to production mobile applications and backend services.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.4, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                  className="text-xs sm:text-sm md:text-base"
-                >
-                  My work focuses on building scalable platforms, real-time systems, and mobile applications that integrate modern technologies such as AI services, blockchain-backed data integrity, and distributed architectures. I enjoy designing complete systems — from mobile interfaces and frontend experiences to backend APIs, databases, and infrastructure.
-                </motion.p>
-                <motion.div 
-                  className="bg-gradient-to-r from-slate-700/50 to-slate-600/50 rounded-lg p-3 sm:p-4 space-y-2"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                >
-                  <p className="flex items-start gap-2 text-xs sm:text-sm md:text-base">
-                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">🚀</span>
-                    <span><strong className="text-cyan-400">Mobile:</strong> Development using Flutter and Kotlin.</span>
-                  </p>
-                  <p className="flex items-start gap-2 text-xs sm:text-sm md:text-base">
-                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">⚙️</span>
-                    <span><strong className="text-cyan-400">Backend:</strong> Systems using Java Spring Boot and REST APIs.</span>
-                  </p>
-                  <p className="flex items-start gap-2 text-xs sm:text-sm md:text-base">
-                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">🌐</span>
-                    <span><strong className="text-cyan-400">Real-time:</strong> Communication using WebSockets.</span>
-                  </p>
-                  <p className="flex items-start gap-2 text-xs sm:text-sm md:text-base">
-                    <span className="text-base sm:text-lg flex-shrink-0 mt-0.5">🧠</span>
-                    <span><strong className="text-cyan-400">AI:</strong> NLP integrations and blockchain-based integrity systems.</span>
-                  </p>
-                </motion.div>
+              <div className="space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base md:text-lg antialiased">
+                <p>
+                  I am a <strong className="text-white">Software Engineer</strong> and <strong className="text-white">Full-Stack Architect</strong> driven by the challenge of bridging complex backend systems with high-performance mobile interfaces. Based in Kerala, India, I specialize in crafting scalable platforms that balance technical integrity with seamless user experiences.
+                </p>
+                <p>
+                  My recent work at <strong className="text-cyan-400">AIBI Campus</strong> involves architecting real-time mobile applications using <strong className="text-white">Flutter</strong> and high-throughput backend services with <strong className="text-white">Spring Boot</strong>. I am passionate about integrating AI-driven insights and ensuring data security through immutable architectures.
+                </p>
+                <div className="grid md:grid-cols-2 gap-6 pt-4">
+                  {[
+                    { label: "Focus", value: "Distributed scalability and AI/LLM integration." },
+                    { label: "Motto", value: "Building for performance, security, and human impact." }
+                  ].map((item, idx) => (
+                    <div key={idx} className="p-4 bg-slate-900/50 rounded-xl border border-slate-700/50">
+                      <p className="text-[10px] uppercase text-cyan-500 font-black tracking-tighter mb-1">{item.label}</p>
+                      <p className="text-sm text-slate-200 antialiased font-medium">{item.value}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
-            {/* Optimized Skills Section */}
+            {/* Unified Mastery Section */}
             <motion.div 
-              className="bg-slate-800/30 backdrop-blur-xl rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-slate-700/50 shadow-xl"
-              whileHover={{ y: -3, boxShadow: "0 20px 40px -12px rgba(34, 197, 94, 0.25)" }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-8 md:p-10 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
+              whileHover={{ borderColor: "rgba(6, 182, 212, 0.4)" }}
+              transition={{ duration: 0.4 }}
             >
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-400 mb-4 sm:mb-6 flex items-center gap-2">
-                Technical Skills
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-50" />
+              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-8">
+                Technical Stack
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                {skills.map((skillGroup, index) => (
-                  <SkillCategory key={skillGroup.category} category={skillGroup} />
+              <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10">
+                {skills.map((group, idx) => (
+                  <div key={idx} className="space-y-4">
+                    <h4 className="text-[10px] sm:text-xs font-black text-slate-500 uppercase tracking-[0.2em] border-l-2 border-cyan-500 pl-3">
+                      {group.category}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {group.items.map((skill, sIdx) => (
+                        <SkillItem key={sIdx} item={skill} />
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </motion.div>

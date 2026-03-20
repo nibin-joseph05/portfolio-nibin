@@ -35,7 +35,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 bg-slate-900 text-white relative overflow-hidden"
     >
       {/* Background accents */}
       <div className="absolute inset-0 overflow-hidden">
@@ -45,7 +45,7 @@ export default function Experience() {
           transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
-          className="absolute bottom-12 right-10 w-56 h-56 sm:w-80 sm:h-80 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
+          className="absolute bottom-12 right-10 w-56 h-56 sm:w-80 sm:h-80 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"
           animate={{ scale: [1.1, 0.95, 1.1], rotate: [360, 180, 0] }}
           transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
         />
@@ -59,7 +59,7 @@ export default function Experience() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
             Experience
           </span>
         </motion.h2>

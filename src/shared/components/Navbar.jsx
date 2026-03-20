@@ -36,7 +36,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center py-3 sm:py-4 md:py-5 px-4 sm:px-6">
         <motion.a
           href="#top"
-          className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:from-cyan-300 hover:via-blue-400 hover:to-purple-500 transition-all duration-300"
+          className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 hover:from-cyan-300 hover:via-blue-400 hover:to-blue-500 transition-all duration-300"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -45,6 +45,7 @@ export default function Navbar() {
 
         <nav className="hidden xl:flex space-x-4 lg:space-x-6 text-[13px] lg:text-sm font-medium">
           {[
+            { id: "top", label: "Home" },
             { id: "about", label: "About" },
             { id: "experience", label: "Experience" },
             { id: "education", label: "Education" },
@@ -66,7 +67,7 @@ export default function Navbar() {
             >
               {item.label}
               <motion.div
-                className="absolute left-0 bottom-0 w-full h-[3px] bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full"
+                className="absolute left-0 bottom-0 w-full h-[3px] bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 rounded-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: activeSection === item.id ? 1 : 0 }}
                 transition={{ duration: 0.3 }}
@@ -118,6 +119,7 @@ export default function Navbar() {
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
             {[
+              { id: "top", label: "Home" },
               { id: "about", label: "About" },
               { id: "experience", label: "Experience" },
               { id: "education", label: "Education" },

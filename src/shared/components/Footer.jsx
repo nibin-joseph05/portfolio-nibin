@@ -20,7 +20,7 @@ export default function Footer() {
           }}
         />
         <motion.div
-          className="absolute bottom-10 sm:bottom-10 right-10 sm:right-10 w-56 h-56 sm:w-96 sm:h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
+          className="absolute bottom-10 sm:bottom-10 right-10 sm:right-10 w-56 h-56 sm:w-96 sm:h-96 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1.3, 1, 1.3],
             rotate: [360, 180, 0],
@@ -34,9 +34,9 @@ export default function Footer() {
       </div>
 
       {/* Top border with gradient */}
-      <div className="border-t-2 border-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 w-full mb-8 sm:mb-12 relative">
+      <div className="border-t-2 border-gradient-to-r from-cyan-500 via-blue-600 to-blue-700 w-full mb-8 sm:mb-12 relative">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 opacity-50"
+          className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-blue-700 opacity-50"
           animate={{
             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
           }}
@@ -59,7 +59,7 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <motion.h2 
-              className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-2 sm:mb-3"
+              className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 bg-clip-text text-transparent mb-2 sm:mb-3"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -87,7 +87,7 @@ export default function Footer() {
                 { href: "https://linktr.ee/nibin__", label: "Linktree", color: "hover:shadow-cyan-500/50" },
                 { href: "https://www.linkedin.com/in/nibin-joseph05/", label: "LinkedIn", color: "hover:shadow-blue-500/50" },
                 { href: "https://github.com/nibin-joseph05", label: "GitHub", color: "hover:shadow-slate-500/50" },
-                { href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram", color: "hover:shadow-purple-500/50" },
+                { href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram", color: "hover:shadow-blue-500/50" },
                 { href: "mailto:nibin.joseph.career@gmail.com", label: "Email", color: "hover:shadow-cyan-500/50" }
               ].map((social, index) => (
                 <motion.a 

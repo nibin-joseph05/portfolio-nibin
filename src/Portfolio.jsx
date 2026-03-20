@@ -85,12 +85,12 @@ export default function Portfolio() {
               transition={{ duration: 0.8 }}
             >
               <motion.h1
-                className="text-6xl sm:text-7xl md:text-8xl xl:text-9xl font-black text-white mb-4 leading-tight tracking-tighter"
+                className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-white mb-4 leading-tight tracking-tighter"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 Nibin{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
                   Joseph
                 </span>
               </motion.h1>
@@ -101,18 +101,7 @@ export default function Portfolio() {
                 Software Engineer | Java & Spring Boot | Full-Stack Developer
               </motion.p>
 
-              <motion.div
-                className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8"
-              >
-                {["Flutter", "Kotlin", "Java", "Spring Boot", "Node.js", "AI/ML"].map((skill, index) => (
-                  <span 
-                    key={skill}
-                    className="px-4 py-1.5 text-sm sm:text-base font-bold bg-slate-800/60 backdrop-blur-md rounded-full text-cyan-400 border border-slate-700/50 hover:border-cyan-500/50 transition-all cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </motion.div>
+
 
               <motion.p
                 className="text-slate-200 text-lg sm:text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md"
@@ -142,26 +131,7 @@ export default function Portfolio() {
                   Linktree
                 </motion.a>
 
-                <div className="flex gap-4 w-full justify-center mt-4">
-                  {[
-                    { href: "https://github.com/nibin-joseph05", label: "GitHub" },
-                    { href: "https://www.linkedin.com/in/nibin-joseph05", label: "LinkedIn" },
-                    { href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram" },
-                    { href: "mailto:nibin.joseph.career@gmail.com", label: "Email" }
-                  ].map((social, idx) => (
-                    <motion.a
-                      key={idx}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-slate-800/80 backdrop-blur-md text-white rounded-2xl border border-slate-700 hover:border-cyan-500/50 transition-all shadow-lg font-bold text-sm"
-                      whileHover={{ scale: 1.1, y: -5 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      {social.label}
-                    </motion.a>
-                  ))}
-                </div>
+
               </div>
             </motion.div>
           </div>
@@ -228,7 +198,7 @@ export default function Portfolio() {
                 <h2 className="text-base sm:text-lg md:text-xl font-bold text-cyan-400">My Resume</h2>
                 <motion.button
                   onClick={() => setCvModalOpen(false)}
-                  className="text-slate-400 hover:text-red-400 text-lg sm:text-xl md:text-2xl font-bold transition-colors p-1 hover:bg-slate-700 rounded-lg"
+                  className="text-slate-400 hover:text-cyan-400 text-lg sm:text-xl md:text-2xl font-bold transition-colors p-1 hover:bg-slate-700 rounded-lg"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >

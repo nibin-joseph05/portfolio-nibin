@@ -45,7 +45,7 @@ export default function SystemArchitecture() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
               System Architecture
             </span>
           </h2>
@@ -76,23 +76,23 @@ export default function SystemArchitecture() {
             <ArchitectureNode 
               title="Spring Boot Backend"
               description="High-performance REST API & WebSocket server handling real-time SOS alerts and data orchestrations."
-              color="from-indigo-600 to-purple-700"
+              color="from-blue-600 to-cyan-700"
             />
           </div>
 
-          <div className="w-1 h-12 bg-gradient-to-b from-indigo-500/50 to-purple-500/50 hidden lg:block"></div>
+          <div className="w-1 h-12 bg-gradient-to-b from-blue-500/50 to-cyan-500/50 hidden lg:block"></div>
 
           {/* Bottom Layer: Data & Blockchain */}
           <div className="flex flex-wrap justify-center gap-8 w-full">
             <ArchitectureNode 
               title="PostgreSQL"
               description="Secure relational storage for user profiles, wellness logs, and application state."
-              color="from-purple-600 to-pink-700"
+              color="from-blue-600 to-indigo-700"
             />
             <ArchitectureNode 
               title="Blockchain Layer"
               description="Go-based implementation for immutable event logging and verified safety records."
-              color="from-pink-600 to-rose-700"
+              color="from-cyan-600 to-blue-700"
             />
           </div>
         </div>

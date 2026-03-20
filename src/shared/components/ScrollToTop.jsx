@@ -37,7 +37,19 @@ export default function ScrollToTop() {
           className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-500/40 border border-white/10 backdrop-blur-sm transition-all duration-300 flex items-center justify-center min-w-[60px]"
           aria-label="Scroll to top"
         >
-          <span className="text-xs font-bold">TOP</span>
+          <svg 
+            className="w-6 h-6 text-white" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={3} 
+              d="M5 10l7-7m0 0l7 7m-7-7v18" 
+            />
+          </svg>
           
           <motion.div
             className="absolute inset-0 rounded-2xl bg-cyan-400/20"

@@ -82,7 +82,7 @@ const projects = [
     githubRepo: "https://github.com/nibin-joseph05/Xpose",
     featured: true,
     status: "Completed",
-    color: "from-purple-500 to-pink-600"
+    color: "from-blue-600 to-cyan-700"
   },
   {
     name: "Lyfex – Camera-based Health Snapshot",
@@ -92,7 +92,7 @@ const projects = [
     githubRepo: "https://github.com/nibin-joseph05/Lyfex",
     featured: true,
     status: "Completed",
-    color: "from-teal-500 to-emerald-600"
+    color: "from-cyan-600 to-blue-700"
   },
   {
     name: "MovieFlix - Online Movie Ticket Booking System",
@@ -112,7 +112,7 @@ const projects = [
     liveDemo: "https://playspot-py.duckdns.org/",
     githubRepo: "https://github.com/nibin-joseph05/PlaySpot",
     featured: true,
-    color: "from-green-500 to-teal-600"
+    color: "from-blue-500 to-cyan-600"
   },
   {
     name: "Flask ML Model Predictor",
@@ -122,7 +122,7 @@ const projects = [
     liveDemo: "https://ml-models-flask.onrender.com/",
     githubRepo: "https://github.com/nibin-joseph05/ML-Models-Flask",
     featured: true,
-    color: "from-pink-500 to-red-600"
+    color: "from-cyan-600 to-blue-700"
   },
   {
     name: "Spice Shop - E-commerce Platform",
@@ -130,7 +130,7 @@ const projects = [
     image: IMAGES.SPICE_SHOP, 
     description: "Modern e-commerce solution for spice retail featuring a Spring Boot backend for secure business logic and a dynamic Next.js frontend for high-performance user interaction.",
     featured: false,
-    color: "from-orange-500 to-red-600"
+    color: "from-cyan-500 to-blue-500"
   },
   {
     name: "FitTrack – Offline Gym Progress Tracking App",
@@ -139,7 +139,7 @@ const projects = [
     description: "Fully offline-first Flutter application for tracking workouts, sets, reps, and strength progression. Implemented using Clean Architecture with modular feature-based structure and Hive for local persistence.",
     githubRepo: "https://github.com/nibin-joseph05/FitTrack",
     featured: false,
-    color: "from-blue-500 to-indigo-600"
+    color: "from-blue-500 to-cyan-600"
   },
   {
     name: "JeztConnect – Flutter App for Jezt Technologies",
@@ -149,7 +149,7 @@ const projects = [
     liveDemo: "https://drive.google.com/drive/u/1/folders/1JMtRKaBrT7M5yKHrGW7TH3-NIa76h90a",
     githubRepo: "https://github.com/nibin-joseph05/JeztConnect",
     featured: false,
-    color: "from-indigo-500 to-blue-600"
+    color: "from-cyan-400 to-blue-600"
   }
 ];
 
@@ -182,7 +182,7 @@ export default function Projects() {
 
   return (
     <>
-    <section id="projects" className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
+    <section id="projects" className="py-8 sm:py-12 md:py-16 bg-slate-900 text-white relative overflow-hidden">
       {/* Optimized Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -198,7 +198,7 @@ export default function Projects() {
           }}
         />
         <motion.div
-          className="absolute bottom-10 sm:bottom-10 right-10 sm:right-10 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-gradient-to-r from-purple-500/8 to-pink-500/8 rounded-full blur-3xl"
+          className="absolute bottom-10 sm:bottom-10 right-10 sm:right-10 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-gradient-to-r from-blue-500/8 to-cyan-500/8 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0],
@@ -220,7 +220,7 @@ export default function Projects() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
             Featured Projects
           </span>
         </motion.h2>

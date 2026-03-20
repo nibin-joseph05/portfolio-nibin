@@ -27,7 +27,7 @@ export default function ProfessionalWork() {
         "Analytics dashboard",
         "Offline retry queue"
       ],
-      color: "from-purple-500 to-pink-600"
+      color: "from-blue-600 to-cyan-700"
     }
   ];
 
@@ -41,7 +41,7 @@ export default function ProfessionalWork() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
             Professional Work
           </span>
         </motion.h2>
@@ -79,7 +79,7 @@ export default function ProfessionalWork() {
                       href={item.playStore}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg text-sm font-bold shadow-lg hover:shadow-green-500/20 transition-all"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg text-sm font-bold shadow-lg hover:shadow-cyan-500/20 transition-all"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >

@@ -21,7 +21,7 @@ const Resume = () => {
       college: "St Antony's College Peruvanthanam",
       description: "Studied core subjects: Data Structures, DBMS, Operating Systems, Computer Networks, Web Development. Coordinated a VR experience during the tech festival.",
       status: "Completed",
-      color: "from-green-500 to-emerald-600"
+      color: "from-blue-500 to-cyan-600"
     },
     {
       title: "Schooling",
@@ -29,7 +29,7 @@ const Resume = () => {
       college: "St Joseph Higher Secondary School Peruvanthanam",
       description: "Completed secondary education with core sciences and mathematics.",
       status: "Completed",
-      color: "from-purple-500 to-pink-600"
+      color: "from-blue-500 to-cyan-500"
     },
   ];
 
@@ -50,7 +50,7 @@ const Resume = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-56 h-56 sm:w-96 sm:h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
+          className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-56 h-56 sm:w-96 sm:h-96 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0],
@@ -72,7 +72,7 @@ const Resume = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
             Education
           </span>
         </motion.h2>
@@ -90,7 +90,7 @@ const Resume = () => {
         {/* Education Timeline */}
         <div className="relative">
           {/* Enhanced Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 sm:w-2 h-full bg-gradient-to-b from-cyan-500 via-blue-600 to-purple-600 rounded-full shadow-2xl shadow-cyan-500/50"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 sm:w-2 h-full bg-gradient-to-b from-cyan-500 via-blue-600 to-blue-700 rounded-full shadow-2xl shadow-cyan-500/50"></div>
 
           {/* Education Items */}
           <div className="space-y-8 sm:space-y-12 md:space-y-16">
@@ -140,7 +140,7 @@ const Resume = () => {
                       <motion.span 
                         className={`px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-semibold self-start sm:self-auto ${
                           item.status === 'Completed' 
-                            ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                            ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30' 
                             : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
                         }`}
                         whileHover={{ scale: 1.1 }}

@@ -58,21 +58,21 @@ export default function Contact() {
       title: "Location",
       value: "Kerala, India",
       link: null,
-      color: "from-green-500 to-emerald-600"
+      color: "from-blue-500 to-cyan-600"
     },
     {
       title: "Available for",
       value: "Freelance & Full-time",
       link: null,
-      color: "from-purple-500 to-pink-600"
+      color: "from-cyan-600 to-blue-700"
     }
   ];
 
   const quickInfo = [
     { label: "Available for", value: "Full-time positions, Freelance projects, Collaborations", color: "from-cyan-500 to-blue-600" },
-    { label: "Response time", value: "Within 24 hours", color: "from-green-500 to-emerald-600" },
-    { label: "Timezone", value: "IST (UTC+5:30)", color: "from-purple-500 to-pink-600" },
-    { label: "Preferred", value: "Remote work, Hybrid opportunities", color: "from-orange-500 to-red-600" }
+    { label: "Response time", value: "Within 24 hours", color: "from-blue-500 to-cyan-600" },
+    { label: "Timezone", value: "IST (UTC+5:30)", color: "from-cyan-500 to-blue-600" },
+    { label: "Preferred", value: "Remote work, Hybrid opportunities", color: "from-blue-600 to-cyan-700" }
   ];
 
   return (
@@ -95,7 +95,7 @@ export default function Contact() {
           }}
         />
         <motion.div
-          className="absolute bottom-10 sm:bottom-10 right-10 sm:right-10 w-56 h-56 sm:w-96 sm:h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
+          className="absolute bottom-10 sm:bottom-10 right-10 sm:right-10 w-56 h-56 sm:w-96 sm:h-96 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1.3, 1, 1.3],
             rotate: [360, 180, 0],
@@ -116,7 +116,7 @@ export default function Contact() {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
             Get In Touch
           </span>
         </motion.h2>
@@ -292,9 +292,9 @@ export default function Contact() {
                 <motion.p
                   className={`text-center mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl text-sm sm:text-base md:text-lg font-medium ${
                     status.includes("successfully") 
-                      ? "bg-green-500/20 text-green-400 border border-green-500/30" 
+                      ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30" 
                       : status.includes("error") || status.includes("Failed")
-                      ? "bg-red-500/20 text-red-400 border border-red-500/30"
+                      ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
                       : "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30"
                   }`}
                   initial={{ opacity: 0, y: 10 }}
