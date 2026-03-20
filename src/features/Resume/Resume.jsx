@@ -11,8 +11,8 @@ const Resume = () => {
       title: "MCA",
       duration: "2024 - 2026",
       college: "Marian College Kuttikkanam (Autonomous)",
-      description: "Focused on: Full-Stack Development, AI Systems, Distributed Architectures. CGPA: 8.19 / 10. Major academic project: AURA — AI-Powered Safety, Wellness and Community Platform.",
-      status: "In Progress",
+      description: "Completed March 2026. Focused on: Full-Stack Development, AI Systems, Distributed Architectures. Overall 8.19 CGPA / 10. Major academic project: AURA — AI-Powered Safety, Wellness and Community Platform.",
+      status: "Completed",
       color: "from-cyan-500 to-blue-600"
     },
     {
@@ -34,7 +34,7 @@ const Resume = () => {
   ];
 
   return (
-    <section id="education" className="py-12 sm:py-16 md:py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="education" className="py-8 sm:py-10 md:py-16 bg-slate-900 text-white relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

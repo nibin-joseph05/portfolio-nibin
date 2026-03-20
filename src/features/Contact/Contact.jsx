@@ -78,7 +78,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-12 sm:py-16 md:py-20 bg-slate-900 text-white relative overflow-hidden"
+      className="py-8 sm:py-10 md:py-12 bg-slate-900 text-white relative overflow-hidden"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -122,7 +122,7 @@ export default function Contact() {
         </motion.h2>
         
         <motion.p
-          className="text-lg sm:text-xl md:text-2xl text-slate-300 text-center mb-12 sm:mb-16 md:mb-20 max-w-4xl sm:max-w-5xl mx-auto px-2 sm:px-4"
+          className="text-lg sm:text-xl md:text-2xl text-slate-300 text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl sm:max-w-5xl mx-auto px-2 sm:px-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}

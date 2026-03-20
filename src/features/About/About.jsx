@@ -54,7 +54,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden font-sans">
+    <section id="about" className="py-8 sm:py-10 md:py-16 bg-slate-900 text-white relative overflow-hidden font-sans">
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div

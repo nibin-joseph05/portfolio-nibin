@@ -10,7 +10,7 @@ export default function Publications() {
   };
 
   return (
-    <section id="publications" className="py-12 sm:py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden font-sans">
+    <section id="publications" className="py-8 sm:py-10 md:py-16 bg-slate-900 text-white relative overflow-hidden font-sans">
       {/* Background accents */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div

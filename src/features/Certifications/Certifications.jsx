@@ -19,7 +19,7 @@ export default function Certifications() {
   ];
 
   return (
-    <section id="certifications" className="py-12 sm:py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden font-sans">
+    <section id="certifications" className="py-8 sm:py-10 md:py-16 bg-slate-900 text-white relative overflow-hidden font-sans">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
         <motion.div
           className="text-center mb-16"
