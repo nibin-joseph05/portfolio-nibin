@@ -10,154 +10,195 @@ export default function Experience() {
     title: "Software Engineer",
     period: "Nov 2025 – Present",
     summary:
-      "Currently working as a Software Engineer at AIBI Campus, contributing to production-ready enterprise mobile applications and backend services.",
+      "Developing and maintaining production-grade enterprise applications across mobile and backend systems at AIBI Campus.",
     highlights: [
-      "Developing and maintaining production-grade mobile applications with Flutter.",
-      "Implementing REST API integrations and real-time backend communication.",
-      "Collaborating on Java-based backend services for enterprise data management.",
-      "Optimizing application performance and ensuring high code quality through Git workflows.",
+      "Developing and maintaining production-grade enterprise applications across mobile and backend systems.",
+      "Building backend services using Node.js and REST APIs for real-time and CRM-based workflows.",
+      "Developing mobile applications using Flutter and Android apps using Kotlin (Jetpack Compose).",
+      "Contributing to frontend systems using Next.js for admin dashboards and analytics interfaces.",
+      "Handling database operations (PostgreSQL/MySQL) and optimizing queries for performance.",
+      "Debugging production issues and improving system reliability and responsiveness.",
     ],
     logo: IMAGES.AIBI_CAMPUS_LOGO, 
-    majorProject: {
-      name: "ANAD Dialer",
-      tech: "Kotlin, Jetpack Compose",
-      description: "Android application designed to monitor device call activity and synchronize data with CRM APIs.",
-      features: [
-        "Background call monitoring service",
-        "Automatic call log synchronization with CRM backend",
-        "Call recording detection and upload",
-        "Analytics dashboard with charts",
-        "Offline queue with automatic retry mechanisms"
-      ]
-    }
+    projects: [
+      {
+        name: "ANAD CRM",
+        status: "Live Production Application",
+        tech: "Flutter",
+        description: "Contributed to a production Flutter CRM application used for customer management and call analytics. Integrated backend APIs and improved performance and UI responsiveness.",
+        link: "https://play.google.com/store/apps/details?id=com.paragon.anad.crm&pcampaignid=web_share"
+      },
+      {
+        name: "ANAD Dialer",
+        status: "Kotlin Android Application",
+        tech: "Kotlin, Jetpack Compose",
+        description: "Built Android system for call monitoring, syncing logs with backend APIs. Implemented offline queue with retry mechanisms for network failure handling.",
+        features: [
+          "Background call monitoring service",
+          "Automatic call log synchronization with CRM APIs",
+          "Call recording detection and upload",
+          "Analytics dashboard with charts",
+          "Offline queue with automatic retry mechanisms"
+        ]
+      }
+    ]
   };
 
   return (
     <section
       id="experience"
-      className="py-12 sm:py-16 md:py-20 bg-slate-900 text-white relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden font-sans"
     >
-      {/* Background accents */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-12 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.15, 1], rotate: [0, 180, 360] }}
-          transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/5 rounded-full blur-[100px]"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-12 right-10 w-56 h-56 sm:w-80 sm:h-80 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"
-          animate={{ scale: [1.1, 0.95, 1.1], rotate: [360, 180, 0] }}
-          transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px]"
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 12, repeat: Infinity }}
         />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
-        <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 sm:mb-6"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
-            Experience
-          </span>
-        </motion.h2>
-
-        <motion.p
-          className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          Currently working with the team at AIBI Campus in Edappally, Kochi.
-        </motion.p>
-
         <motion.div
-          className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 40, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-50px" }}
-          whileHover={{ y: -6, boxShadow: "0 30px 60px -24px rgba(6, 182, 212, 0.35)" }}
-        >
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 sm:gap-6 p-4 sm:p-6 md:p-8">
-            <motion.div
-              className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-slate-900 border border-slate-700 overflow-hidden flex-shrink-0"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <img
-                src={role.logo}
-                alt={`${role.company} logo`}
-                className="w-full h-full object-contain bg-slate-900"
-                loading="lazy"
-                decoding="async"
-              />
-            </motion.div>
-
-            <div className="w-full md:flex-1 space-y-2 sm:space-y-3">
-              <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-                <h3 className="text-xl sm:text-2xl font-semibold text-cyan-400 flex items-center gap-2">
-                  {role.title}
-                </h3>
-                <span className="px-3 py-1 text-xs sm:text-sm rounded-full bg-cyan-500/15 text-cyan-200 border border-cyan-500/30">
-                  {role.period}
-                </span>
-              </div>
-              <p className="text-lg sm:text-xl font-semibold text-white">{role.company}</p>
-              <div className="flex items-center gap-2 text-slate-300 text-sm sm:text-base">
-                <span>{role.location}</span>
-              </div>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">{role.summary}</p>
-
-              <div className="mt-3 grid sm:grid-cols-2 gap-2 sm:gap-3">
-                {role.highlights.map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="flex items-start gap-2 p-3 rounded-xl bg-slate-700/40 border border-slate-600/60"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.05 * idx, duration: 0.3 }}
-                    viewport={{ once: true }}
-                  >
-                    <p className="text-slate-200 text-sm sm:text-base">{item}</p>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-3 pt-2 text-slate-400 text-sm sm:text-base">
-                <span>Hands-on internship driving live app releases and client support.</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="mt-8 sm:mt-10 bg-slate-800/30 border border-slate-700/50 rounded-2xl p-4 sm:p-6 max-w-4xl mx-auto backdrop-blur-xl"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-lg sm:text-xl font-semibold text-cyan-400 mb-3 flex items-center gap-2">
-            Major Project Developed at Work: {role.majorProject.name}
-          </h3>
-          <div className="space-y-4">
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              <strong className="text-white">{role.majorProject.tech}:</strong> {role.majorProject.description}
-            </p>
-            <div className="grid sm:grid-cols-2 gap-2">
-              {role.majorProject.features.map((feature, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-slate-300 text-sm">
-                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full flex-shrink-0" />
-                  {feature}
-                </div>
-              ))}
-            </div>
-          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 font-sans tracking-tight">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
+              Professional Experience
+            </span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto rounded-full" />
         </motion.div>
+
+        <div className="grid gap-8">
+          {/* Main Employment Block */}
+          <motion.div
+            className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 md:p-10 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            whileHover={{ borderColor: "rgba(6, 182, 212, 0.3)" }}
+          >
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-30" />
+            
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+              <motion.div
+                className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-slate-900 border border-slate-700 overflow-hidden flex-shrink-0 shadow-xl p-2"
+                whileHover={{ scale: 1.05, rotate: 2 }}
+              >
+                <img
+                  src={role.logo}
+                  alt={`${role.company} logo`}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </motion.div>
+
+              <div className="flex-1 space-y-4 text-center md:text-left">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white font-sans tracking-tight">
+                      {role.title}
+                    </h3>
+                    <p className="text-lg font-bold text-cyan-400 font-sans">{role.company}</p>
+                  </div>
+                  <div className="flex flex-col md:items-end gap-2 text-slate-400">
+                    <span className="px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-black uppercase tracking-widest font-sans">
+                      {role.period}
+                    </span>
+                    <span className="text-xs uppercase tracking-widest font-bold font-sans">{role.location}</span>
+                  </div>
+                </div>
+
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-4xl font-sans">
+                  {role.summary}
+                </p>
+
+                <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                  {role.highlights.map((highlight, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="flex items-start gap-3 p-4 bg-slate-900/50 rounded-xl border border-slate-700/50 group/item"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * idx }}
+                      viewport={{ once: true }}
+                    >
+                      <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full mt-2 group-hover/item:scale-150 transition-transform" />
+                      <p className="text-sm text-slate-300 antialiased font-sans leading-relaxed">{highlight}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Featured Projects Subsection */}
+          <div className="grid md:grid-cols-2 gap-8 mt-4">
+            {role.projects.map((project, idx) => (
+              <motion.div
+                key={idx}
+                className="bg-slate-800/20 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col h-full"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 * idx }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5, borderColor: "rgba(6, 182, 212, 0.4)" }}
+              >
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-500 to-blue-600 opacity-40 group-hover:opacity-100 transition-opacity" />
+                
+                <div className="mb-4">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-black text-slate-500 mb-1 block font-sans">
+                    {project.status}
+                  </span>
+                  <h4 className="text-xl font-bold text-white font-sans">{project.name}</h4>
+                  <p className="text-xs font-bold text-cyan-500 mt-1 uppercase font-sans tracking-wider">{project.tech}</p>
+                </div>
+
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 font-sans flex-grow">
+                  {project.description}
+                </p>
+
+                {project.features && (
+                  <div className="space-y-2 mb-6">
+                    {project.features.map((feature, fIdx) => (
+                      <div key={fIdx} className="flex items-center gap-2 text-[11px] text-slate-400 font-sans">
+                        <span className="w-1 h-1 bg-cyan-500 rounded-full" />
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {project.link && (
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-fit px-5 py-2.5 bg-cyan-600/20 text-cyan-400 rounded-lg border border-cyan-500/30 hover:bg-cyan-600 hover:text-white transition-all text-xs font-bold uppercase tracking-widest flex items-center gap-2 font-sans"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    View on Play Store
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L18.66,14L21,12.66C21.63,12.3 21.63,11.7 21,11.34L18.66,10L16.81,8.88L14.4,11.3L16.81,15.12M4.27,2.15L14.54,12.42L17.07,9.89L4.9,2.9C4.69,2.79 4.47,2.72 4.27,2.72C3.84,2.72 3.44,2.93 3.19,3.31L4.27,2.15M3.19,20.69C3.44,21.07 3.84,21.28 4.27,21.28C4.47,21.28 4.69,21.21 4.9,21.1L17.07,14.11L14.54,11.58L4.27,21.85" />
+                    </svg>
+                  </motion.a>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

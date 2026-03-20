@@ -9,7 +9,9 @@ export default function Certifications() {
     { title: "Professional JVM Spring Boot Architecture", issuer: "Medium / Self-Guided Mastery", color: "from-cyan-500 to-blue-600" },
     { title: "Data Structures and Algorithms using Java", issuer: "NPTEL (IIT Kharagpur)", color: "from-blue-600 to-indigo-700" },
     { title: "Red Hat System Administration", issuer: "Red Hat", color: "from-cyan-400 to-blue-500" },
-    { title: "Data Science Specialization (IBM Content)", issuer: "IBM / Cognitive Class", color: "from-blue-500 to-indigo-600" }
+    { title: "Data Analysis with Python", issuer: "IBM / Cognitive Class", color: "from-blue-500 to-indigo-600" },
+    { title: "Data Science Tools", issuer: "IBM / Cognitive Class", color: "from-blue-500 to-indigo-600" },
+    { title: "Data Science 101 & Methodology", issuer: "IBM / Cognitive Class", color: "from-blue-500 to-indigo-600" }
   ];
 
   return (

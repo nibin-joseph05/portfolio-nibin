@@ -11,7 +11,7 @@ const Resume = () => {
       title: "MCA",
       duration: "2024 - 2026",
       college: "Marian College Kuttikkanam (Autonomous)",
-      description: "Focused on: Full-Stack Development, AI Systems, Distributed Architectures. Major academic project: AURA — AI-Powered Safety, Wellness and Community Platform.",
+      description: "Focused on: Full-Stack Development, AI Systems, Distributed Architectures. CGPA: 8.19 / 10. Major academic project: AURA — AI-Powered Safety, Wellness and Community Platform.",
       status: "In Progress",
       color: "from-cyan-500 to-blue-600"
     },
@@ -201,7 +201,7 @@ const Resume = () => {
           whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(6, 182, 212, 0.25)" }}
         >
           <h3 className="text-2xl sm:text-3xl font-semibold text-cyan-400 mb-6 sm:mb-8 text-center flex items-center justify-center gap-2 sm:gap-3">
-            Academic Highlights
+            Achievements & Activities
           </h3>
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             <motion.div 
@@ -209,20 +209,16 @@ const Resume = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="mb-3 sm:mb-4">
-              </div>
-              <h4 className="text-lg sm:text-xl font-semibold text-slate-200 mb-2 sm:mb-3">Current Focus</h4>
-              <p className="text-slate-300 text-sm sm:text-base">Advanced Machine Learning, Full-Stack Development, and Cloud Technologies</p>
+              <h4 className="text-lg sm:text-xl font-semibold text-slate-200 mb-2 sm:mb-3">Student Police Cadet (SPC)</h4>
+              <p className="text-slate-300 text-sm sm:text-base">Participated in structured leadership and civic training focused on discipline, teamwork, and public safety.</p>
             </motion.div>
             <motion.div 
               className="text-center p-4 sm:p-6 bg-slate-700/30 rounded-xl sm:rounded-2xl border border-slate-600/50"
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="mb-3 sm:mb-4">
-              </div>
-              <h4 className="text-lg sm:text-xl font-semibold text-slate-200 mb-2 sm:mb-3">Research Interests</h4>
-              <p className="text-slate-300 text-sm sm:text-base">NLP, AI/ML Applications, Web Development, and Software Engineering</p>
+              <h4 className="text-lg sm:text-xl font-semibold text-slate-200 mb-2 sm:mb-3">Technical Coordination</h4>
+              <p className="text-slate-300 text-sm sm:text-base">Coordinated and managed Virtual Reality experience at a college tech fest.</p>
             </motion.div>
           </div>
         </motion.div>
