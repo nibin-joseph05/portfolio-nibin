@@ -1,77 +1,75 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-
 export default function Publications() {
-const publications = [
-    {
-      title: "AI Techniques for Sustainable Semiconductor Manufacturing",
-      description: "Research exploring GANs and VAEs to optimize water recycling and predict chemical toxicity in semiconductor manufacturing.",
-      presentation: "Presented at Marian College Kuttikkanam",
-      color: "from-blue-500 to-cyan-600",
-      tags: ["AI", "Sustainability"]
-    },
-    {
-      title: "AURA — Secure Distributed System Architecture for Public Safety",
-      description: "Whitepaper detailing the multi-tier architecture of AURA, focusing on blockchain immutability and AI-driven real-time emergency response.",
-      presentation: "System Architecture Documentation",
-      color: "from-blue-500 to-cyan-600",
-      tags: ["Blockchain", "Public Safety"]
-    },
-    {
-      title: "Xpose — AI-Driven Urgency Classification for Crime Reporting",
-      description: "Exploration of BERT and Gemini-based NLP techniques for classifying crime reports by urgency and detecting spam in real-time.",
-      presentation: "NLP Research Monograph",
-      color: "from-cyan-500 to-blue-600",
-      tags: ["NLP", "AI"]
-    }
-  ];
+  const research = {
+    title: "AI Techniques for Sustainable Semiconductor Manufacturing",
+    description: "Research exploring the use of Generative Adversarial Networks (GANs) and Variational Autoencoders (VAEs) to optimize water recycling systems and predict chemical toxicity in semiconductor manufacturing.",
+    presentation: "Presented at Marian College Kuttikkanam, January 2025",
+    tags: ["Artificial Intelligence", "Sustainability", "Semiconductor Manufacturing", "GANs & VAEs"]
+  };
 
   return (
-    <section id="publications" className="py-20 bg-slate-900 overflow-hidden">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section id="publications" className="py-12 sm:py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden font-sans">
+      {/* Background accents */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-1/4 right-1/4 w-64 h-64 bg-cyan-500/5 rounded-full blur-[100px]"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 font-sans tracking-tight">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600">
               Publications & Research
             </span>
           </h2>
-          <p className="text-slate-400 text-lg">Academic contributions and technical whitepapers.</p>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid gap-6">
-          {publications.map((item, index) => (
-            <motion.div
-              key={index}
-              className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 sm:p-8 hover:border-cyan-500/30 transition-all duration-300"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex flex-col md:flex-row gap-6 items-start">
-                <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">{item.description}</p>
-                  <div className="flex flex-wrap items-center gap-4 text-xs font-semibold">
-                    <span className="text-cyan-400">{item.presentation}</span>
-                    <div className="flex gap-2">
-                      {item.tags.map(tag => (
-                        <span key={tag} className="px-2 py-1 bg-slate-900/50 text-slate-400 rounded-lg">{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-8 md:p-12 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          whileHover={{ borderColor: "rgba(6, 182, 212, 0.3)" }}
+        >
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-30" />
+          
+          <div className="space-y-6">
+            <div className="flex flex-wrap gap-3">
+              {research.tags.map((tag, idx) => (
+                <span key={idx} className="px-3 py-1 bg-slate-900/50 text-cyan-400 rounded-full border border-cyan-500/30 text-[10px] font-black uppercase tracking-widest font-sans">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white font-sans tracking-tight leading-tight">
+              {research.title}
+            </h3>
+            
+            <p className="text-cyan-400 font-bold text-sm sm:text-base font-sans italic opacity-80">
+              {research.presentation}
+            </p>
+
+            <div className="pt-6 border-t border-slate-700/50">
+              <p className="text-slate-300 leading-relaxed text-sm sm:text-base md:text-lg antialiased font-sans">
+                {research.description}
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
