@@ -321,7 +321,6 @@ export default function Portfolio() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaRocket />
                   Download Resume
                 </motion.a>
               </div>

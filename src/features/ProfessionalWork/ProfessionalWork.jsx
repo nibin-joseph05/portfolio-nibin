@@ -89,7 +89,7 @@ export default function ProfessionalWork() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <FaRocket /> Get it on Play Store
+                      Get it on Play Store
                     </motion.a>
                   )}
                 </div>

@@ -18,8 +18,8 @@ import viteSvg from '../../assets/images/vite.svg';
 import xpose from '../../assets/images/xpose.png';
 
 // PDFs
-import nibinResume from '../../assets/pdfs/nibin-resume.pdf';
-import nibinResume1 from '../../assets/pdfs/nibin-resume1.pdf';
+import nibinResume from '../../assets/pdfs/resume_.pdf';
+// import nibinResume1 from '../../assets/pdfs/nibin-resume1.pdf';
 
 export const IMAGES = {
     AIBI_CAMPUS_LOGO: aibiCampusLogo,
@@ -43,5 +43,5 @@ export const IMAGES = {
 
 export const DOCUMENTS = {
     RESUME: nibinResume,
-    RESUME_ALT: nibinResume1,
+    // RESUME_ALT: nibinResume1,
 };
