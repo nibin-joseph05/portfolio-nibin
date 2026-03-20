@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback, memo } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useState, memo } from "react";
+import { motion } from "framer-motion";
 
 import { IMAGES, DOCUMENTS } from "../../core/constants/assets";
-
 
 const SkillItem = ({ item }) => (
   <motion.span 
@@ -14,10 +13,6 @@ const SkillItem = ({ item }) => (
 );
 
 export default function About() {
-  const [hoveredSkill, setHoveredSkill] = useState(null);
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -30]);
-
   const skills = [
     { 
       category: "Programming Languages", 
@@ -55,17 +50,16 @@ export default function About() {
 
   return (
     <section id="about" className="py-8 sm:py-10 md:py-16 bg-slate-900 text-white relative overflow-hidden font-sans">
-      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/5 rounded-full blur-[100px]"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity }}
+          animate={{ opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px]"
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 12, repeat: Infinity }}
+          animate={{ opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
@@ -86,15 +80,13 @@ export default function About() {
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
-          
           <motion.div
             className="w-full lg:w-1/3 flex flex-col space-y-6"
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            
             <motion.div 
               className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 sm:p-8 border border-slate-700/50 shadow-2xl relative overflow-hidden group flex-grow flex flex-col items-center text-center"
               whileHover={{ y: -3, borderColor: "rgba(6, 182, 212, 0.3)" }}
@@ -106,7 +98,6 @@ export default function About() {
                 Personal Baseline
               </h3>
 
-              
               <div className="relative mb-8 mt-2">
                 <motion.div 
                   className="relative z-10 w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-2 border-slate-700/50 group-hover:border-cyan-500/50 transition-all duration-500 shadow-2xl"
@@ -154,7 +145,6 @@ export default function About() {
               </motion.a>
             </motion.div>
 
-            
             <motion.div 
               className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
               whileHover={{ y: -3, borderColor: "rgba(34, 197, 94, 0.3)" }}
@@ -177,7 +167,6 @@ export default function About() {
               </div>
             </motion.div>
 
-            
             <motion.div 
               className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
               whileHover={{ y: -3, borderColor: "rgba(59, 130, 246, 0.3)" }}
@@ -210,15 +199,13 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          
           <motion.div
             className="w-full lg:w-2/3 flex flex-col space-y-6"
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            
             <motion.div 
               className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-8 md:p-10 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
               whileHover={{ borderColor: "rgba(6, 182, 212, 0.4)" }}
@@ -249,7 +236,6 @@ export default function About() {
               </div>
             </motion.div>
 
-            
             <motion.div 
               className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-8 md:p-10 border border-slate-700/50 shadow-2xl relative overflow-hidden group flex-grow"
               whileHover={{ borderColor: "rgba(6, 182, 212, 0.4)" }}

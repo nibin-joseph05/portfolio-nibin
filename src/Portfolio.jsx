@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback, Suspense, lazy } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import Navbar from "./shared/components/Navbar";
 import Footer from "./shared/components/Footer";
 import ScrollToTop from "./shared/components/ScrollToTop";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
-import Typewriter from "typewriter-effect";
+import Preloader from "./shared/components/Preloader";
 
 
 import { IMAGES, DOCUMENTS } from "./core/constants/assets";
@@ -20,19 +20,10 @@ const Contact = lazy(() => import("./features/Contact/Contact"));
 export default function Portfolio() {
   const [loading, setLoading] = useState(true);
   const [cvModalOpen, setCvModalOpen] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 1000], [0, -200]);
   const springY = useSpring(y, { stiffness: 200, damping: 40 });
-
-  const handleMouseMove = useCallback((e) => {
-    if (!isMobile) {
-      requestAnimationFrame(() => {
-        setMousePosition({ x: e.clientX, y: e.clientY });
-      });
-    }
-  }, [isMobile]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -44,23 +35,12 @@ export default function Portfolio() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 800);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (!isMobile) {
-      window.addEventListener('mousemove', handleMouseMove, { passive: true });
-      return () => window.removeEventListener('mousemove', handleMouseMove);
-    }
-  }, [handleMouseMove, isMobile]);
-
   return (
     <div className="bg-slate-900 text-white min-h-screen font-sans overflow-x-hidden relative">
+      <AnimatePresence mode="wait">
+        {loading && <Preloader setLoading={setLoading} />}
+      </AnimatePresence>
+
       <Navbar />
 
       <section
@@ -78,11 +58,10 @@ export default function Portfolio() {
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <motion.h1
                 className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-white mb-4 leading-tight tracking-tighter"
@@ -100,8 +79,6 @@ export default function Portfolio() {
               >
                 Software Engineer | Java & Spring Boot | Full-Stack Developer
               </motion.p>
-
-
 
               <motion.p
                 className="text-slate-200 text-base sm:text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md"
@@ -130,8 +107,6 @@ export default function Portfolio() {
                 >
                   Linktree
                 </motion.a>
-
-
               </div>
             </motion.div>
           </div>

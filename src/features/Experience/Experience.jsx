@@ -48,17 +48,16 @@ export default function Experience() {
       id="experience"
       className="py-8 sm:py-10 md:py-16 bg-slate-900 text-white relative overflow-hidden font-sans"
     >
-      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/5 rounded-full blur-[100px]"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity }}
+          animate={{ opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px]"
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 12, repeat: Infinity }}
+          animate={{ opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
@@ -79,7 +78,6 @@ export default function Experience() {
         </motion.div>
 
         <div className="grid gap-8">
-          
           <motion.div
             className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-4 sm:p-6 md:p-10 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
             initial={{ opacity: 0, y: 30 }}
@@ -142,7 +140,6 @@ export default function Experience() {
             </div>
           </motion.div>
 
-          
           <div className="grid md:grid-cols-2 gap-8 mt-4">
             {role.projects.map((project, idx) => (
               <motion.div

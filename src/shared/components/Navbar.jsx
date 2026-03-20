@@ -77,7 +77,7 @@ export default function Navbar() {
         </nav>
 
         <motion.button
-          className="md:hidden text-white p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-slate-800/50 transition-colors backdrop-blur-sm"
+          className="lg:hidden text-white p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-slate-800/50 transition-colors backdrop-blur-sm"
           onClick={() => setNavOpen(!navOpen)}
           whileTap={{ scale: 0.95 }}
           whileHover={{ scale: 1.05 }}
@@ -108,15 +108,14 @@ export default function Navbar() {
         </motion.button>
       </div>
 
-      
       <AnimatePresence>
         {navOpen && (
           <motion.div
-            className="fixed top-0 left-0 w-full h-screen bg-slate-900/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-6 sm:space-y-8 md:space-y-10 text-2xl sm:text-3xl z-50"
-            initial={{ opacity: 0, x: "-100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "-100%" }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed inset-0 w-full h-[100dvh] bg-slate-900/98 backdrop-blur-2xl flex flex-col items-center justify-center space-y-6 sm:space-y-8 text-2xl sm:text-3xl z-[100]"
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
           >
             {[
               { id: "top", label: "Home" },
@@ -129,41 +128,38 @@ export default function Navbar() {
               <motion.a
                 key={item.id}
                 href={`#${item.id}`}
-                className="text-white hover:text-cyan-400 transition-all duration-300 relative group text-center"
-                onClick={() => setNavOpen(false)}
-                initial={{ opacity: 0, y: -30 }}
+                className={`transition-all duration-300 relative group text-center font-bold tracking-tight ${
+                  activeSection === item.id ? "text-cyan-400" : "text-white"
+                }`}
+                onClick={() => {
+                  setNavOpen(false);
+                  setActiveSection(item.id);
+                }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05 * index }}
+                transition={{ delay: 0.1 + index * 0.05 }}
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.9 }}
               >
                 {item.label}
-                <motion.div
-                  className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300 rounded-full"
-                />
+                {activeSection === item.id && (
+                  <motion.div
+                    layoutId="activeTabMobile"
+                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-cyan-400 rounded-full"
+                  />
+                )}
               </motion.a>
             ))}
             
-            
             <motion.button
-              className="absolute top-4 sm:top-6 md:top-8 right-4 sm:right-6 md:right-8 text-white p-3 sm:p-4 rounded-xl sm:rounded-2xl hover:bg-slate-800/50 transition-colors backdrop-blur-sm"
+              className="absolute top-4 right-4 text-white p-3 rounded-xl hover:bg-slate-800/50 transition-colors"
               onClick={() => setNavOpen(false)}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
             >
-              <span className="text-sm font-black tracking-widest">CLOSE</span>
+              <span className="text-xs font-black tracking-widest bg-slate-800 px-4 py-2 rounded-lg border border-slate-700">CLOSE</span>
             </motion.button>
-
-            
-            <motion.div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            />
           </motion.div>
         )}
       </AnimatePresence>
