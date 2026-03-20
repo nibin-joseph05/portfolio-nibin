@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import React, { useState, useEffect, useCallback, memo } from "react";
-import { FaExternalLinkAlt, FaGithub, FaEye, FaRocket, FaCode, FaBrain, FaDatabase, FaCloud, FaPlay } from "react-icons/fa";
+
 import { IMAGES } from "../../core/constants/assets";
 
 const ProjectCard = memo(({ project, index, isFeatured, onImageClick, isExpanded, onExpand }) => (
@@ -49,13 +49,13 @@ const ProjectCard = memo(({ project, index, isFeatured, onImageClick, isExpanded
 
       <div className="flex flex-wrap gap-4">
         {project.githubRepo && (
-          <a href={project.githubRepo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-white transition-colors">
-            <FaGithub className="text-sm" /> GitHub
+          <a href={project.githubRepo} target="_blank" rel="noopener noreferrer" className="px-3 py-1 bg-slate-900/50 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-colors border border-slate-700">
+            GitHub
           </a>
         )}
         {project.liveDemo && (
-          <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
-            <FaExternalLinkAlt className="text-sm" /> Live Demo
+          <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="px-3 py-1 bg-cyan-500/10 rounded-lg text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors border border-cyan-500/30">
+            Live Demo
           </a>
         )}
       </div>
@@ -72,7 +72,6 @@ const projects = [
     githubRepo: "https://github.com/nibin-joseph05/Aura",
     featured: true,
     status: "Active",
-    icon: FaBrain,
     color: "from-blue-500 to-indigo-600"
   },
   {
@@ -83,7 +82,6 @@ const projects = [
     githubRepo: "https://github.com/nibin-joseph05/Xpose",
     featured: true,
     status: "Completed",
-    icon: FaBrain,
     color: "from-purple-500 to-pink-600"
   },
   {
@@ -94,7 +92,6 @@ const projects = [
     githubRepo: "https://github.com/nibin-joseph05/Lyfex",
     featured: true,
     status: "Completed",
-    icon: FaBrain,
     color: "from-teal-500 to-emerald-600"
   },
   {
@@ -105,7 +102,6 @@ const projects = [
     liveDemo: "https://movieflix-sooty.vercel.app/",
     githubRepo: "https://github.com/nibin-joseph05/movie-ticket-booking",
     featured: true,
-    icon: FaRocket,
     color: "from-cyan-500 to-blue-600"
   },
   {
@@ -116,7 +112,6 @@ const projects = [
     liveDemo: "https://playspot-py.duckdns.org/",
     githubRepo: "https://github.com/nibin-joseph05/PlaySpot",
     featured: true,
-    icon: FaCode,
     color: "from-green-500 to-teal-600"
   },
   {
@@ -127,7 +122,6 @@ const projects = [
     liveDemo: "https://ml-models-flask.onrender.com/",
     githubRepo: "https://github.com/nibin-joseph05/ML-Models-Flask",
     featured: true,
-    icon: FaBrain,
     color: "from-pink-500 to-red-600"
   },
   {
@@ -136,8 +130,16 @@ const projects = [
     image: IMAGES.SPICE_SHOP, 
     description: "Modern e-commerce solution for spice retail featuring a Spring Boot backend for secure business logic and a dynamic Next.js frontend for high-performance user interaction.",
     featured: false,
-    icon: FaRocket,
     color: "from-orange-500 to-red-600"
+  },
+  {
+    name: "FitTrack – Offline Gym Progress Tracking App",
+    tech: "Flutter (Dart), Hive, Riverpod, Clean Architecture",
+    image: IMAGES.FIT_TRACK,
+    description: "Fully offline-first Flutter application for tracking workouts, sets, reps, and strength progression. Implemented using Clean Architecture with modular feature-based structure and Hive for local persistence.",
+    githubRepo: "https://github.com/nibin-joseph05/FitTrack",
+    featured: false,
+    color: "from-blue-500 to-indigo-600"
   },
   {
     name: "JeztConnect – Flutter App for Jezt Technologies",
@@ -147,7 +149,6 @@ const projects = [
     liveDemo: "https://drive.google.com/drive/u/1/folders/1JMtRKaBrT7M5yKHrGW7TH3-NIa76h90a",
     githubRepo: "https://github.com/nibin-joseph05/JeztConnect",
     featured: false,
-    icon: FaRocket,
     color: "from-indigo-500 to-blue-600"
   }
 ];
@@ -254,7 +255,7 @@ export default function Projects() {
         {/* Other Projects Grid */}
         <div>
           <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-            <FaCode className="text-cyan-500" /> More Projects
+            More Projects
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.filter(p => !p.featured).map((project, index) => (

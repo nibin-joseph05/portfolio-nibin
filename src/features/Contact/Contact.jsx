@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaPaperPlane, FaRocket, FaBrain, FaCode, FaClock, FaGlobe } from "react-icons/fa";
+
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -49,21 +49,18 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      icon: FaEnvelope,
       title: "Email",
       value: "nibin.joseph.career@gmail.com",
       link: "mailto:nibin.joseph.career@gmail.com",
       color: "from-cyan-500 to-blue-600"
     },
     {
-      icon: FaMapMarkerAlt,
       title: "Location",
       value: "Kerala, India",
       link: null,
       color: "from-green-500 to-emerald-600"
     },
     {
-      icon: FaPhone,
       title: "Available for",
       value: "Freelance & Full-time",
       link: null,
@@ -72,10 +69,10 @@ export default function Contact() {
   ];
 
   const quickInfo = [
-    { icon: FaRocket, label: "Available for", value: "Full-time positions, Freelance projects, Collaborations", color: "from-cyan-500 to-blue-600" },
-    { icon: FaClock, label: "Response time", value: "Within 24 hours", color: "from-green-500 to-emerald-600" },
-    { icon: FaGlobe, label: "Timezone", value: "IST (UTC+5:30)", color: "from-purple-500 to-pink-600" },
-    { icon: FaCode, label: "Preferred", value: "Remote work, Hybrid opportunities", color: "from-orange-500 to-red-600" }
+    { label: "Available for", value: "Full-time positions, Freelance projects, Collaborations", color: "from-cyan-500 to-blue-600" },
+    { label: "Response time", value: "Within 24 hours", color: "from-green-500 to-emerald-600" },
+    { label: "Timezone", value: "IST (UTC+5:30)", color: "from-purple-500 to-pink-600" },
+    { label: "Preferred", value: "Remote work, Hybrid opportunities", color: "from-orange-500 to-red-600" }
   ];
 
   return (
@@ -149,7 +146,6 @@ export default function Contact() {
               transition={{ duration: 0.3 }}
             >
               <h3 className="text-2xl sm:text-3xl font-semibold text-cyan-400 mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3">
-                <FaRocket className="text-2xl sm:text-3xl" />
                 Let's Connect
               </h3>
               <div className="space-y-4 sm:space-y-6">
@@ -163,13 +159,7 @@ export default function Contact() {
                     transition={{ delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <motion.div 
-                      className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-r ${info.color} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0`}
-                      whileHover={{ scale: 1.1, rotate: 360 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <info.icon className="text-lg sm:text-xl md:text-2xl text-white" />
-                    </motion.div>
+
                     <div className="min-w-0 flex-1">
                       <h4 className="text-slate-200 font-semibold text-sm sm:text-base md:text-lg">{info.title}</h4>
                       {info.link ? (
@@ -195,7 +185,6 @@ export default function Contact() {
               transition={{ duration: 0.3 }}
             >
               <h3 className="text-2xl sm:text-3xl font-semibold text-cyan-400 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
-                <FaBrain className="text-2xl sm:text-3xl" />
                 Quick Info
               </h3>
               <div className="grid grid-cols-1 gap-3 sm:gap-4">
@@ -209,13 +198,7 @@ export default function Contact() {
                     transition={{ delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <motion.div 
-                      className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r ${item.color} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <item.icon className="text-white text-sm sm:text-base" />
-                    </motion.div>
+
                     <div className="min-w-0 flex-1">
                       <p className="text-slate-300 text-xs sm:text-sm">{item.label}</p>
                       <p className="text-white font-medium text-sm sm:text-base">{item.value}</p>
@@ -236,7 +219,6 @@ export default function Contact() {
             whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(168, 85, 247, 0.25)" }}
           >
             <h3 className="text-2xl sm:text-3xl font-semibold text-cyan-400 mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3">
-              <FaCode className="text-2xl sm:text-3xl" />
               Send Message
             </h3>
             <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
@@ -302,7 +284,7 @@ export default function Contact() {
                 transition={{ delay: 0.5 }}
                 viewport={{ once: true }}
               >
-                <FaPaperPlane className="text-base sm:text-lg md:text-xl" />
+
                 Send Message
               </motion.button>
               

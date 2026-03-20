@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaMapMarkerAlt, FaClock, FaBriefcase, FaRocket } from "react-icons/fa";
+
 import { IMAGES } from "../../core/constants/assets";
 
 export default function Experience() {
@@ -100,7 +100,6 @@ export default function Experience() {
             <div className="w-full md:flex-1 space-y-2 sm:space-y-3">
               <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                 <h3 className="text-xl sm:text-2xl font-semibold text-cyan-400 flex items-center gap-2">
-                  <FaBriefcase className="text-base sm:text-lg" />
                   {role.title}
                 </h3>
                 <span className="px-3 py-1 text-xs sm:text-sm rounded-full bg-cyan-500/15 text-cyan-200 border border-cyan-500/30">
@@ -109,7 +108,6 @@ export default function Experience() {
               </div>
               <p className="text-lg sm:text-xl font-semibold text-white">{role.company}</p>
               <div className="flex items-center gap-2 text-slate-300 text-sm sm:text-base">
-                <FaMapMarkerAlt className="text-cyan-400" />
                 <span>{role.location}</span>
               </div>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">{role.summary}</p>
@@ -124,14 +122,12 @@ export default function Experience() {
                     transition={{ delay: 0.05 * idx, duration: 0.3 }}
                     viewport={{ once: true }}
                   >
-                    <FaRocket className="text-cyan-400 mt-0.5 flex-shrink-0" />
                     <p className="text-slate-200 text-sm sm:text-base">{item}</p>
                   </motion.div>
                 ))}
               </div>
 
               <div className="flex items-center gap-3 pt-2 text-slate-400 text-sm sm:text-base">
-                <FaClock className="text-cyan-300" />
                 <span>Hands-on internship driving live app releases and client support.</span>
               </div>
             </div>
@@ -146,7 +142,6 @@ export default function Experience() {
           viewport={{ once: true }}
         >
           <h3 className="text-lg sm:text-xl font-semibold text-cyan-400 mb-3 flex items-center gap-2">
-            <FaRocket className="text-base sm:text-lg" />
             Major Project Developed at Work: {role.majorProject.name}
           </h3>
           <div className="space-y-4">

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaBriefcase, FaRocket, FaCode } from "react-icons/fa";
+
 
 export default function ProfessionalWork() {
   const work = [
@@ -15,7 +15,6 @@ export default function ProfessionalWork() {
         "Git-based collaboration"
       ],
       playStore: "https://play.google.com/store/apps/details?id=com.paragon.anad.crm",
-      icon: FaBriefcase,
       color: "from-blue-500 to-cyan-600"
     },
     {
@@ -28,7 +27,6 @@ export default function ProfessionalWork() {
         "Analytics dashboard",
         "Offline retry queue"
       ],
-      icon: FaRocket,
       color: "from-purple-500 to-pink-600"
     }
   ];
@@ -60,21 +58,17 @@ export default function ProfessionalWork() {
               whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(6, 182, 212, 0.25)" }}
             >
               <div className="flex flex-col md:flex-row gap-6 items-start">
-                <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                  <item.icon className="text-3xl text-white" />
-                </div>
+
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-cyan-400 mb-3">{item.name}</h3>
                   <p className="text-slate-300 mb-6 text-sm sm:text-base leading-relaxed">{item.description}</p>
                   
                   <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
-                    <FaCode className="text-cyan-400" />
                     Key Contributions:
                   </h4>
                   <div className="grid sm:grid-cols-2 gap-3 mb-6">
                     {item.contributions.map((contribution, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-slate-300 text-sm">
-                        <FaRocket className="text-cyan-500 text-xs" />
                         {contribution}
                       </div>
                     ))}

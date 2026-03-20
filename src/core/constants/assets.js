@@ -16,6 +16,7 @@ import smsSpam from '../../assets/images/sms-spam.png';
 import spiceShop from '../../assets/images/spice-shop.png';
 import viteSvg from '../../assets/images/vite.svg';
 import xpose from '../../assets/images/xpose.png';
+import fitTrack from '../../assets/images/fit-track.jpg';
 
 // PDFs
 import nibinResume from '../../assets/pdfs/resume_.pdf';
@@ -39,6 +40,7 @@ export const IMAGES = {
     SPICE_SHOP: spiceShop,
     VITE: viteSvg,
     XPOSE: xpose,
+    FIT_TRACK: fitTrack,
 };
 
 export const DOCUMENTS = {

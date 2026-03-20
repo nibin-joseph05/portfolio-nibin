@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaHeart, FaRocket, FaCode, FaBrain, FaInstagram } from "react-icons/fa";
+
 
 export default function Footer() {
   return (
@@ -68,17 +68,7 @@ export default function Footer() {
             <p className="text-slate-400 text-sm sm:text-base md:text-lg">
               Software Engineer | Full-Stack Developer
             </p>
-            <motion.div
-              className="flex items-center justify-center md:justify-start gap-2 mt-2 sm:mt-3"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <FaRocket className="text-cyan-400 text-sm sm:text-base" />
-              <FaCode className="text-blue-400 text-sm sm:text-base" />
-              <FaBrain className="text-purple-400 text-sm sm:text-base" />
-            </motion.div>
+
           </motion.div>
 
           {/* Enhanced Social Links */}
@@ -90,16 +80,15 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h3 className="text-xl sm:text-2xl font-semibold text-cyan-400 mb-4 sm:mb-6 flex items-center justify-center gap-2 sm:gap-3">
-              <FaRocket className="text-xl sm:text-2xl" />
               Connect With Me
             </h3>
             <div className="flex justify-center flex-wrap gap-3 sm:gap-4 lg:gap-6">
               {[
-                { icon: FaRocket, href: "https://linktr.ee/nibin__", label: "Linktree", color: "hover:shadow-cyan-500/50" },
-                { icon: FaLinkedin, href: "https://www.linkedin.com/in/nibin-joseph05/", label: "LinkedIn", color: "hover:shadow-blue-500/50" },
-                { icon: FaGithub, href: "https://github.com/nibin-joseph05", label: "GitHub", color: "hover:shadow-slate-500/50" },
-                { icon: FaInstagram, href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram", color: "hover:shadow-purple-500/50" },
-                { icon: FaEnvelope, href: "mailto:nibin.joseph.career@gmail.com", label: "Email", color: "hover:shadow-cyan-500/50" }
+                { href: "https://linktr.ee/nibin__", label: "Linktree", color: "hover:shadow-cyan-500/50" },
+                { href: "https://www.linkedin.com/in/nibin-joseph05/", label: "LinkedIn", color: "hover:shadow-blue-500/50" },
+                { href: "https://github.com/nibin-joseph05", label: "GitHub", color: "hover:shadow-slate-500/50" },
+                { href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram", color: "hover:shadow-purple-500/50" },
+                { href: "mailto:nibin.joseph.career@gmail.com", label: "Email", color: "hover:shadow-cyan-500/50" }
               ].map((social, index) => (
                 <motion.a 
                   key={index}
@@ -118,7 +107,7 @@ export default function Footer() {
                   viewport={{ once: true }}
                   title={social.label}
                 >
-                  <social.icon className="text-lg sm:text-xl md:text-2xl" />
+                  <span className="text-xs font-bold">{social.label}</span>
                 </motion.a>
               ))}
             </div>
@@ -133,7 +122,6 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h3 className="text-xl sm:text-2xl font-semibold text-cyan-400 mb-4 sm:mb-6 flex items-center justify-center md:justify-end gap-2 sm:gap-3">
-              <FaCode className="text-xl sm:text-2xl" />
               Quick Links
             </h3>
             <div className="space-y-2 sm:space-y-3 text-base sm:text-lg">
@@ -175,13 +163,7 @@ export default function Footer() {
             transition={{ duration: 0.3 }}
           >
             © {new Date().getFullYear()} Nibin Joseph • Last Updated: March 2026
-            <motion.span 
-              className="flex items-center gap-2"
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.3 }}
-            >
-              Made with <FaHeart className="text-red-500 animate-pulse" /> in Kerala, India
-            </motion.span>
+              Made with Passion in Kerala, India
           </motion.p>
         </motion.div>
       </div>

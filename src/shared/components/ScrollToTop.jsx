@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FaChevronUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ScrollToTop() {
@@ -35,10 +34,10 @@ export default function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9 }}
-          className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-500/40 border border-white/10 backdrop-blur-sm transition-all duration-300"
+          className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-500/40 border border-white/10 backdrop-blur-sm transition-all duration-300 flex items-center justify-center min-w-[60px]"
           aria-label="Scroll to top"
         >
-          <FaChevronUp size={20} />
+          <span className="text-xs font-bold">TOP</span>
           
           <motion.div
             className="absolute inset-0 rounded-2xl bg-cyan-400/20"

@@ -1,15 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaMobileAlt, FaServer, FaDatabase, FaLayerGroup, FaShieldAlt, FaDesktop } from "react-icons/fa";
 
-const ArchitectureNode = ({ icon: Icon, title, description, color }) => (
+
+const ArchitectureNode = ({ title, description, color }) => (
   <motion.div
     className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 flex flex-col items-center text-center w-full max-w-[280px]"
     whileHover={{ y: -5, borderColor: "rgba(6, 182, 212, 0.5)" }}
     transition={{ duration: 0.3 }}
   >
-    <div className={`p-4 rounded-2xl bg-gradient-to-br ${color} mb-4 shadow-lg`}>
-      <Icon className="text-3xl text-white" />
+    <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${color} mb-4 shadow-lg`}>
     </div>
     <h4 className="text-xl font-bold text-white mb-2">{title}</h4>
     <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
@@ -59,13 +58,11 @@ export default function SystemArchitecture() {
           {/* Top Layer: Clients */}
           <div className="flex flex-wrap justify-center gap-8 w-full">
             <ArchitectureNode 
-              icon={FaMobileAlt}
               title="Mobile Application"
               description="Cross-platform Flutter & Native Kotlin app for SOS, health tracking, and community engagement."
               color="from-cyan-500 to-blue-600"
             />
             <ArchitectureNode 
-              icon={FaDesktop}
               title="Admin Dashboard"
               description="Next.js powered command center for emergency management and system monitoring."
               color="from-blue-600 to-indigo-700"
@@ -77,7 +74,6 @@ export default function SystemArchitecture() {
           {/* Middle Layer: API & Logic */}
           <div className="flex flex-col items-center gap-4 w-full">
             <ArchitectureNode 
-              icon={FaServer}
               title="Spring Boot Backend"
               description="High-performance REST API & WebSocket server handling real-time SOS alerts and data orchestrations."
               color="from-indigo-600 to-purple-700"
@@ -89,13 +85,11 @@ export default function SystemArchitecture() {
           {/* Bottom Layer: Data & Blockchain */}
           <div className="flex flex-wrap justify-center gap-8 w-full">
             <ArchitectureNode 
-              icon={FaDatabase}
               title="PostgreSQL"
               description="Secure relational storage for user profiles, wellness logs, and application state."
               color="from-purple-600 to-pink-700"
             />
             <ArchitectureNode 
-              icon={FaShieldAlt}
               title="Blockchain Layer"
               description="Go-based implementation for immutable event logging and verified safety records."
               color="from-pink-600 to-rose-700"

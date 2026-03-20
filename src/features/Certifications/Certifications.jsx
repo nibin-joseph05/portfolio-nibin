@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaCertificate, FaAward, FaExternalLinkAlt } from "react-icons/fa";
+
 
 export default function Certifications() {
   const certs = [
@@ -38,13 +38,9 @@ export default function Certifications() {
               viewport={{ once: true }}
               whileHover={{ y: -5, boxShadow: "0 20px 40px -12px rgba(16, 185, 129, 0.25)" }}
             >
-              <div className={`w-12 h-12 bg-gradient-to-r ${cert.color} rounded-lg flex items-center justify-center mb-4 transition-transform group-hover:rotate-12`}>
-                <FaCertificate className="text-2xl text-white" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2 leading-tight">{cert.title}</h3>
+              <h3 className="text-lg font-bold text-white mb-2 leading-tight mt-4">{cert.title}</h3>
               <div className="flex items-center justify-between mt-4">
                 <span className="text-emerald-400 text-sm font-medium">{cert.issuer}</span>
-                <FaAward className="text-slate-500 group-hover:text-emerald-500 transition-colors" />
               </div>
             </motion.div>
           ))}

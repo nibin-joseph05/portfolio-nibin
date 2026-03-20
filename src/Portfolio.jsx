@@ -4,12 +4,14 @@ import Footer from "./shared/components/Footer";
 import ScrollToTop from "./shared/components/ScrollToTop";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope, FaRocket, FaCode, FaBrain, FaFileAlt, FaExternalLinkAlt } from "react-icons/fa";
+
 
 import { IMAGES, DOCUMENTS } from "./core/constants/assets";
 
 import About from "./features/About/About";
 import Experience from "./features/Experience/Experience";
+import Publications from "./features/Publications/Publications";
+import Certifications from "./features/Certifications/Certifications";
 import Resume from "./features/Resume/Resume";
 
 const Projects = lazy(() => import("./features/Projects/Projects"));
@@ -58,108 +60,22 @@ export default function Portfolio() {
   }, [handleMouseMove, isMobile]);
 
   return (
-    <div className="bg-slate-900 text-white min-h-screen font-sans overflow-x-hidden">
-      <div className="fixed inset-0 z-0 text-cyan-400">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-40 transition-opacity duration-1000"
-          style={{ backgroundImage: `url(${IMAGES.MAIN_IMAGE})` }}
-        ></div>
-        <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-        
-        {[...Array(isMobile ? 5 : 10)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0.3, 0.7, 0.3],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 6 + Math.random() * 4,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "linear"
-            }}
-          />
-        ))}
-      </div>
-
-      <AnimatePresence>
-        {loading && (
-          <motion.div 
-            className="fixed inset-0 flex flex-col justify-center items-center bg-slate-900 text-white z-50 px-4"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-          >
-            <motion.div
-              className="relative"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 border-4 border-slate-300/30 border-t-cyan-500 rounded-full animate-spin"></div>
-              
-              <div className="absolute inset-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 border-4 border-transparent border-t-blue-500 rounded-full animate-spin" 
-                   style={{ animationDirection: 'reverse', animationDuration: '1.2s' }}></div>
-              
-              <div className="absolute inset-2 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 border-4 border-transparent border-t-purple-500 rounded-full animate-spin" 
-                   style={{ animationDuration: '1.8s' }}></div>
-              
-              <motion.div
-                className="absolute inset-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              >
-                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              className="mt-3 sm:mt-4 md:mt-6 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.4 }}
-            >
-              <motion.p
-                className="text-base sm:text-lg md:text-2xl font-bold text-slate-200 mb-1"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                Loading Portfolio...
-              </motion.p>
-            </motion.div>
-
-            <motion.div
-              className="mt-2 sm:mt-3 md:mt-4 w-24 sm:w-32 md:w-48 h-1 bg-slate-700 rounded-full overflow-hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.4 }}
-            >
-              <motion.div
-                className="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full"
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
+    <div className="bg-slate-900 text-white min-h-screen font-sans overflow-x-hidden relative">
       <Navbar />
 
       <section
         id="top"
         className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
       >
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-70"
+            style={{ backgroundImage: `url(${IMAGES.MAIN_IMAGE})` }}
+          ></div>
+          <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[1px]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+        </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             
@@ -169,29 +85,37 @@ export default function Portfolio() {
               transition={{ duration: 0.8 }}
             >
               <motion.h1
-                className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black text-white mb-4 leading-tight"
+                className="text-6xl sm:text-7xl md:text-8xl xl:text-9xl font-black text-white mb-4 leading-tight tracking-tighter"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 Nibin{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x">
                   Joseph
                 </span>
               </motion.h1>
 
               <motion.p
-                className="text-2xl sm:text-3xl font-bold text-slate-200 mb-6"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-100 mb-6 drop-shadow-lg"
               >
-                Software Engineer | Full-Stack & Mobile Developer
+                Software Engineer | Java & Spring Boot | Full-Stack Developer
               </motion.p>
 
               <motion.div
-                className="text-xl sm:text-2xl font-medium text-cyan-400 mb-8 flex items-center justify-center gap-2"
+                className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8"
               >
-                <span>Flutter • Kotlin</span>
-                <span className="text-slate-500">|</span>
+                {["Flutter", "Kotlin", "Java", "Spring Boot", "Node.js", "AI/ML"].map((skill, index) => (
+                  <span 
+                    key={skill}
+                    className="px-4 py-1.5 text-sm sm:text-base font-bold bg-slate-800/60 backdrop-blur-md rounded-full text-cyan-400 border border-slate-700/50 hover:border-cyan-500/50 transition-all cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
               </motion.div>
 
               <motion.p
-                className="text-slate-300 text-lg sm:text-xl mb-12 max-w-3xl mx-auto leading-relaxed"
+                className="text-slate-200 text-lg sm:text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md"
               >
                 Building scalable mobile applications and backend systems with modern technologies, 
                 real-time architectures, and AI integrations.
@@ -204,7 +128,7 @@ export default function Portfolio() {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaFileAlt /> View Resume
+                  View Resume
                 </motion.button>
                 
                 <motion.a
@@ -215,27 +139,26 @@ export default function Portfolio() {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaRocket className="text-cyan-400" /> Linktree
+                  Linktree
                 </motion.a>
 
                 <div className="flex gap-4 w-full justify-center mt-4">
                   {[
-                    { icon: FaGithub, href: "https://github.com/nibin-joseph05", label: "GitHub" },
-                    { icon: FaLinkedin, href: "https://www.linkedin.com/in/nibin-joseph05", label: "LinkedIn" },
-                    { icon: FaInstagram, href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram" },
-                    { icon: FaEnvelope, href: "mailto:nibin.joseph.career@gmail.com", label: "Email" }
+                    { href: "https://github.com/nibin-joseph05", label: "GitHub" },
+                    { href: "https://www.linkedin.com/in/nibin-joseph05", label: "LinkedIn" },
+                    { href: "https://www.instagram.com/_.n_.i_.b_.i_.n", label: "Instagram" },
+                    { href: "mailto:nibin.joseph.career@gmail.com", label: "Email" }
                   ].map((social, idx) => (
                     <motion.a
                       key={idx}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-4 bg-slate-800/80 backdrop-blur-md text-white rounded-2xl border border-slate-700 hover:border-cyan-500/50 transition-all shadow-lg"
-                      whileHover={{ scale: 1.1, y: -5, rotate: [0, -5, 5, 0] }}
+                      className="px-4 py-2 bg-slate-800/80 backdrop-blur-md text-white rounded-2xl border border-slate-700 hover:border-cyan-500/50 transition-all shadow-lg font-bold text-sm"
+                      whileHover={{ scale: 1.1, y: -5 }}
                       whileTap={{ scale: 0.9 }}
-                      title={social.label}
                     >
-                      <social.icon size={24} />
+                      {social.label}
                     </motion.a>
                   ))}
                 </div>
@@ -260,6 +183,12 @@ export default function Portfolio() {
       </div>
       <div id="experience" className="scroll-mt-24">
         <Experience />
+      </div>
+      <div id="publications" className="scroll-mt-24">
+        <Publications />
+      </div>
+      <div id="certifications" className="scroll-mt-24">
+        <Certifications />
       </div>
       <div id="education" className="scroll-mt-24">
         <Resume />

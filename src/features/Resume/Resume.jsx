@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FaGraduationCap, FaUniversity, FaSchool, FaRocket, FaBrain, FaCode } from "react-icons/fa";
+
 
 const Resume = () => {
   const { scrollYProgress } = useScroll();
@@ -12,7 +12,6 @@ const Resume = () => {
       duration: "2024 - 2026",
       college: "Marian College Kuttikkanam (Autonomous)",
       description: "Focused on: Full-Stack Development, AI Systems, Distributed Architectures. Major academic project: AURA — AI-Powered Safety, Wellness and Community Platform.",
-      icon: FaGraduationCap,
       status: "In Progress",
       color: "from-cyan-500 to-blue-600"
     },
@@ -21,7 +20,6 @@ const Resume = () => {
       duration: "2021 - 2024",
       college: "St Antony's College Peruvanthanam",
       description: "Studied core subjects: Data Structures, DBMS, Operating Systems, Computer Networks, Web Development. Coordinated a VR experience during the tech festival.",
-      icon: FaUniversity,
       status: "Completed",
       color: "from-green-500 to-emerald-600"
     },
@@ -30,7 +28,6 @@ const Resume = () => {
       duration: "2009 - 2021",
       college: "St Joseph Higher Secondary School Peruvanthanam",
       description: "Completed secondary education with core sciences and mathematics.",
-      icon: FaSchool,
       status: "Completed",
       color: "from-purple-500 to-pink-600"
     },
@@ -138,13 +135,6 @@ const Resume = () => {
                     {/* Enhanced Status Badge */}
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-3 sm:gap-0">
                       <div className="flex items-center space-x-3 sm:space-x-4">
-                        <motion.div
-                          className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${item.color} rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg`}
-                          whileHover={{ scale: 1.1, rotate: 360 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <item.icon className="text-lg sm:text-xl md:text-2xl text-white" />
-                        </motion.div>
                         <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-cyan-400">{item.title}</h3>
                       </div>
                       <motion.span 
@@ -211,7 +201,6 @@ const Resume = () => {
           whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(6, 182, 212, 0.25)" }}
         >
           <h3 className="text-2xl sm:text-3xl font-semibold text-cyan-400 mb-6 sm:mb-8 text-center flex items-center justify-center gap-2 sm:gap-3">
-            <FaBrain className="text-2xl sm:text-3xl" />
             Academic Highlights
           </h3>
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
@@ -220,8 +209,7 @@ const Resume = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <FaRocket className="text-lg sm:text-xl md:text-2xl text-white" />
+              <div className="mb-3 sm:mb-4">
               </div>
               <h4 className="text-lg sm:text-xl font-semibold text-slate-200 mb-2 sm:mb-3">Current Focus</h4>
               <p className="text-slate-300 text-sm sm:text-base">Advanced Machine Learning, Full-Stack Development, and Cloud Technologies</p>
@@ -231,8 +219,7 @@ const Resume = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <FaCode className="text-lg sm:text-xl md:text-2xl text-white" />
+              <div className="mb-3 sm:mb-4">
               </div>
               <h4 className="text-lg sm:text-xl font-semibold text-slate-200 mb-2 sm:mb-3">Research Interests</h4>
               <p className="text-slate-300 text-sm sm:text-base">NLP, AI/ML Applications, Web Development, and Software Engineering</p>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -90,7 +90,7 @@ export default function Navbar() {
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <FaTimes size={20} className="sm:w-6 sm:h-6" />
+                <span className="text-xs font-bold">CLOSE</span>
               </motion.div>
             ) : (
               <motion.div
@@ -100,7 +100,7 @@ export default function Navbar() {
                 exit={{ rotate: -90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <FaBars size={20} className="sm:w-6 sm:h-6" />
+                <span className="text-xs font-bold">MENU</span>
               </motion.div>
             )}
           </AnimatePresence>
@@ -152,7 +152,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <FaTimes size={24} className="sm:w-7 sm:h-7" />
+              <span className="text-xs font-bold">CLOSE</span>
             </motion.button>
 
             {/* Background decoration for mobile menu */}

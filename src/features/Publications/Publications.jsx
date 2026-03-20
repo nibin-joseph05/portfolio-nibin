@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaBook, FaMicrochip, FaWater, FaBrain } from "react-icons/fa";
+
 
 export default function Publications() {
 const publications = [
@@ -8,7 +8,6 @@ const publications = [
       title: "AI Techniques for Sustainable Semiconductor Manufacturing",
       description: "Research exploring GANs and VAEs to optimize water recycling and predict chemical toxicity in semiconductor manufacturing.",
       presentation: "Presented at Marian College Kuttikkanam",
-      icon: FaBook,
       color: "from-purple-500 to-pink-600",
       tags: ["AI", "Sustainability"]
     },
@@ -16,7 +15,6 @@ const publications = [
       title: "AURA — Secure Distributed System Architecture for Public Safety",
       description: "Whitepaper detailing the multi-tier architecture of AURA, focusing on blockchain immutability and AI-driven real-time emergency response.",
       presentation: "System Architecture Documentation",
-      icon: FaMicrochip,
       color: "from-blue-500 to-cyan-600",
       tags: ["Blockchain", "Public Safety"]
     },
@@ -24,7 +22,6 @@ const publications = [
       title: "Xpose — AI-Driven Urgency Classification for Crime Reporting",
       description: "Exploration of BERT and Gemini-based NLP techniques for classifying crime reports by urgency and detecting spam in real-time.",
       presentation: "NLP Research Monograph",
-      icon: FaBrain,
       color: "from-emerald-500 to-teal-600",
       tags: ["NLP", "AI"]
     }
@@ -59,9 +56,6 @@ const publications = [
               viewport={{ once: true }}
             >
               <div className="flex flex-col md:flex-row gap-6 items-start">
-                <div className={`p-4 rounded-xl bg-gradient-to-br ${item.color} shadow-lg shadow-black/20`}>
-                  <item.icon className="text-3xl text-white" />
-                </div>
                 <div className="flex-1">
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{item.title}</h3>
                   <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">{item.description}</p>
