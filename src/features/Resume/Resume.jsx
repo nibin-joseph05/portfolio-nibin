@@ -35,7 +35,7 @@ const Resume = () => {
 
   return (
     <section id="education" className="py-8 sm:py-10 md:py-16 bg-slate-900 text-white relative overflow-hidden">
-      {/* Animated Background */}
+      
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-10 sm:top-20 right-10 sm:right-20 w-48 h-48 sm:w-80 sm:h-80 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
@@ -64,7 +64,7 @@ const Resume = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
-        {/* Title */}
+        
         <motion.h2 
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 sm:mb-6"
           initial={{ opacity: 0, y: -50 }}
@@ -87,12 +87,12 @@ const Resume = () => {
           My academic journey and qualifications
         </motion.p>
 
-        {/* Education Timeline */}
+        
         <div className="relative">
-          {/* Enhanced Timeline Line */}
+          
           <div className="absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 w-1 sm:w-2 h-full bg-gradient-to-b from-cyan-500 via-blue-600 to-blue-700 rounded-full shadow-2xl shadow-cyan-500/50"></div>
 
-          {/* Education Items */}
+          
           <div className="space-y-8 sm:space-y-12 md:space-y-16">
             {educationData.map((item, index) => (
               <motion.div 
@@ -103,7 +103,7 @@ const Resume = () => {
                 transition={{ duration: 1, delay: index * 0.3 }}
                 viewport={{ once: true }}
               >
-                {/* Enhanced Timeline Dot */}
+                
                 <motion.div 
                   className="absolute left-4 sm:left-1/2 transform -translate-x-1/2 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full border-2 sm:border-4 border-slate-900 z-10 shadow-2xl shadow-cyan-500/50"
                   whileHover={{ scale: 1.3 }}
@@ -121,7 +121,7 @@ const Resume = () => {
                   }}
                 />
 
-                {/* Content Card */}
+                
                 <div className={`w-full sm:w-5/12 pl-12 sm:pl-0 ${index % 2 === 0 ? 'sm:pr-10' : 'sm:pl-10'}`}>
                   <motion.div 
                     className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500"
@@ -132,7 +132,7 @@ const Resume = () => {
                     }}
                     style={{ y }}
                   >
-                    {/* Enhanced Status Badge */}
+                    
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-3 sm:gap-0">
                       <div className="flex items-center space-x-3 sm:space-x-4">
                         <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-cyan-400">{item.title}</h3>
@@ -179,7 +179,7 @@ const Resume = () => {
                       </motion.p>
                     </div>
 
-                    {/* Gradient Border Effect */}
+                    
                     <motion.div 
                       className="absolute inset-0 border-2 border-transparent rounded-2xl sm:rounded-3xl bg-gradient-to-r from-cyan-500/20 to-blue-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300"
                       whileHover={{ opacity: 1 }}
@@ -191,7 +191,7 @@ const Resume = () => {
           </div>
         </div>
 
-        {/* Enhanced Additional Info */}
+        
         <motion.div
           className="mt-12 sm:mt-16 md:mt-20 bg-slate-800/30 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-700/50 shadow-2xl"
           initial={{ opacity: 0, y: 50 }}

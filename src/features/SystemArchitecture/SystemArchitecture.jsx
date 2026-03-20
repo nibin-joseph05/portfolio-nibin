@@ -55,7 +55,7 @@ export default function SystemArchitecture() {
         </motion.div>
 
         <div className="flex flex-col items-center gap-8">
-          {/* Top Layer: Clients */}
+          
           <div className="flex flex-wrap justify-center gap-8 w-full">
             <ArchitectureNode 
               title="Mobile Application"
@@ -71,7 +71,7 @@ export default function SystemArchitecture() {
 
           <div className="w-1 h-12 bg-gradient-to-b from-cyan-500/50 to-blue-500/50 hidden lg:block"></div>
 
-          {/* Middle Layer: API & Logic */}
+          
           <div className="flex flex-col items-center gap-4 w-full">
             <ArchitectureNode 
               title="Spring Boot Backend"
@@ -82,7 +82,7 @@ export default function SystemArchitecture() {
 
           <div className="w-1 h-12 bg-gradient-to-b from-blue-500/50 to-cyan-500/50 hidden lg:block"></div>
 
-          {/* Bottom Layer: Data & Blockchain */}
+          
           <div className="flex flex-wrap justify-center gap-8 w-full">
             <ArchitectureNode 
               title="PostgreSQL"

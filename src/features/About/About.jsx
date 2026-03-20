@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 import { IMAGES, DOCUMENTS } from "../../core/constants/assets";
 
-// Skill Item component for a cleaner list
+
 const SkillItem = ({ item }) => (
   <motion.span 
     className="text-[11px] sm:text-xs font-semibold px-3 py-1.5 bg-slate-900/50 text-slate-300 rounded-full border border-slate-700/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all cursor-default font-sans"
@@ -55,7 +55,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-8 sm:py-10 md:py-16 bg-slate-900 text-white relative overflow-hidden font-sans">
-      {/* Dynamic Background Elements */}
+      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/5 rounded-full blur-[100px]"
@@ -86,7 +86,7 @@ export default function About() {
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
-          {/* Left Column - DP & Contextual Details */}
+          
           <motion.div
             className="w-full lg:w-1/3 flex flex-col space-y-6"
             initial={{ opacity: 0, x: -50 }}
@@ -94,7 +94,7 @@ export default function About() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            {/* Personal Details Block with Integrated DP */}
+            
             <motion.div 
               className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 sm:p-8 border border-slate-700/50 shadow-2xl relative overflow-hidden group flex-grow flex flex-col items-center text-center"
               whileHover={{ y: -3, borderColor: "rgba(6, 182, 212, 0.3)" }}
@@ -106,7 +106,7 @@ export default function About() {
                 Personal Baseline
               </h3>
 
-              {/* Integrated Profile Photo */}
+              
               <div className="relative mb-8 mt-2">
                 <motion.div 
                   className="relative z-10 w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-2 border-slate-700/50 group-hover:border-cyan-500/50 transition-all duration-500 shadow-2xl"
@@ -154,7 +154,7 @@ export default function About() {
               </motion.a>
             </motion.div>
 
-            {/* Current Focus Block */}
+            
             <motion.div 
               className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
               whileHover={{ y: -3, borderColor: "rgba(34, 197, 94, 0.3)" }}
@@ -177,7 +177,7 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* Digital Presence */}
+            
             <motion.div 
               className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-6 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
               whileHover={{ y: -3, borderColor: "rgba(59, 130, 246, 0.3)" }}
@@ -210,7 +210,7 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Profile Narrative & Mastery */}
+          
           <motion.div
             className="w-full lg:w-2/3 flex flex-col space-y-6"
             initial={{ opacity: 0, x: 50 }}
@@ -218,7 +218,7 @@ export default function About() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            {/* Bio Section */}
+            
             <motion.div 
               className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-8 md:p-10 border border-slate-700/50 shadow-2xl relative overflow-hidden group"
               whileHover={{ borderColor: "rgba(6, 182, 212, 0.4)" }}
@@ -249,7 +249,7 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* Unified Mastery Section */}
+            
             <motion.div 
               className="bg-slate-800/40 backdrop-blur-2xl rounded-2xl p-8 md:p-10 border border-slate-700/50 shadow-2xl relative overflow-hidden group flex-grow"
               whileHover={{ borderColor: "rgba(6, 182, 212, 0.4)" }}

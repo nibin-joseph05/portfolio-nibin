@@ -91,7 +91,7 @@ export default function Contact() {
       id="contact"
       className="py-8 sm:py-10 md:py-12 bg-slate-900 text-white relative overflow-hidden"
     >
-      {/* Animated Background */}
+      
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-10 sm:top-10 left-10 sm:left-10 w-48 h-48 sm:w-80 sm:h-80 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
@@ -143,7 +143,7 @@ export default function Contact() {
         </motion.p>
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-stretch">
-          {/* Contact Information & Details */}
+          
           <motion.div
             className="flex flex-col"
             initial={{ opacity: 0, x: -100 }}
@@ -198,7 +198,7 @@ export default function Contact() {
             </motion.div>
           </motion.div>
 
-          {/* Enhanced Contact Form */}
+          
           <motion.div
             className="bg-slate-800/30 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-slate-700/50 shadow-2xl"
             initial={{ opacity: 0, x: 100 }}

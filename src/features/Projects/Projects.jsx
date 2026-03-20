@@ -183,7 +183,7 @@ export default function Projects() {
   return (
     <>
     <section id="projects" className="py-8 sm:py-10 md:py-12 bg-slate-900 text-white relative overflow-hidden">
-      {/* Optimized Animated Background */}
+      
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-10 sm:top-10 left-10 sm:left-10 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-3xl"
@@ -212,7 +212,7 @@ export default function Projects() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
-        {/* Section Title */}
+        
         <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 sm:mb-4"
           initial={{ opacity: 0, y: -30 }}
@@ -235,7 +235,7 @@ export default function Projects() {
           Check out some of my projects that showcase my skills and passion for building impactful applications
         </motion.p>
 
-        {/* Featured Projects Grid */}
+        
         <div className="mb-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.filter(p => p.featured).map((project, index) => (
@@ -252,7 +252,7 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Other Projects Grid */}
+        
         <div>
           <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
             More Projects
@@ -272,7 +272,7 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* View More on GitHub Button */}
+        
         <motion.div 
           className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}

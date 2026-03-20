@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white py-10 sm:py-12 md:py-16 relative overflow-hidden">
-      {/* Animated Background */}
+      
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-10 sm:top-10 left-10 sm:left-10 w-48 h-48 sm:w-80 sm:h-80 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
@@ -33,7 +33,7 @@ export default function Footer() {
         />
       </div>
 
-      {/* Top border with gradient */}
+      
       <div className="border-t-2 border-gradient-to-r from-cyan-500 via-blue-600 to-blue-700 w-full mb-8 sm:mb-12 relative">
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-blue-700 opacity-50"
@@ -49,7 +49,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10 flex flex-col items-center">
-        {/* Simplified Social Links */}
+        
         <motion.div 
           className="w-full max-w-2xl px-4"
           initial={{ opacity: 0, y: 20 }}
@@ -87,7 +87,7 @@ export default function Footer() {
           </div>
         </motion.div>
 
-        {/* Minimalist Bottom Section */}
+        
         <motion.div 
           className="mt-12 sm:mt-16 pt-8 border-t border-slate-800/50 w-full text-center"
           initial={{ opacity: 0 }}

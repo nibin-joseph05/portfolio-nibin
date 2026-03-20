@@ -108,7 +108,7 @@ export default function Navbar() {
         </motion.button>
       </div>
 
-      {/* Enhanced Mobile Menu */}
+      
       <AnimatePresence>
         {navOpen && (
           <motion.div
@@ -144,7 +144,7 @@ export default function Navbar() {
               </motion.a>
             ))}
             
-            {/* Enhanced Close button for mobile */}
+            
             <motion.button
               className="absolute top-4 sm:top-6 md:top-8 right-4 sm:right-6 md:right-8 text-white p-3 sm:p-4 rounded-xl sm:rounded-2xl hover:bg-slate-800/50 transition-colors backdrop-blur-sm"
               onClick={() => setNavOpen(false)}
@@ -157,7 +157,7 @@ export default function Navbar() {
               <span className="text-sm font-black tracking-widest">CLOSE</span>
             </motion.button>
 
-            {/* Background decoration for mobile menu */}
+            
             <motion.div
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
               initial={{ scale: 0, opacity: 0 }}
