@@ -8,23 +8,29 @@ export default function Experience() {
     company: "AIBI Campus",
     location: "Kochi, Kerala",
     title: "Software Engineer",
-    period: "Nov 2025 – Present",
+    period: "Nov 2025 – Jun 2026",
     summary:
-      "Developing and maintaining production-grade enterprise applications across mobile and backend systems at AIBI Campus.",
+      "Developed and maintained production-grade enterprise applications across mobile and backend systems at AIBI Campus.",
     highlights: [
-      "Developing and maintaining production-grade enterprise applications across mobile and backend systems.",
-      "Building backend services using Node.js and REST APIs for real-time and CRM-based workflows.",
-      "Developing mobile applications using Flutter and Android apps using Kotlin (Jetpack Compose).",
-      "Contributing to frontend systems using Next.js for admin dashboards and analytics interfaces.",
-      "Handling database operations (PostgreSQL/MySQL) and optimizing queries for performance.",
-      "Debugging production issues and improving system reliability and responsiveness.",
+      "Developed and maintained production-grade enterprise applications across mobile and backend systems.",
+      "Built backend services using Node.js and REST APIs for real-time and CRM-based workflows.",
+      "Developed mobile applications using Flutter and Android apps using Kotlin (Jetpack Compose).",
+      "Contributed to frontend systems using Next.js for admin dashboards and analytics interfaces.",
+      "Handled database operations (PostgreSQL/MySQL) and optimized queries for performance.",
+      "Debugged production issues and improved system reliability and responsiveness.",
     ],
     logo: IMAGES.AIBI_CAMPUS_LOGO,    projects: [
       {
         name: "ANAD CRM",
         status: "Live Production Application",
         tech: "Flutter",
-        description: "Contributed to a production Flutter CRM application used for customer management and call analytics. Integrated backend APIs and improved performance and UI responsiveness.",
+        description: "Contributed to a 4.9-star rated production Flutter CRM application (100+ downloads) designed for sales professionals to manage and convert leads from their phones. Integrated backend APIs and improved performance.",
+        features: [
+          "Instant new lead alerts from Facebook, Instagram, and Google",
+          "One-touch calls, WhatsApp, SMS, and email integration",
+          "Interest tracking and automated follow-ups",
+          "Seamless lead sharing capabilities"
+        ],
         link: "https://play.google.com/store/apps/details?id=com.paragon.anad.crm&pcampaignid=web_share"
       },
       {

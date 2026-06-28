@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import spcLogo from "../../assets/images/Student_Police_Cadet_Kerala_Logo.jpg";
 
 const Resume = () => {
   const { scrollYProgress } = useScroll();
@@ -157,9 +158,14 @@ const Resume = () => {
             Achievements & Activities
           </h3>
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-            <div className="text-center p-4 sm:p-6 bg-slate-700/30 rounded-xl sm:rounded-2xl border border-slate-600/50 hover:border-cyan-500/30 transition-colors">
-              <h4 className="text-lg sm:text-xl font-semibold text-slate-200 mb-2 sm:mb-3">Student Police Cadet (SPC)</h4>
-              <p className="text-slate-300 text-sm sm:text-base">Participated in structured leadership and civic training focused on discipline, teamwork, and public safety.</p>
+            <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 p-4 sm:p-6 bg-slate-700/30 rounded-xl sm:rounded-2xl border border-slate-600/50 hover:border-cyan-500/30 transition-colors">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-slate-800 border border-slate-600 overflow-hidden flex-shrink-0 shadow-lg p-1.5">
+                <img src={spcLogo} alt="SPC Logo" className="w-full h-full object-contain" loading="lazy" />
+              </div>
+              <div>
+                <h4 className="text-lg sm:text-xl font-semibold text-slate-200 mb-2">Student Police Cadet (SPC)</h4>
+                <p className="text-slate-300 text-sm sm:text-base">Participated in structured leadership and civic training focused on discipline, teamwork, and public safety.</p>
+              </div>
             </div>
             <div className="text-center p-4 sm:p-6 bg-slate-700/30 rounded-xl sm:rounded-2xl border border-slate-600/50 hover:border-cyan-500/30 transition-colors">
               <h4 className="text-lg sm:text-xl font-semibold text-slate-200 mb-2 sm:mb-3">Technical Coordination</h4>

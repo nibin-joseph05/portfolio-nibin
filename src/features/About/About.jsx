@@ -112,17 +112,20 @@ export default function About() {
                 <div className="absolute -inset-4 bg-cyan-500/10 blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
               </div>
 
-              <div className="space-y-5 w-full">
+              <div className="space-y-4 w-full">
                 {[
                   { label: "Full Name", value: "Nibin Joseph" },
                   { label: "Email", value: "nibin.joseph.career@gmail.com", link: "mailto:nibin.joseph.career@gmail.com" },
                   { label: "Phone", value: "9778234876", link: "tel:9778234876" },
-                  { label: "Location", value: "idukki, kerala, india" }
+                  { label: "Location", value: "Idukki, Kerala, India" },
+                  { label: "Education", value: "MCA @ Marian College" },
+                  { label: "Experience", value: "8 Months Professional" },
+                  { label: "Languages", value: "English, Malayalam" }
                 ].map((item, idx) => (
-                  <div key={idx} className="border-b border-slate-700/50 pb-3 last:border-0">
+                  <div key={idx} className="border-b border-slate-700/50 pb-2.5 last:border-0">
                     <p className="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1 font-sans">{item.label}</p>
                     {item.link ? (
-                      <a href={item.link} className="text-sm font-semibold text-white hover:text-cyan-400 transition-colors uppercase antialiased tracking-tight font-sans block">
+                      <a href={item.link} className={`text-sm font-semibold text-white hover:text-cyan-400 transition-colors antialiased tracking-tight font-sans block ${item.label === 'Email' ? 'lowercase' : 'uppercase'}`}>
                         {item.value || "Not Set"}
                       </a>
                     ) : (
@@ -137,7 +140,7 @@ export default function About() {
               <motion.a
                 href={DOCUMENTS.RESUME}
                 download
-                className="mt-8 w-full py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-bold text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/30 transition-all border border-white/10 font-sans"
+                className="mt-auto w-full py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-bold text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/30 transition-all border border-white/10 font-sans"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -217,14 +220,14 @@ export default function About() {
               </h3>
               <div className="space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base md:text-lg antialiased font-sans">
                 <p>
-                  <strong className="text-white">Backend-focused Software Engineer</strong> specializing in <strong className="text-cyan-400">Java and Spring Boot</strong>, with experience building scalable, secure, and production-grade systems. 
+                  <strong className="text-white">Backend-focused Software Engineer</strong> specializing in <strong className="text-cyan-400">Java and Spring Boot</strong>, with 8 months of professional experience building scalable, secure, and production-grade systems. 
                 </p>
                 <p>
-                  Strong expertise in designing <strong className="text-white">REST APIs</strong>, authentication systems, and real-time workflows. Experienced in solving backend challenges including concurrency control, transactional integrity, and distributed system design. Currently contributing to enterprise applications at <strong className="text-cyan-400">AIBI Campus</strong>.
+                  Strong expertise in designing <strong className="text-white">REST APIs</strong>, authentication systems, and real-time workflows. Experienced in solving backend challenges including concurrency control, transactional integrity, and distributed system design.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 pt-4">
                   {[
-                    { label: "Current Role", value: "Software Engineer @ AIBI Campus" },
+                    { label: "Role", value: "Software Engineer" },
                     { label: "Main Stack", value: "Java, Spring Boot, Flutter" }
                   ].map((item, idx) => (
                     <div key={idx} className="p-4 bg-slate-900/50 rounded-xl border border-slate-700/50">

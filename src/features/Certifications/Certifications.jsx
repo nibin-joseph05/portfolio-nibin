@@ -12,7 +12,15 @@ export default function Certifications() {
       featured: true,
       tags: ["DSA", "Java", "OOP", "Distributed Systems"]
     },
-    { title: "Red Hat System Administration", issuer: "Red Hat" },
+    { 
+      title: "Red Hat System Administration I (RH124)", 
+      issuer: "Red Hat", 
+      instructor: "Marian College, Kuttikkanam",
+      duration: "Dec 2024",
+      description: "Core system administration tasks in RHEL including files, users, and basic security.",
+      featured: false,
+      tags: ["Linux", "RHEL"]
+    },
     { title: "Data Analysis with Python", issuer: "IBM / Cognitive Class" },
     { title: "Data Science Tools", issuer: "IBM / Cognitive Class" },
     { title: "Data Science 101 & Methodology", issuer: "IBM / Cognitive Class" }
@@ -56,7 +64,7 @@ export default function Certifications() {
                   </h3>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-cyan-400 font-black uppercase tracking-widest text-[10px] sm:text-xs">
                     <span>{cert.issuer}</span>
-                    {cert.featured && (
+                    {cert.instructor && (
                       <>
                         <span className="w-1 h-1 bg-slate-600 rounded-full hidden sm:block" />
                         <span>{cert.instructor}</span>
@@ -65,25 +73,29 @@ export default function Certifications() {
                   </div>
                 </div>
 
-                {cert.featured && (
+                {cert.description && (
                   <>
-                    <div className="flex flex-wrap gap-2">
-                      {cert.tags.map((tag, idx) => (
-                        <span key={idx} className="px-2 py-0.5 bg-slate-900/50 text-slate-400 rounded-md border border-slate-700/50 text-[9px] font-bold uppercase tracking-wider">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                    {cert.tags && (
+                      <div className="flex flex-wrap gap-2">
+                        {cert.tags.map((tag, idx) => (
+                          <span key={idx} className="px-2 py-0.5 bg-slate-900/50 text-slate-400 rounded-md border border-slate-700/50 text-[9px] font-bold uppercase tracking-wider">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <div className="space-y-4">
                       <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-sans antialiased">
                         {cert.description}
                       </p>
-                      <div className="flex items-center gap-2 text-cyan-400/80 text-xs font-bold font-sans">
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        {cert.duration}
-                      </div>
+                      {cert.duration && (
+                        <div className="flex items-center gap-2 text-cyan-400/80 text-xs font-bold font-sans">
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {cert.duration}
+                        </div>
+                      )}
                     </div>
                   </>
                 )}
