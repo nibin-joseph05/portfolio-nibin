@@ -19,7 +19,7 @@ import xpose from '../../assets/images/xpose.png';
 import fitTrack from '../../assets/images/fit-track.jpg';
 
 // PDFs
-import nibinResume from '../../assets/pdfs/resume_.pdf';
+import nibinResume from '../../assets/pdfs/Nibin_Joseph_Developer.pdf';
 // import nibinResume1 from '../../assets/pdfs/nibin-resume1.pdf';
 
 export const IMAGES = {
